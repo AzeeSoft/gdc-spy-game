@@ -14,9 +14,7 @@ namespace GuardStates
             public int TargetWaypointIndex;
         }
 
-
         const float ArrivalDistance = 3f;
-
 
         private static Patrol _instance;
 
@@ -30,13 +28,33 @@ namespace GuardStates
         }
 
 
-        public void Enter(Guard owner)
+        public void Enter(Guard owner, params object[] args)
         {
             StateData stateData = owner.PatrolStateData;
             stateData.IsMoving = false;
 
             int nearestWaypointIndex = owner.DefaultPatrolCircuit.FindNearestWaypointIndex(owner.transform.position);
             stateData.TargetWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(nearestWaypointIndex);
+
+            /* 
+            int nextWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(nearestWaypointIndex);
+
+            float nearestDistance = Vector3.Distance(owner.transform.position,
+                owner.DefaultPatrolCircuit.GetWaypoint(nearestWaypointIndex).position);
+            float nextDistance = Vector3.Distance(owner.transform.position,
+                owner.DefaultPatrolCircuit.GetWaypoint(nextWaypointIndex).position);
+            float nearestToNextDistance = Vector3.Distance(owner.DefaultPatrolCircuit.GetWaypoint(nearestWaypointIndex).position,
+                owner.DefaultPatrolCircuit.GetWaypoint(nextWaypointIndex).position);
+
+            if (nearestDistance + nearestToNextDistance < nextDistance)
+            {
+                stateData.TargetWaypointIndex = nearestWaypointIndex;
+            }
+            else
+            {
+                stateData.TargetWaypointIndex = nextWaypointIndex;
+            }
+            */
         }
 
         public void Update(Guard owner)
@@ -49,7 +67,7 @@ namespace GuardStates
                 Vector3 targetPosition = owner.DefaultPatrolCircuit.GetWaypoint(targetWaypointIndex).position;
                 if (!stateData.IsMoving)
                 {
-                    owner.PatrolTowards(targetPosition);
+                    owner.MoveTowards(targetPosition);
                     stateData.IsMoving = true;
                 }
                 else
@@ -58,9 +76,21 @@ namespace GuardStates
                     if (distanceLeft < ArrivalDistance)
                     {
                         stateData.IsMoving = false;
-                        stateData.TargetWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(targetWaypointIndex);
+                        stateData.TargetWaypointIndex =
+                            owner.DefaultPatrolCircuit.GetNextWaypointIndex(targetWaypointIndex);
                     }
                 }
+            }
+
+
+            /*
+             * Checking if the guard can see player, and switching to chasing state, if so.
+             */
+            GameObject playerGameObject = GameManager.Instance.GetPlayerGameObject();
+
+            if (owner.IsObjectInSight(playerGameObject))
+            {
+                owner.StartChasing(playerGameObject.transform);
             }
         }
 
@@ -68,6 +98,7 @@ namespace GuardStates
         {
             StateData stateData = owner.PatrolStateData;
             stateData.IsMoving = false;
+            stateData.TargetWaypointIndex = -1;
         }
     }
 }
