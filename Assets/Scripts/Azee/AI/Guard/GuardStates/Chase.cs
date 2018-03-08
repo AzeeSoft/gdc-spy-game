@@ -64,6 +64,13 @@ namespace GuardStates
                 {
                     // Too Close to target
                     owner.StopMoving();
+
+                    Vector3 lookAtPos = stateData.TargetTransform.position;
+                    lookAtPos.y = owner.transform.position.y;
+
+                    owner.transform.LookAt(lookAtPos);
+
+                    //TODO: Switch state or do something
                 }
             }
         }

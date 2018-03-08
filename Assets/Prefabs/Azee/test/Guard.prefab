@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultPatrolCircuit: {fileID: 0}
-  MaxSightAngle: 110
+  MaxSightAngle: 90
 --- !u!135 &135385649065339138
 SphereCollider:
   m_ObjectHideFlags: 1
