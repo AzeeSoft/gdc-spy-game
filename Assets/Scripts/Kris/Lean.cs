@@ -6,8 +6,12 @@ public class Lean : MonoBehaviour {
 
     public Transform cameraPivot;
 
-    public float speed = 100f;
+    public float rotationSpeed = 100f;
+    private float speed = 1f;
     public float maxAngle = 20f;
+    public float maxMove = 20f;
+
+    public Vector3? unleanedPos;
 
     float currentAngle = 0f;
 
@@ -20,8 +24,9 @@ public class Lean : MonoBehaviour {
     }
 
 
-    void Start () {
-		
+    void Start ()
+    {
+  
 	}
 	
 	void Update ()
@@ -29,20 +34,52 @@ public class Lean : MonoBehaviour {
 		// lean left
         if (Input.GetKey(KeyCode.Q))
         {
-            currentAngle = Mathf.MoveTowardsAngle(currentAngle, maxAngle, speed * Time.deltaTime);
-        }
+            /*
+            if(unleanedPos==null)
+                unleanedPos = cameraPivot.transform.position;
 
+            Vector3 direction = (cameraPivot.transform.right * -1 * speed);
+            float oldY = cameraPivot.transform.position.y;
+            cameraPivot.transform.Translate(direction);
+
+            
+            Vector3 newPos = cameraPivot.transform.position;
+            newPos.y = oldY;
+            cameraPivot.transform.position = newPos;
+           */
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, maxAngle, rotationSpeed * Time.deltaTime);
+        }
         // lean right
         else if (Input.GetKey(KeyCode.E))
         {
-            currentAngle = Mathf.MoveTowardsAngle(currentAngle, -maxAngle, speed * Time.deltaTime);
+            /*
+            if (unleanedPos == null)
+                unleanedPos = cameraPivot.transform.position;
+
+            Vector3 direction = (cameraPivot.transform.right * speed);
+            float oldY = cameraPivot.transform.position.y;
+            cameraPivot.transform.Translate(direction);
+
+
+            Vector3 newPos = cameraPivot.transform.position;
+            newPos.y = oldY;
+            cameraPivot.transform.position = newPos;
+            */
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, -maxAngle, rotationSpeed * Time.deltaTime);
         }
 
         // reset lean
 
         else
         {
-            currentAngle = Mathf.MoveTowardsAngle(currentAngle, 0f, speed * Time.deltaTime);
+            /*
+            if (unleanedPos != null)
+            {
+                cameraPivot.transform.position = (Vector3)unleanedPos;
+                unleanedPos = null;
+            }
+           */
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, 0f, rotationSpeed * Time.deltaTime);
         }
 
         cameraPivot.transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
