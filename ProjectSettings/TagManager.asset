@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Guard
   - MapCamera
+  - Terminal
   layers:
   - Default
   - TransparentFX
