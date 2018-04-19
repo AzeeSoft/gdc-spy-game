@@ -7,6 +7,7 @@ TagManager:
   - Guard
   - MapCamera
   - Terminal
+  - Door
   layers:
   - Default
   - TransparentFX
