@@ -10,7 +10,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        [SerializeField] private bool m_IsCrouching;
         [SerializeField] private bool m_IsWalking;
+        [SerializeField] private float m_CrouchSpeed;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
@@ -41,6 +43,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        private float m_FootstepVolume;
 
         // Use this for initialization
         private void Start()
@@ -166,10 +169,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
+
+            m_FootstepVolume = 1.0f;
+            if (m_IsCrouching)
+            {
+                m_FootstepVolume = 0.15f;
+            }
+            else if (m_IsWalking)
+            {
+                m_FootstepVolume = 0.3f;
+            }
+
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
             int n = Random.Range(1, m_FootstepSounds.Length);
             m_AudioSource.clip = m_FootstepSounds[n];
+            m_AudioSource.volume = m_FootstepVolume;
             m_AudioSource.PlayOneShot(m_AudioSource.clip);
             // move picked sound to index 0 so it's not picked next time
             m_FootstepSounds[n] = m_FootstepSounds[0];
@@ -214,8 +229,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
+
+            m_IsCrouching = Input.GetButton("Crouch");
+
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            speed = m_IsCrouching ? m_CrouchSpeed : speed;
+
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
@@ -254,6 +274,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+        }
+
+        public float getCurrentFootstepVolume()
+        {
+            return m_FootstepVolume;
         }
     }
 }
