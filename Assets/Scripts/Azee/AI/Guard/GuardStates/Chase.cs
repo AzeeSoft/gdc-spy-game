@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Azee.Interfaces;
 using UnityEngine;
 
 namespace GuardStates
@@ -40,12 +41,26 @@ namespace GuardStates
         {
             StateData stateData = owner.ChaseStateData;
 
-            bool targetOnSight = false;
+            bool targetOnSight = false, targetAudible = false;
 
             if (owner.IsObjectInSight(stateData.TargetTransform.gameObject))
             {
                 targetOnSight = true;
                 stateData.LastKnownPosition = stateData.TargetTransform.position;
+            }
+            else
+            {
+                AudibleObject targetAudibleObject = stateData.TargetTransform.GetComponent<AudibleObject>();
+                if (targetAudibleObject != null)
+                {
+                    Vector3? targetLocation = owner.LocateObjectFromNoise(targetAudibleObject);
+
+                    if (targetLocation != null)
+                    {
+                        targetAudible = true;
+                        stateData.LastKnownPosition = targetLocation.Value;
+                    }
+                }
             }
 
             if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > LostDistance)
@@ -54,7 +69,7 @@ namespace GuardStates
             }
             else
             {
-                if (!targetOnSight)
+                if (!targetOnSight && !targetAudible)
                 {
                     // Lost target
                     StateMachine<Guard> stateMachine = owner.GetStateMachine();

@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 148547956}
   - component: {fileID: 148547957}
   m_Layer: 0
-  m_Name: ReverdZone
+  m_Name: ReverbZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1269,7 +1269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1098092629232912, guid: ca32453662f946c43a6395d7d046bd2d, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca32453662f946c43a6395d7d046bd2d, type: 2}
@@ -2051,7 +2051,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1619658269665468, guid: 9f8dc633524030d4eb291e0b21b72e2c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f8dc633524030d4eb291e0b21b72e2c, type: 2}
@@ -2193,7 +2193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1542496756023710, guid: ee322b08f3a02094c9f5ee9e382093ac, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee322b08f3a02094c9f5ee9e382093ac, type: 2}
