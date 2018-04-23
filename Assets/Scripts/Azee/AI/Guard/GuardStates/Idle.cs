@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.Azee.Interfaces;
 using UnityEngine;
 
 namespace GuardStates
@@ -37,6 +38,17 @@ namespace GuardStates
             if (owner.IsObjectInSight(playerGameObject))
             {
                 owner.StartChasing(playerGameObject.transform);
+            }
+            else
+            {
+                AudibleObject playerAudibleObject = playerGameObject.GetComponent<AudibleObject>();
+                Vector3? playerLocation = owner.LocateObjectFromNoise(playerAudibleObject);
+
+                if (playerLocation != null)
+                {
+                    owner.StartChasing(playerGameObject.transform);
+                    owner.ChaseStateData.LastKnownPosition = playerLocation.Value;  // Just in case, if we add approximation to noise location
+                }
             }
         }
 

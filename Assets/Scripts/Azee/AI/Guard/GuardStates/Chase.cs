@@ -10,7 +10,7 @@ namespace GuardStates
         public class StateData
         {
             public Transform TargetTransform;
-            public Vector3 LastSeenPosition;
+            public Vector3 LastKnownPosition;
         }
 
 
@@ -33,7 +33,7 @@ namespace GuardStates
 
             StateData stateData = owner.ChaseStateData;
             stateData.TargetTransform = transform;
-            stateData.LastSeenPosition = transform.position;
+            stateData.LastKnownPosition = transform.position;
         }
 
         public void Update(Guard owner)
@@ -45,12 +45,12 @@ namespace GuardStates
             if (owner.IsObjectInSight(stateData.TargetTransform.gameObject))
             {
                 targetOnSight = true;
-                stateData.LastSeenPosition = stateData.TargetTransform.position;
+                stateData.LastKnownPosition = stateData.TargetTransform.position;
             }
 
-            if (Vector3.Distance(owner.transform.position, stateData.LastSeenPosition) > LostDistance)
+            if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > LostDistance)
             {
-                owner.MoveTowards(stateData.LastSeenPosition);
+                owner.MoveTowards(stateData.LastKnownPosition);
             }
             else
             {
@@ -79,7 +79,7 @@ namespace GuardStates
         {
             StateData stateData = owner.ChaseStateData;
             stateData.TargetTransform = null;
-            stateData.LastSeenPosition = Vector3.zero;
+            stateData.LastKnownPosition = Vector3.zero;
         }
     }
 }
