@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33063425891424372}
   - component: {fileID: 23261714602288614}
   - component: {fileID: 65713571091666926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (91)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1009260344962786
 GameObject:
@@ -40,12 +40,12 @@ GameObject:
   - component: {fileID: 33805350373333226}
   - component: {fileID: 23873351306801528}
   - component: {fileID: 65288649355335856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (93)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1019767162953222
 GameObject:
@@ -58,12 +58,12 @@ GameObject:
   - component: {fileID: 33993813914326050}
   - component: {fileID: 23678064514752806}
   - component: {fileID: 65258119880932646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1026469112721550
 GameObject:
@@ -76,12 +76,12 @@ GameObject:
   - component: {fileID: 33602782283642340}
   - component: {fileID: 23501829384574900}
   - component: {fileID: 65547248409425634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (142)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1026695685273722
 GameObject:
@@ -94,12 +94,12 @@ GameObject:
   - component: {fileID: 33823639120367746}
   - component: {fileID: 23871570530400564}
   - component: {fileID: 65599528702423424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (80)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1027009253372616
 GameObject:
@@ -112,12 +112,12 @@ GameObject:
   - component: {fileID: 33249963041790044}
   - component: {fileID: 23778838861169298}
   - component: {fileID: 65793275418748734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1032594239021240
 GameObject:
@@ -130,12 +130,12 @@ GameObject:
   - component: {fileID: 33468605404259282}
   - component: {fileID: 23007399284190768}
   - component: {fileID: 65661494434184276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1047283938952842
 GameObject:
@@ -148,12 +148,12 @@ GameObject:
   - component: {fileID: 33859896731285316}
   - component: {fileID: 23221668995120158}
   - component: {fileID: 65486050128024912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1049427310157232
 GameObject:
@@ -166,12 +166,12 @@ GameObject:
   - component: {fileID: 33871581249823656}
   - component: {fileID: 23591377997597404}
   - component: {fileID: 65642902405665596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1050711638914692
 GameObject:
@@ -184,12 +184,12 @@ GameObject:
   - component: {fileID: 33961800780403544}
   - component: {fileID: 23102631373198144}
   - component: {fileID: 65689427806640748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1053060863660474
 GameObject:
@@ -202,12 +202,12 @@ GameObject:
   - component: {fileID: 33825653836224976}
   - component: {fileID: 23034255329106300}
   - component: {fileID: 65859535524211158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (104)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1058397614800014
 GameObject:
@@ -220,12 +220,12 @@ GameObject:
   - component: {fileID: 33808889630105722}
   - component: {fileID: 23000735433766978}
   - component: {fileID: 65838484515626576}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (90)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1066635476025006
 GameObject:
@@ -238,12 +238,12 @@ GameObject:
   - component: {fileID: 33111643881066872}
   - component: {fileID: 23208152723641688}
   - component: {fileID: 65909886139026830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1075196988529380
 GameObject:
@@ -256,12 +256,12 @@ GameObject:
   - component: {fileID: 33152920895211444}
   - component: {fileID: 23140056268738026}
   - component: {fileID: 65691742336886098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1076324703652316
 GameObject:
@@ -274,12 +274,12 @@ GameObject:
   - component: {fileID: 33147024399784528}
   - component: {fileID: 23430997816251574}
   - component: {fileID: 65329798313167632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (143)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1083243297559258
 GameObject:
@@ -292,12 +292,12 @@ GameObject:
   - component: {fileID: 33403206424721048}
   - component: {fileID: 23384070703640752}
   - component: {fileID: 65214211894497588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (99)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1103108082333396
 GameObject:
@@ -310,12 +310,12 @@ GameObject:
   - component: {fileID: 33605964039827116}
   - component: {fileID: 23433563185179866}
   - component: {fileID: 65818664018389626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (137)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1107410559927300
 GameObject:
@@ -328,12 +328,12 @@ GameObject:
   - component: {fileID: 33607037839845482}
   - component: {fileID: 23440623257161562}
   - component: {fileID: 65746895113757654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (108)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1108632469611194
 GameObject:
@@ -346,12 +346,12 @@ GameObject:
   - component: {fileID: 33154116122084858}
   - component: {fileID: 23151840029456796}
   - component: {fileID: 65541521091884444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1110862246226736
 GameObject:
@@ -364,12 +364,12 @@ GameObject:
   - component: {fileID: 33279202000393470}
   - component: {fileID: 23908114552538870}
   - component: {fileID: 65623857638114444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1117012430761140
 GameObject:
@@ -382,12 +382,12 @@ GameObject:
   - component: {fileID: 33435135551534532}
   - component: {fileID: 23775310035376680}
   - component: {fileID: 65683283960917396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (76)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1124471591672914
 GameObject:
@@ -400,12 +400,12 @@ GameObject:
   - component: {fileID: 33151043432728870}
   - component: {fileID: 23756264786762508}
   - component: {fileID: 65463029576159574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1125463733809786
 GameObject:
@@ -418,12 +418,12 @@ GameObject:
   - component: {fileID: 33157431397788818}
   - component: {fileID: 23319291297249964}
   - component: {fileID: 65479887660930108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1136270529924154
 GameObject:
@@ -436,12 +436,12 @@ GameObject:
   - component: {fileID: 33424999746631868}
   - component: {fileID: 23846814239416088}
   - component: {fileID: 65804937671907964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (126)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1143839388916448
 GameObject:
@@ -454,12 +454,12 @@ GameObject:
   - component: {fileID: 33303001984997508}
   - component: {fileID: 23437378177975226}
   - component: {fileID: 65240393617458168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1146435985029978
 GameObject:
@@ -472,12 +472,12 @@ GameObject:
   - component: {fileID: 33971127858049972}
   - component: {fileID: 23768225754017794}
   - component: {fileID: 65574519198937116}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1151006587532404
 GameObject:
@@ -490,12 +490,12 @@ GameObject:
   - component: {fileID: 33973255979522370}
   - component: {fileID: 23157698594730520}
   - component: {fileID: 65768457032316802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1158726943467196
 GameObject:
@@ -508,12 +508,12 @@ GameObject:
   - component: {fileID: 33473232628109198}
   - component: {fileID: 23718217944200740}
   - component: {fileID: 65388303800589096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1163888935195946
 GameObject:
@@ -526,12 +526,12 @@ GameObject:
   - component: {fileID: 33089596098172112}
   - component: {fileID: 23183935097103246}
   - component: {fileID: 65698813078299726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1169375537482582
 GameObject:
@@ -544,12 +544,12 @@ GameObject:
   - component: {fileID: 33310212537860226}
   - component: {fileID: 23101560399782968}
   - component: {fileID: 65092173550043722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (113)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1169811724639936
 GameObject:
@@ -562,12 +562,12 @@ GameObject:
   - component: {fileID: 33679250818755282}
   - component: {fileID: 23248206857543882}
   - component: {fileID: 65812617709540548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (112)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1173919836760804
 GameObject:
@@ -580,12 +580,12 @@ GameObject:
   - component: {fileID: 33717857685812846}
   - component: {fileID: 23585662744561518}
   - component: {fileID: 65965626915287802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1183446883811840
 GameObject:
@@ -598,12 +598,12 @@ GameObject:
   - component: {fileID: 33391942120176420}
   - component: {fileID: 23505512072267798}
   - component: {fileID: 65494586127021526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (88)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1200530600202014
 GameObject:
@@ -616,12 +616,12 @@ GameObject:
   - component: {fileID: 33464932770215074}
   - component: {fileID: 23850288951670124}
   - component: {fileID: 65223715697272308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1222778013516464
 GameObject:
@@ -634,12 +634,12 @@ GameObject:
   - component: {fileID: 33439545870852460}
   - component: {fileID: 23834606250591580}
   - component: {fileID: 65131582444970432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1242522884136650
 GameObject:
@@ -652,12 +652,12 @@ GameObject:
   - component: {fileID: 33706316545700354}
   - component: {fileID: 23670619585568786}
   - component: {fileID: 65800610765472200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1252118714506132
 GameObject:
@@ -670,12 +670,12 @@ GameObject:
   - component: {fileID: 33959371802589350}
   - component: {fileID: 23115512789362056}
   - component: {fileID: 65439571856289848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (147)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1253034209759770
 GameObject:
@@ -688,12 +688,12 @@ GameObject:
   - component: {fileID: 33189989565902252}
   - component: {fileID: 23774787728316118}
   - component: {fileID: 65048283829090844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (119)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1253987428100112
 GameObject:
@@ -706,12 +706,12 @@ GameObject:
   - component: {fileID: 33259878632183188}
   - component: {fileID: 23088091908948582}
   - component: {fileID: 65287382120336272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1264286621882214
 GameObject:
@@ -724,12 +724,12 @@ GameObject:
   - component: {fileID: 33437590191786406}
   - component: {fileID: 23951444322616658}
   - component: {fileID: 65106663198976952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (95)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1276966245400596
 GameObject:
@@ -742,12 +742,12 @@ GameObject:
   - component: {fileID: 33453281311850408}
   - component: {fileID: 23872983346277940}
   - component: {fileID: 65331583171750110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (102)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1297445074990342
 GameObject:
@@ -760,12 +760,12 @@ GameObject:
   - component: {fileID: 33845041815612458}
   - component: {fileID: 23932979415487348}
   - component: {fileID: 65177542038662528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (127)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1300973920934728
 GameObject:
@@ -778,12 +778,12 @@ GameObject:
   - component: {fileID: 33762419710129000}
   - component: {fileID: 23158531029447562}
   - component: {fileID: 65110344342283676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (131)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1313216465189922
 GameObject:
@@ -796,12 +796,12 @@ GameObject:
   - component: {fileID: 33421114640201648}
   - component: {fileID: 23425770250499530}
   - component: {fileID: 65351972181067992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1317344896940010
 GameObject:
@@ -814,12 +814,12 @@ GameObject:
   - component: {fileID: 33873285306903422}
   - component: {fileID: 23072776834590866}
   - component: {fileID: 65692947052265248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1344953394982466
 GameObject:
@@ -832,12 +832,12 @@ GameObject:
   - component: {fileID: 33987791273645594}
   - component: {fileID: 23214236341452102}
   - component: {fileID: 65469950137766898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1351317083642972
 GameObject:
@@ -850,12 +850,12 @@ GameObject:
   - component: {fileID: 33291304968537292}
   - component: {fileID: 23953656554391804}
   - component: {fileID: 65138212838449568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1359095977897786
 GameObject:
@@ -868,12 +868,12 @@ GameObject:
   - component: {fileID: 33958869021989312}
   - component: {fileID: 23089146205098950}
   - component: {fileID: 65144700719715190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (111)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1366117693961334
 GameObject:
@@ -886,12 +886,12 @@ GameObject:
   - component: {fileID: 33891604431327318}
   - component: {fileID: 23398069660689286}
   - component: {fileID: 65683278361157006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (94)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1372991089185246
 GameObject:
@@ -904,12 +904,12 @@ GameObject:
   - component: {fileID: 33232138131813078}
   - component: {fileID: 23007722333551324}
   - component: {fileID: 65663511638859320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (107)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1377663632045818
 GameObject:
@@ -922,12 +922,12 @@ GameObject:
   - component: {fileID: 33306322352320434}
   - component: {fileID: 23742136632028428}
   - component: {fileID: 65156137016034086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (115)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1388085420696234
 GameObject:
@@ -940,12 +940,12 @@ GameObject:
   - component: {fileID: 33133132020486516}
   - component: {fileID: 23986193750530582}
   - component: {fileID: 65750479321416496}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1397198967750908
 GameObject:
@@ -958,12 +958,12 @@ GameObject:
   - component: {fileID: 33622817097413838}
   - component: {fileID: 23036915575588328}
   - component: {fileID: 65135659028955626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1412476365581558
 GameObject:
@@ -976,12 +976,12 @@ GameObject:
   - component: {fileID: 33372967596483288}
   - component: {fileID: 23153924879411442}
   - component: {fileID: 65156248403807860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1414445693085428
 GameObject:
@@ -994,12 +994,12 @@ GameObject:
   - component: {fileID: 33848691896258260}
   - component: {fileID: 23874370590444712}
   - component: {fileID: 65093926545375536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (82)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1428296702908430
 GameObject:
@@ -1012,12 +1012,12 @@ GameObject:
   - component: {fileID: 33162042868134496}
   - component: {fileID: 23194446722684254}
   - component: {fileID: 65380012882108838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1429222098385866
 GameObject:
@@ -1030,12 +1030,12 @@ GameObject:
   - component: {fileID: 33974523126662520}
   - component: {fileID: 23331782856046134}
   - component: {fileID: 65013261707346778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (87)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1436028510489540
 GameObject:
@@ -1048,12 +1048,12 @@ GameObject:
   - component: {fileID: 33134464652208018}
   - component: {fileID: 23933516659498684}
   - component: {fileID: 65152226784477244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (81)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1441616432104442
 GameObject:
@@ -1066,12 +1066,12 @@ GameObject:
   - component: {fileID: 33217370265939378}
   - component: {fileID: 23144884196526480}
   - component: {fileID: 65014862575503274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1448745902576478
 GameObject:
@@ -1084,12 +1084,12 @@ GameObject:
   - component: {fileID: 33247780233971414}
   - component: {fileID: 23938353792374154}
   - component: {fileID: 65235472237385370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1452556799742620
 GameObject:
@@ -1102,12 +1102,12 @@ GameObject:
   - component: {fileID: 33790066292214118}
   - component: {fileID: 23335739304485956}
   - component: {fileID: 65309502766018408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (132)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1456082575915376
 GameObject:
@@ -1120,12 +1120,12 @@ GameObject:
   - component: {fileID: 33194418014468212}
   - component: {fileID: 23155158048798998}
   - component: {fileID: 65628211593695686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (116)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1460792171179928
 GameObject:
@@ -1138,12 +1138,12 @@ GameObject:
   - component: {fileID: 33184172785169530}
   - component: {fileID: 23998834859543232}
   - component: {fileID: 65056901508787292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1463166507006894
 GameObject:
@@ -1156,12 +1156,12 @@ GameObject:
   - component: {fileID: 33992535605618850}
   - component: {fileID: 23268844421811846}
   - component: {fileID: 65182309305221466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1467274163766324
 GameObject:
@@ -1174,12 +1174,12 @@ GameObject:
   - component: {fileID: 33720571851596634}
   - component: {fileID: 23490568071946232}
   - component: {fileID: 65781139095516090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (83)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1468380255869426
 GameObject:
@@ -1192,12 +1192,12 @@ GameObject:
   - component: {fileID: 33343347583107822}
   - component: {fileID: 23471788557263110}
   - component: {fileID: 65524134277892436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (135)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1481240206659968
 GameObject:
@@ -1210,12 +1210,12 @@ GameObject:
   - component: {fileID: 33360960577345624}
   - component: {fileID: 23766274219583528}
   - component: {fileID: 65555949042129428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (103)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1485767735738138
 GameObject:
@@ -1228,12 +1228,12 @@ GameObject:
   - component: {fileID: 33755487276952982}
   - component: {fileID: 23504269130479284}
   - component: {fileID: 65652900729091448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (100)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1490038647424726
 GameObject:
@@ -1246,12 +1246,12 @@ GameObject:
   - component: {fileID: 33080474452487096}
   - component: {fileID: 23060015622513994}
   - component: {fileID: 65423445314428954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (146)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1493232630098676
 GameObject:
@@ -1264,12 +1264,12 @@ GameObject:
   - component: {fileID: 33151258843056454}
   - component: {fileID: 23751100273081058}
   - component: {fileID: 65713189727187624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1494548704880130
 GameObject:
@@ -1282,12 +1282,12 @@ GameObject:
   - component: {fileID: 33790522203249046}
   - component: {fileID: 23999532771255704}
   - component: {fileID: 65904057084940988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1513145790050054
 GameObject:
@@ -1300,12 +1300,12 @@ GameObject:
   - component: {fileID: 33002841037447310}
   - component: {fileID: 23702772836586412}
   - component: {fileID: 65563010754051090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1541233405260826
 GameObject:
@@ -1318,12 +1318,12 @@ GameObject:
   - component: {fileID: 33279775460754864}
   - component: {fileID: 23782466068442956}
   - component: {fileID: 65341336865379040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (78)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1542496756023710
 GameObject:
@@ -1333,7 +1333,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4176517116424616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area 1 Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1351,12 +1351,12 @@ GameObject:
   - component: {fileID: 33388259443570180}
   - component: {fileID: 23331138711635074}
   - component: {fileID: 65160290201932220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (121)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1548524745130794
 GameObject:
@@ -1369,12 +1369,12 @@ GameObject:
   - component: {fileID: 33601560707022860}
   - component: {fileID: 23911709593884062}
   - component: {fileID: 65585396263756328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (106)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1570060072695398
 GameObject:
@@ -1387,12 +1387,12 @@ GameObject:
   - component: {fileID: 33925929748208354}
   - component: {fileID: 23426381786741406}
   - component: {fileID: 65636777793011986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (101)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1573144186751974
 GameObject:
@@ -1405,12 +1405,12 @@ GameObject:
   - component: {fileID: 33827370668938926}
   - component: {fileID: 23927292874886974}
   - component: {fileID: 65805225501511142}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1578073868588672
 GameObject:
@@ -1423,12 +1423,12 @@ GameObject:
   - component: {fileID: 33367331190501762}
   - component: {fileID: 23090868378602402}
   - component: {fileID: 65210427744282778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1580882669834526
 GameObject:
@@ -1441,12 +1441,12 @@ GameObject:
   - component: {fileID: 33808516207832808}
   - component: {fileID: 23362851457561700}
   - component: {fileID: 65965205869843684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (118)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1581398963865856
 GameObject:
@@ -1459,12 +1459,12 @@ GameObject:
   - component: {fileID: 33184434620765558}
   - component: {fileID: 23604584528534414}
   - component: {fileID: 65616030973869158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1585679505247918
 GameObject:
@@ -1477,12 +1477,12 @@ GameObject:
   - component: {fileID: 33370664508096124}
   - component: {fileID: 23270744909349414}
   - component: {fileID: 65949273618387372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1586792678080612
 GameObject:
@@ -1495,12 +1495,12 @@ GameObject:
   - component: {fileID: 33312413469865984}
   - component: {fileID: 23802049396843000}
   - component: {fileID: 65519830390642410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (128)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1588820165643382
 GameObject:
@@ -1513,12 +1513,12 @@ GameObject:
   - component: {fileID: 33300058514161202}
   - component: {fileID: 23530625573241726}
   - component: {fileID: 65412456165955760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1593309510823918
 GameObject:
@@ -1531,12 +1531,12 @@ GameObject:
   - component: {fileID: 33698846160509222}
   - component: {fileID: 23419080098932836}
   - component: {fileID: 65828902839828176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1596977866667756
 GameObject:
@@ -1549,12 +1549,12 @@ GameObject:
   - component: {fileID: 33021855303187142}
   - component: {fileID: 23816270560450112}
   - component: {fileID: 65689650474458506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1606642505561150
 GameObject:
@@ -1567,12 +1567,12 @@ GameObject:
   - component: {fileID: 33991471846555686}
   - component: {fileID: 23838662188944186}
   - component: {fileID: 65783663310776202}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (148)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1607352879436248
 GameObject:
@@ -1585,12 +1585,12 @@ GameObject:
   - component: {fileID: 33166580500184206}
   - component: {fileID: 23688322041603570}
   - component: {fileID: 65152887242071830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (136)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1627696161215158
 GameObject:
@@ -1603,12 +1603,12 @@ GameObject:
   - component: {fileID: 33935475597944554}
   - component: {fileID: 23432323747092126}
   - component: {fileID: 65636361155190538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1637311881506636
 GameObject:
@@ -1621,12 +1621,12 @@ GameObject:
   - component: {fileID: 33686157907449096}
   - component: {fileID: 23998019751796528}
   - component: {fileID: 65619061562534182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1642826985873564
 GameObject:
@@ -1639,12 +1639,12 @@ GameObject:
   - component: {fileID: 33764498379905644}
   - component: {fileID: 23852887671954580}
   - component: {fileID: 65750642287824372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (139)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1646472579737718
 GameObject:
@@ -1657,12 +1657,12 @@ GameObject:
   - component: {fileID: 33824465689739926}
   - component: {fileID: 23759763347852954}
   - component: {fileID: 65815921587569434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1646908932644806
 GameObject:
@@ -1675,12 +1675,12 @@ GameObject:
   - component: {fileID: 33727250994502588}
   - component: {fileID: 23395390222590042}
   - component: {fileID: 65474306176349492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (133)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1647103782902768
 GameObject:
@@ -1693,12 +1693,12 @@ GameObject:
   - component: {fileID: 33563548646637804}
   - component: {fileID: 23829358723344076}
   - component: {fileID: 65024961976916858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1649866474012470
 GameObject:
@@ -1711,12 +1711,12 @@ GameObject:
   - component: {fileID: 33024784364433642}
   - component: {fileID: 23954125482731534}
   - component: {fileID: 65455515123930672}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (122)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1669437567912276
 GameObject:
@@ -1729,12 +1729,12 @@ GameObject:
   - component: {fileID: 33744672873444680}
   - component: {fileID: 23232771881953512}
   - component: {fileID: 65275002841248212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (89)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1671536394497704
 GameObject:
@@ -1747,12 +1747,12 @@ GameObject:
   - component: {fileID: 33819103342896556}
   - component: {fileID: 23877652418600188}
   - component: {fileID: 65999842622114178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (97)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1673270388928114
 GameObject:
@@ -1765,12 +1765,12 @@ GameObject:
   - component: {fileID: 33331246186718472}
   - component: {fileID: 23137826788417698}
   - component: {fileID: 65836524536978518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1705896257148434
 GameObject:
@@ -1783,12 +1783,12 @@ GameObject:
   - component: {fileID: 33390707704190546}
   - component: {fileID: 23919258515615870}
   - component: {fileID: 65698662678375112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1706537305815504
 GameObject:
@@ -1801,12 +1801,12 @@ GameObject:
   - component: {fileID: 33428445809127858}
   - component: {fileID: 23626504015725996}
   - component: {fileID: 65042392599772928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1711062588203430
 GameObject:
@@ -1819,12 +1819,12 @@ GameObject:
   - component: {fileID: 33821827302622258}
   - component: {fileID: 23491740859569676}
   - component: {fileID: 65514053092517350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1712536775379750
 GameObject:
@@ -1837,12 +1837,12 @@ GameObject:
   - component: {fileID: 33121791151603636}
   - component: {fileID: 23416561982947402}
   - component: {fileID: 65926149303197994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (140)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1716516591373962
 GameObject:
@@ -1855,12 +1855,12 @@ GameObject:
   - component: {fileID: 33354099520294002}
   - component: {fileID: 23212714644177676}
   - component: {fileID: 65595250014303382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1718951626451236
 GameObject:
@@ -1873,12 +1873,12 @@ GameObject:
   - component: {fileID: 33209390825638132}
   - component: {fileID: 23041205619021948}
   - component: {fileID: 65095940431200832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (129)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1726374088411558
 GameObject:
@@ -1891,12 +1891,12 @@ GameObject:
   - component: {fileID: 33620652788643188}
   - component: {fileID: 23603615901749458}
   - component: {fileID: 65711555991055028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1727424979450514
 GameObject:
@@ -1909,12 +1909,12 @@ GameObject:
   - component: {fileID: 33024176030132640}
   - component: {fileID: 23033203657502522}
   - component: {fileID: 65092830357283676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1733525980612044
 GameObject:
@@ -1927,12 +1927,12 @@ GameObject:
   - component: {fileID: 33740590165873342}
   - component: {fileID: 23595478244889774}
   - component: {fileID: 65628877511225236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (98)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1735145504367396
 GameObject:
@@ -1945,12 +1945,12 @@ GameObject:
   - component: {fileID: 33424586655033918}
   - component: {fileID: 23702142195401204}
   - component: {fileID: 65482152808127156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1746930705681222
 GameObject:
@@ -1963,12 +1963,12 @@ GameObject:
   - component: {fileID: 33785536380206222}
   - component: {fileID: 23198129044723258}
   - component: {fileID: 65672934511966014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (85)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1755415378447744
 GameObject:
@@ -1981,12 +1981,12 @@ GameObject:
   - component: {fileID: 33907388793382746}
   - component: {fileID: 23268073953573886}
   - component: {fileID: 65227960933489716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (84)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1755661471222746
 GameObject:
@@ -1999,12 +1999,12 @@ GameObject:
   - component: {fileID: 33685420925334594}
   - component: {fileID: 23134530414150956}
   - component: {fileID: 65631050809112542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1764231029637804
 GameObject:
@@ -2017,12 +2017,12 @@ GameObject:
   - component: {fileID: 33002641043253772}
   - component: {fileID: 23625163714798728}
   - component: {fileID: 65054277329146430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (74)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1772605572760734
 GameObject:
@@ -2035,12 +2035,12 @@ GameObject:
   - component: {fileID: 33543550311159516}
   - component: {fileID: 23477748349780006}
   - component: {fileID: 65421749797661342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (124)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1773781932197274
 GameObject:
@@ -2053,12 +2053,12 @@ GameObject:
   - component: {fileID: 33243903557881160}
   - component: {fileID: 23543285523105056}
   - component: {fileID: 65199076388303974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (117)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1774330563857640
 GameObject:
@@ -2071,12 +2071,12 @@ GameObject:
   - component: {fileID: 33366894645963632}
   - component: {fileID: 23574126245528158}
   - component: {fileID: 65451817352126216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1781215596304768
 GameObject:
@@ -2089,12 +2089,12 @@ GameObject:
   - component: {fileID: 33099697655346018}
   - component: {fileID: 23947979649032178}
   - component: {fileID: 65128537332272504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (130)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1786246853733746
 GameObject:
@@ -2107,12 +2107,12 @@ GameObject:
   - component: {fileID: 33907086839194464}
   - component: {fileID: 23251356270280076}
   - component: {fileID: 65538906473939868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (123)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1795345380223294
 GameObject:
@@ -2125,12 +2125,12 @@ GameObject:
   - component: {fileID: 33423545230461690}
   - component: {fileID: 23883884859218320}
   - component: {fileID: 65434130915832762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1797662784078278
 GameObject:
@@ -2143,12 +2143,12 @@ GameObject:
   - component: {fileID: 33413311611704540}
   - component: {fileID: 23686182186245246}
   - component: {fileID: 65507395319580846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1803639079472634
 GameObject:
@@ -2161,12 +2161,12 @@ GameObject:
   - component: {fileID: 33315299985603280}
   - component: {fileID: 23375769096823894}
   - component: {fileID: 65594574581371876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (120)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1827947472346888
 GameObject:
@@ -2179,12 +2179,12 @@ GameObject:
   - component: {fileID: 33832619512352866}
   - component: {fileID: 23629421669621254}
   - component: {fileID: 65645003429579474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (110)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1831500819337050
 GameObject:
@@ -2197,12 +2197,12 @@ GameObject:
   - component: {fileID: 33482940764539764}
   - component: {fileID: 23098746228575580}
   - component: {fileID: 65099620911065634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (86)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1837896278469826
 GameObject:
@@ -2215,12 +2215,12 @@ GameObject:
   - component: {fileID: 33563078163043978}
   - component: {fileID: 23512244712332312}
   - component: {fileID: 65393347385137080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1839850874001884
 GameObject:
@@ -2233,12 +2233,12 @@ GameObject:
   - component: {fileID: 33843962877357650}
   - component: {fileID: 23687944885660042}
   - component: {fileID: 65319561835721166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (149)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1841264058219880
 GameObject:
@@ -2251,12 +2251,12 @@ GameObject:
   - component: {fileID: 33974938871426544}
   - component: {fileID: 23295891873695406}
   - component: {fileID: 65937588760434836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1853470110674680
 GameObject:
@@ -2269,12 +2269,12 @@ GameObject:
   - component: {fileID: 33227092882242622}
   - component: {fileID: 23484500879842314}
   - component: {fileID: 65054916800554256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (105)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1856511734243914
 GameObject:
@@ -2287,12 +2287,12 @@ GameObject:
   - component: {fileID: 33965908034628856}
   - component: {fileID: 23206775605857454}
   - component: {fileID: 65465780985241920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1860409173242076
 GameObject:
@@ -2305,12 +2305,12 @@ GameObject:
   - component: {fileID: 33415672825481662}
   - component: {fileID: 23892446130449532}
   - component: {fileID: 65662261682816208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (144)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1864443496616664
 GameObject:
@@ -2323,12 +2323,12 @@ GameObject:
   - component: {fileID: 33772821121260552}
   - component: {fileID: 23485724499710404}
   - component: {fileID: 65060712764923852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1866405372304226
 GameObject:
@@ -2341,12 +2341,12 @@ GameObject:
   - component: {fileID: 33771843846801994}
   - component: {fileID: 23472002061160924}
   - component: {fileID: 65107629434289680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1869110837225142
 GameObject:
@@ -2359,12 +2359,12 @@ GameObject:
   - component: {fileID: 33502708775065074}
   - component: {fileID: 23390424651997856}
   - component: {fileID: 65745060844775996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1876189466538270
 GameObject:
@@ -2377,12 +2377,12 @@ GameObject:
   - component: {fileID: 33768808806941586}
   - component: {fileID: 23207958942769850}
   - component: {fileID: 65078318521241186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (134)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1878524370269226
 GameObject:
@@ -2395,12 +2395,12 @@ GameObject:
   - component: {fileID: 33294977261242694}
   - component: {fileID: 23081630084693008}
   - component: {fileID: 65509990619713134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (145)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1887486122400704
 GameObject:
@@ -2413,12 +2413,12 @@ GameObject:
   - component: {fileID: 33730036422238358}
   - component: {fileID: 23888069920631562}
   - component: {fileID: 65578030266018164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (96)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1898403493882166
 GameObject:
@@ -2431,12 +2431,12 @@ GameObject:
   - component: {fileID: 33610115126543964}
   - component: {fileID: 23960074668220380}
   - component: {fileID: 65427772095088734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1917979719789122
 GameObject:
@@ -2449,12 +2449,12 @@ GameObject:
   - component: {fileID: 33301641885028356}
   - component: {fileID: 23094933626389280}
   - component: {fileID: 65788724263247014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (125)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1921910723568104
 GameObject:
@@ -2467,12 +2467,12 @@ GameObject:
   - component: {fileID: 33022471330866904}
   - component: {fileID: 23893670190459044}
   - component: {fileID: 65115999110007470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (77)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1929254180029160
 GameObject:
@@ -2485,12 +2485,12 @@ GameObject:
   - component: {fileID: 33656764850576796}
   - component: {fileID: 23683302282681280}
   - component: {fileID: 65336158896225586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1939391999111516
 GameObject:
@@ -2503,12 +2503,12 @@ GameObject:
   - component: {fileID: 33528413845576064}
   - component: {fileID: 23269139495665260}
   - component: {fileID: 65235441070756838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (75)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1940759645378396
 GameObject:
@@ -2521,12 +2521,12 @@ GameObject:
   - component: {fileID: 33503200627389956}
   - component: {fileID: 23489499561047676}
   - component: {fileID: 65821589426085280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (109)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1949464033437116
 GameObject:
@@ -2539,12 +2539,12 @@ GameObject:
   - component: {fileID: 33185210288089152}
   - component: {fileID: 23495631625186900}
   - component: {fileID: 65768632485582774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (141)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1950233655372116
 GameObject:
@@ -2557,12 +2557,12 @@ GameObject:
   - component: {fileID: 33136349116220042}
   - component: {fileID: 23831995386065192}
   - component: {fileID: 65790241160272844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1951543248307826
 GameObject:
@@ -2575,12 +2575,12 @@ GameObject:
   - component: {fileID: 33508858194338948}
   - component: {fileID: 23956117965857388}
   - component: {fileID: 65688747532706884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1955326863366090
 GameObject:
@@ -2593,12 +2593,12 @@ GameObject:
   - component: {fileID: 33256833525027600}
   - component: {fileID: 23440259892815024}
   - component: {fileID: 65556655222311818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1956045452005242
 GameObject:
@@ -2611,12 +2611,12 @@ GameObject:
   - component: {fileID: 33558974189175840}
   - component: {fileID: 23992495885678262}
   - component: {fileID: 65405835903640330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (138)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1962793995773824
 GameObject:
@@ -2629,12 +2629,12 @@ GameObject:
   - component: {fileID: 33257982916112500}
   - component: {fileID: 23022432462110180}
   - component: {fileID: 65205084382632674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (92)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1969092215528940
 GameObject:
@@ -2647,12 +2647,12 @@ GameObject:
   - component: {fileID: 33377037149099940}
   - component: {fileID: 23853689752348916}
   - component: {fileID: 65372367121524264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1979387149490680
 GameObject:
@@ -2665,12 +2665,12 @@ GameObject:
   - component: {fileID: 33531167279020184}
   - component: {fileID: 23595565243630560}
   - component: {fileID: 65126607129349590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1983309508758964
 GameObject:
@@ -2683,12 +2683,12 @@ GameObject:
   - component: {fileID: 33220729325828528}
   - component: {fileID: 23766662828372672}
   - component: {fileID: 65567162154035268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (114)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1986321359850322
 GameObject:
@@ -2701,12 +2701,12 @@ GameObject:
   - component: {fileID: 33903224132731308}
   - component: {fileID: 23724246483081632}
   - component: {fileID: 65326817660316088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1995455209685150
 GameObject:
@@ -2719,12 +2719,12 @@ GameObject:
   - component: {fileID: 33213257077708686}
   - component: {fileID: 23666774484520642}
   - component: {fileID: 65029784606925558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spy_Floors_Textured (79)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4001132141363610
 Transform:
@@ -3096,7 +3096,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542496756023710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -31.981974, y: -9.626487, z: 79.2921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
