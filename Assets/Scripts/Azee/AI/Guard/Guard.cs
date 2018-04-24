@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Azee.Interfaces;
 using Azee;
 using GuardStates;
 using UnityEngine;
@@ -74,6 +75,11 @@ public class Guard : MonoBehaviour
         }
 
         return false;
+    }
+
+    public Vector3? LocateObjectFromNoise(AudibleObject audibleObject)
+    {
+        return audibleObject.LocateFromNoise(gameObject);
     }
 
     public void StartChasing(Transform chaseTargetTransform)

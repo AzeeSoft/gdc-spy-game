@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Azee.Interfaces;
 using UnityEngine;
 
 namespace GuardStates
@@ -10,7 +11,7 @@ namespace GuardStates
         public class StateData
         {
             public Transform TargetTransform;
-            public Vector3 LastSeenPosition;
+            public Vector3 LastKnownPosition;
         }
 
 
@@ -33,28 +34,42 @@ namespace GuardStates
 
             StateData stateData = owner.ChaseStateData;
             stateData.TargetTransform = transform;
-            stateData.LastSeenPosition = transform.position;
+            stateData.LastKnownPosition = transform.position;
         }
 
         public void Update(Guard owner)
         {
             StateData stateData = owner.ChaseStateData;
 
-            bool targetOnSight = false;
+            bool targetOnSight = false, targetAudible = false;
 
             if (owner.IsObjectInSight(stateData.TargetTransform.gameObject))
             {
                 targetOnSight = true;
-                stateData.LastSeenPosition = stateData.TargetTransform.position;
-            }
-
-            if (Vector3.Distance(owner.transform.position, stateData.LastSeenPosition) > LostDistance)
-            {
-                owner.MoveTowards(stateData.LastSeenPosition);
+                stateData.LastKnownPosition = stateData.TargetTransform.position;
             }
             else
             {
-                if (!targetOnSight)
+                AudibleObject targetAudibleObject = stateData.TargetTransform.GetComponent<AudibleObject>();
+                if (targetAudibleObject != null)
+                {
+                    Vector3? targetLocation = owner.LocateObjectFromNoise(targetAudibleObject);
+
+                    if (targetLocation != null)
+                    {
+                        targetAudible = true;
+                        stateData.LastKnownPosition = targetLocation.Value;
+                    }
+                }
+            }
+
+            if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > LostDistance)
+            {
+                owner.MoveTowards(stateData.LastKnownPosition);
+            }
+            else
+            {
+                if (!targetOnSight && !targetAudible)
                 {
                     // Lost target
                     StateMachine<Guard> stateMachine = owner.GetStateMachine();
@@ -79,7 +94,7 @@ namespace GuardStates
         {
             StateData stateData = owner.ChaseStateData;
             stateData.TargetTransform = null;
-            stateData.LastSeenPosition = Vector3.zero;
+            stateData.LastKnownPosition = Vector3.zero;
         }
     }
 }
