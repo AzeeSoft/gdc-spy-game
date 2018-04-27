@@ -1312,7 +1312,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4372,6 +4372,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.030000014
       objectReference: {fileID: 0}
+    - target: {fileID: 65374866284855330, guid: 8c7abcf6cf05d1140af2b3dd9b8ac1c5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 750.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c7abcf6cf05d1140af2b3dd9b8ac1c5, type: 2}
   m_IsPrefabParent: 0
@@ -4787,6 +4792,26 @@ Transform:
   m_PrefabParentObject: {fileID: 4907587903392466, guid: 8c7abcf6cf05d1140af2b3dd9b8ac1c5,
     type: 2}
   m_PrefabInternal: {fileID: 1547811683}
+--- !u!1 &1769643483 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1751286407098278, guid: 3a9f47f400c29814a8a0af62e19fd077,
+    type: 2}
+  m_PrefabInternal: {fileID: 1976009744}
+--- !u!54 &1769643491
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1769643483}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1769893722
 GameObject:
   m_ObjectHideFlags: 0
