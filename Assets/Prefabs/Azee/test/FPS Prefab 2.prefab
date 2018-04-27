@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 23815225999397176}
   - component: {fileID: 33469713837338476}
   - component: {fileID: 114181825347534366}
+  - component: {fileID: 114718410564987186}
   m_Layer: 0
   m_Name: FPS Prefab 2
   m_TagString: Player
@@ -482,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsCrouching: 0
   m_IsWalking: 1
-  m_CrouchSpeed: 2.5
+  m_CrouchSpeed: 2
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
@@ -573,6 +574,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+--- !u!114 &114718410564987186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775504240588780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a310ad761303fe547aef630d2fce0ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 100
+  interactiveLayerNames:
+  - PlayerInteractable
+  interactionDescriptionText: {fileID: 0}
 --- !u!114 &114845936571441590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -659,7 +675,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.13283019, g: 0.53676474, b: 0.11840397, a: 1}
+  m_Color: {r: 0.13283019, g: 0.53676474, b: 0.11840397, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

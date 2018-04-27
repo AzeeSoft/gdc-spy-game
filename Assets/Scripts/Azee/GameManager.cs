@@ -23,5 +23,10 @@ class GameManager : MonoBehaviour
     public GameObject GetPlayerGameObject()
     {
         return _playerGameObject;
-    } 
+    }
+
+    public void LogMessage(string msg)
+    {
+        Debug.Log(msg);
+    }
 }
