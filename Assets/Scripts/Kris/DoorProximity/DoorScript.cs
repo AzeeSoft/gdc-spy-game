@@ -15,13 +15,16 @@ public class DoorScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Guard")
         {
             _animator.SetBool("open", true);
-        }
-        
+        }      
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        _animator.SetBool("open", false);
+    }
     // Update is called once per frame
     void Update () {
 		
