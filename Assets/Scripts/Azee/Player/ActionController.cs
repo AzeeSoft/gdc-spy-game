@@ -23,6 +23,7 @@ public class ActionController : MonoBehaviour
     [SerializeField] private Text interactionDescriptionText;
 
     private Camera fpsCamera;
+    private XRayVision xRayVision;
 
     private bool[] interactionInputs = new bool[MaxInteractions];
 
@@ -30,6 +31,7 @@ public class ActionController : MonoBehaviour
 	void Start ()
 	{
 	    fpsCamera = GetComponentInChildren<Camera>();
+	    xRayVision = fpsCamera.GetComponent<XRayVision>();
 
 	    if (!interactionDescriptionText)
 	    {
@@ -41,6 +43,7 @@ public class ActionController : MonoBehaviour
 	{
         DetectInteractionInputs();
 	    CheckInteraction();
+        CheckVisionToggle();
 	}
 
     private void DetectInteractionInputs()
@@ -65,7 +68,7 @@ public class ActionController : MonoBehaviour
         string actionDescription = "";
 
         RaycastHit raycastHit = new RaycastHit();
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out raycastHit, maxDistance, LayerMask.GetMask(interactiveLayerNames.ToArray())))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out raycastHit, maxDistance))
         {
 //            Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
 
@@ -96,6 +99,14 @@ public class ActionController : MonoBehaviour
         {
             interactionDescriptionText.text = actionDescription;
             interactionDescriptionText.gameObject.SetActive(!actionDescription.Equals(""));
+        }
+    }
+
+    void CheckVisionToggle()
+    {
+        if (Input.GetButtonDown("Toggle Vision") && xRayVision)
+        {
+            xRayVision.enabled = !xRayVision.enabled;
         }
     }
 }
