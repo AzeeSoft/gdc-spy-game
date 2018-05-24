@@ -4,11 +4,9 @@ Shader "Custom/XRayShader"
 {
 	Properties 
 	{
-		_Color ("Color", Color) = (1,1,1,1)
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
+        _XRayColor("X-Ray Color", Color) = (0,0,0,1)	// XRay Color set using the custom standard shader. (Black = not set)
 	}
+
 	SubShader 
 	{
 		Tags { "Queue"="Transparent" }
@@ -45,11 +43,18 @@ Shader "Custom/XRayShader"
 				return o;
 			}
 
-			half4 _XRayVisionColor;
+			// Global X-Ray Default Color
+			half4 _XRayDefaultColor;
+			half4 _XRayColor;
 			
 			fixed4 frag (v2f i) : SV_TARGET 
 			{
-				return _XRayVisionColor;
+				if (_XRayColor.r == 0 && _XRayColor.g == 0 && _XRayColor.b == 0) 
+				{
+					return _XRayDefaultColor;
+				} else {
+					return _XRayColor;
+				}
 			}
 
 			ENDCG

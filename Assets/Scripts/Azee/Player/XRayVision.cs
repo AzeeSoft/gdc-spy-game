@@ -20,7 +20,7 @@ public class XRayVision : MonoBehaviour
 
     void OnValidate()
     {
-        Shader.SetGlobalColor("_XRayVisionColor", XRayVisionColor);
+        Shader.SetGlobalColor("_XRayDefaultColor", XRayVisionColor);
     }
 
     void OnEnable()
