@@ -11,6 +11,8 @@ public class StateMachine <T>
     private State _previousState;
     private State _currentState;
 
+    private readonly List<OnStateSwitchedCallback> _onStateSwitchedCallbacks = new List<OnStateSwitchedCallback>();
+
     public StateMachine(T owner)
     {
         _owner = owner;
@@ -26,6 +28,11 @@ public class StateMachine <T>
         return _previousState;
     }
 
+    public void AddOnStateSwitchedCallback(OnStateSwitchedCallback callback)
+    {
+        _onStateSwitchedCallbacks.Add(callback);
+    }
+
     public void SwitchState(State newState, params object[] args)
     {
         if (_currentState != null)
@@ -36,6 +43,11 @@ public class StateMachine <T>
 
         _currentState = newState;
         _currentState.Enter(_owner, args);
+
+        foreach (OnStateSwitchedCallback onStateSwitchedCallback in _onStateSwitchedCallbacks)
+        {
+            onStateSwitchedCallback(this);
+        }
     }
 
     public void Update()
@@ -52,5 +64,7 @@ public class StateMachine <T>
         void Update(T owner);
         void Exit(T owner);
     }
+
+    public delegate void OnStateSwitchedCallback(StateMachine<T> stateMachine);
 }
 

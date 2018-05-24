@@ -23,6 +23,7 @@ public class ActionController : MonoBehaviour
     [SerializeField] private Text interactionDescriptionText;
 
     private Camera fpsCamera;
+    private XRayVision xRayVision;
 
     private bool[] interactionInputs = new bool[MaxInteractions];
 
@@ -30,6 +31,7 @@ public class ActionController : MonoBehaviour
 	void Start ()
 	{
 	    fpsCamera = GetComponentInChildren<Camera>();
+	    xRayVision = fpsCamera.GetComponent<XRayVision>();
 
 	    if (!interactionDescriptionText)
 	    {
@@ -41,6 +43,7 @@ public class ActionController : MonoBehaviour
 	{
         DetectInteractionInputs();
 	    CheckInteraction();
+        CheckVisionToggle();
 	}
 
     private void DetectInteractionInputs()
@@ -65,21 +68,21 @@ public class ActionController : MonoBehaviour
         string actionDescription = "";
 
         RaycastHit raycastHit = new RaycastHit();
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out raycastHit, maxDistance, LayerMask.GetMask(interactiveLayerNames.ToArray())))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out raycastHit, maxDistance))
         {
 //            Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
 
             InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
             if (interactiveObject != null)
             {
-                int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Count);
+                int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
 
                 for (int i = 0; i < interactionCount; i++)
                 {
                     InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
 
-                    if (Vector3.Distance(transform.position, interactiveObject.transform.position) <=
-                        interaction.minRange)
+                    if (interaction.enabled && Vector3.Distance(transform.position, interactiveObject.transform.position) <=
+                        interaction.maxRange)
                     {
                         actionDescription += InteractionDescriptionPrefixes[i] + interaction.description + "\n";
 
@@ -96,6 +99,14 @@ public class ActionController : MonoBehaviour
         {
             interactionDescriptionText.text = actionDescription;
             interactionDescriptionText.gameObject.SetActive(!actionDescription.Equals(""));
+        }
+    }
+
+    void CheckVisionToggle()
+    {
+        if (Input.GetButtonDown("Toggle Vision") && xRayVision)
+        {
+            xRayVision.enabled = !xRayVision.enabled;
         }
     }
 }
