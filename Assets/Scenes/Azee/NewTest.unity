@@ -2728,12 +2728,6 @@ Transform:
   m_Father: {fileID: 316425636}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &856972090 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114945296896766826, guid: 30069ed217528304ab95d44673a7d4a1,
-    type: 2}
-  m_PrefabInternal: {fileID: 321872820}
-  m_Script: {fileID: 11500000, guid: eb18ffbfa14864f4392a75740f333082, type: 3}
 --- !u!1 &885266554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,21 +5517,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1313885612}
     m_Modifications:
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[0].onInteractionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4187199531542216, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_LocalPosition.x
       value: -32
@@ -5556,7 +5535,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4187199531542216, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.9998568
+      value: -0.036639657
       objectReference: {fileID: 0}
     - target: {fileID: 4187199531542216, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_LocalRotation.z
@@ -5564,17 +5543,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4187199531542216, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.016920954
+      value: -0.99932855
       objectReference: {fileID: 0}
     - target: {fileID: 4187199531542216, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[0].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 856972090}
     - target: {fileID: 114905334876985060, guid: 3a9f47f400c29814a8a0af62e19fd077,
         type: 2}
       propertyPath: DefaultPatrolCircuit
@@ -5583,62 +5557,6 @@ Prefab:
     - target: {fileID: 1751286407098278, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_Name
       value: Guard Light Test
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[0].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[0].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].description
-      value: Interact2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].minRange
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 856972090}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LogMessage
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Testing Interactive AI 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114364871166508576, guid: 3a9f47f400c29814a8a0af62e19fd077,
-        type: 2}
-      propertyPath: interactions.Array.data[1].onInteractionEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}

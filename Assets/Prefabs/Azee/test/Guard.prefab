@@ -101,7 +101,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751286407098278}
-  m_LocalRotation: {x: -0, y: 0.9998568, z: -0, w: 0.016920954}
+  m_LocalRotation: {x: -0, y: -0.036639657, z: -0, w: -0.99932855}
   m_LocalPosition: {x: -32, y: -2.57, z: 130}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -109,7 +109,7 @@ Transform:
   - {fileID: 4387240507390706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 178.061, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 364.2, z: 0}
 --- !u!4 &4387240507390706
 Transform:
   m_ObjectHideFlags: 1
@@ -267,14 +267,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions:
-  - description: Interact
-    minRange: 100
+  - enabled: 1
+    description: Stun
+    maxRange: 100
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: LogMessage
-          m_Mode: 5
+        - m_Target: {fileID: 114905334876985060}
+          m_MethodName: Stun
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -306,7 +307,7 @@ SphereCollider:
   m_GameObject: {fileID: 1742632693236594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

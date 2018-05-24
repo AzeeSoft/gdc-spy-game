@@ -17,23 +17,33 @@ public class Guard : MonoBehaviour
 
     public readonly Patrol.StateData PatrolStateData;
     public readonly Chase.StateData ChaseStateData;
+    public readonly Stunned.StateData StunnedStateData;
 
     private readonly StateMachine<Guard> _stateMachine;
     private GuardsManager _guardsManager;
     private NavMeshAgent _navMeshAgent;
+    private InteractiveObject _interactiveObject;
+
+    private List<StateMachine<Guard>.State> _nonStunnableStates = new List<StateMachine<Guard>.State>(); 
 
     public Guard()
     {
         _stateMachine = new StateMachine<Guard>(this);
+        _stateMachine.AddOnStateSwitchedCallback(OnStateSwitched);
+
+        _nonStunnableStates.Add(Chase.Instance);
+        _nonStunnableStates.Add(Stunned.Instance);
 
         PatrolStateData = new Patrol.StateData {IsMoving = false, TargetWaypointIndex = -1};
         ChaseStateData = new Chase.StateData {TargetTransform = null};
+        StunnedStateData = new Stunned.StateData();
     }
 
     void Awake()
     {
         _guardsManager = FindObjectOfType<GuardsManager>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _interactiveObject = GetComponent<InteractiveObject>();
 
         _stateMachine.SwitchState(GuardStates.Idle.Instance);
     }
@@ -51,6 +61,11 @@ public class Guard : MonoBehaviour
     void Update()
     {
         _stateMachine.Update();
+    }
+
+    void OnStateSwitched(StateMachine<Guard> stateMachine)
+    {
+        _interactiveObject.ToggleInteraction(0, !_nonStunnableStates.Contains(_stateMachine.GetCurrentState()));
     }
 
 
@@ -95,6 +110,14 @@ public class Guard : MonoBehaviour
     public void StopMoving()
     {
         _navMeshAgent.ResetPath();
+    }
+
+    public void Stun()
+    {
+        if (!_nonStunnableStates.Contains(_stateMachine.GetCurrentState()))
+        {
+            _stateMachine.SwitchState(GuardStates.Stunned.Instance);
+        }
     }
 
     public StateMachine<Guard> GetStateMachine()
