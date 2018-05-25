@@ -1,11 +1,15 @@
-﻿using System;
+﻿/*
+ * A Simple Generic StateMachine by Azee.
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
 [Serializable]
-public class StateMachine <T>
+public class StateMachine<T>
 {
     private readonly T _owner;
     private State _previousState;
@@ -58,6 +62,10 @@ public class StateMachine <T>
         }
     }
 
+
+    public delegate void OnStateSwitchedCallback(StateMachine<T> stateMachine);
+
+
     public interface State
     {
         void Enter(T owner, params object[] args);
@@ -65,6 +73,49 @@ public class StateMachine <T>
         void Exit(T owner);
     }
 
-    public delegate void OnStateSwitchedCallback(StateMachine<T> stateMachine);
-}
+    /*
+     * ==============
+     *  Sample State
+     * ==============
 
+    namespace OwnerStates
+    {
+        public class SampleState : StateMachine<T>.State
+        {
+            public class StateData
+            {
+                public int data1;
+                public Object data2;
+            }
+            
+
+            private static SampleState _instance;
+
+            public static SampleState Instance
+            {
+                get { return _instance ?? (_instance = new SampleState()); }
+            }
+
+            private SampleState()
+            {
+            }
+
+            public void Enter(T owner, params object[] args)
+            {
+
+            }
+
+            public void Update(T owner)
+            {
+                
+            }
+
+            public void Exit(T owner)
+            {
+                
+            }
+        }
+    }
+    
+    */
+}
