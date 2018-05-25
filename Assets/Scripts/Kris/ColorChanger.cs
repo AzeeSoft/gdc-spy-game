@@ -8,6 +8,17 @@ public class ColorChanger : MonoBehaviour
     // Use this for initialization
     public void Start()
     {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void turnRed()
+    {
         Renderer renderer = GetComponent<Renderer>();
         Material mat = renderer.material;
 
@@ -19,9 +30,16 @@ public class ColorChanger : MonoBehaviour
         mat.SetColor("_EmissionColor", finalColor);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void turnDefault()
     {
-        
+        Renderer renderer = GetComponent<Renderer>();
+        Material mat = renderer.material;
+
+        float emission = Mathf.PingPong(Time.time, 1.0f);
+        Color baseColor = Color.green;
+
+        Color finalColor = baseColor; //* Mathf.LinearToGammaSpace(emission);
+
+        mat.SetColor("_EmissionColor", finalColor);
     }
 }

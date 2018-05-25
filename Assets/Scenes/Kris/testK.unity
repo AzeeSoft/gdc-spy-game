@@ -5794,6 +5794,11 @@ Prefab:
       propertyPath: DefaultPatrolCircuit
       value: 
       objectReference: {fileID: 1682755232}
+    - target: {fileID: 114678891233865824, guid: ac8f8efc8d6b54d489e1b932c72ba393,
+        type: 2}
+      propertyPath: _colorChanger
+      value: 
+      objectReference: {fileID: 242575113}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac8f8efc8d6b54d489e1b932c72ba393, type: 2}
   m_IsPrefabParent: 0

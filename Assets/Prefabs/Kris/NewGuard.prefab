@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33994598376991798}
   - component: {fileID: 135786740871234246}
   - component: {fileID: 23050685622781908}
+  - component: {fileID: 114223694752499608}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -89,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486855679373804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30, y: 0.5, z: 30}
+  m_LocalPosition: {x: 28.590809, y: 1.54, z: 0.5522499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4714702276250360}
@@ -228,7 +229,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 0.3419431, b: 0.18295847, a: 1}
+  m_Color: {r: 1, g: 0.8896551, b: 0, a: 1}
   m_Intensity: 4
   m_Range: 31.250237
   m_SpotAngle: 35.2
@@ -255,6 +256,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114223694752499608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412163450736630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3880e556bdf0f34c9ccc65dc3ba13c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114654187076472992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,8 +279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions:
-  - description: Interact
-    minRange: 100
+  - enabled: 1
+    description: Interact
+    maxRange: 100
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls:
@@ -298,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultPatrolCircuit: {fileID: 0}
   MaxSightAngle: 90
+  _colorChanger: {fileID: 114223694752499608}
 --- !u!135 &135786740871234246
 SphereCollider:
   m_ObjectHideFlags: 1

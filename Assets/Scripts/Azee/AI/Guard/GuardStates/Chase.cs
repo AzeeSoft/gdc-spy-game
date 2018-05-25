@@ -35,6 +35,8 @@ namespace GuardStates
             StateData stateData = owner.ChaseStateData;
             stateData.TargetTransform = transform;
             stateData.LastKnownPosition = transform.position;
+
+            owner.GetColorChanger().turnRed();
         }
 
         public void Update(Guard owner)
@@ -95,6 +97,8 @@ namespace GuardStates
             StateData stateData = owner.ChaseStateData;
             stateData.TargetTransform = null;
             stateData.LastKnownPosition = Vector3.zero;
+
+            owner.GetColorChanger().turnDefault();
         }
     }
 }
