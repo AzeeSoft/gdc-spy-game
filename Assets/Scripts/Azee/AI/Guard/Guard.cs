@@ -15,6 +15,9 @@ public class Guard : MonoBehaviour
     [Header("AISight")]
     public float MaxSightAngle;
 
+    [SerializeField]
+    private ColorChanger _colorChanger;
+
     public readonly Patrol.StateData PatrolStateData;
     public readonly Chase.StateData ChaseStateData;
     public readonly Stunned.StateData StunnedStateData;
@@ -118,6 +121,11 @@ public class Guard : MonoBehaviour
         {
             _stateMachine.SwitchState(GuardStates.Stunned.Instance);
         }
+    }
+
+    public ColorChanger GetColorChanger()
+    {
+        return _colorChanger;
     }
 
     public StateMachine<Guard> GetStateMachine()
