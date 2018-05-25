@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 81883434727193158}
   - component: {fileID: 124276844544701532}
   - component: {fileID: 114278790996198248}
+  - component: {fileID: 114864985178241272}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -604,6 +605,19 @@ MonoBehaviour:
   rotationSpeed: 100
   maxAngle: 20
   maxMove: 20
+--- !u!114 &114864985178241272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778366368411078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2c9d2d7d8855e4e949c115f840a20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XRayShader: {fileID: 4800000, guid: 33ba70d8681a31f4589cddb708398ed6, type: 3}
+  XRayVisionColor: {r: 0.029411793, g: 0.028979266, b: 0.028979266, a: 0}
 --- !u!124 &124276844544701532
 Behaviour:
   m_ObjectHideFlags: 1

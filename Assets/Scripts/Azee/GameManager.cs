@@ -8,11 +8,16 @@ class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
+
+    private bool _isPlaying;
     private GameObject _playerGameObject;
 
     public GameManager()
     {
         Instance = this;
+        _isPlaying = true;
     }
 
     void Awake()
