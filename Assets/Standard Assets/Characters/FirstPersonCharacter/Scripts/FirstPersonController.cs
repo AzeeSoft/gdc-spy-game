@@ -10,6 +10,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        public bool canRotate = true;
+
         [SerializeField] private bool m_IsCrouching;
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_CrouchSpeed;
@@ -64,7 +66,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            RotateView();
+            if (canRotate)
+            {
+                RotateView();
+            }
+
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
