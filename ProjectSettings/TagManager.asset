@@ -8,6 +8,7 @@ TagManager:
   - MapCamera
   - Terminal
   - Door
+  - EndGoal
   layers:
   - Default
   - TransparentFX
