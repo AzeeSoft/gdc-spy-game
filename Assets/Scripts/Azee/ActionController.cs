@@ -18,20 +18,17 @@ public class ActionController : MonoBehaviour
     };
 
     [SerializeField] private float maxDistance = 100f;
-    [SerializeField] private List<string> interactiveLayerNames = new List<string>();
 
     [SerializeField] private Text interactionDescriptionText;
 
-    private Camera fpsCamera;
-    private XRayVision xRayVision;
+    private Camera _camera;
 
     private bool[] interactionInputs = new bool[MaxInteractions];
 
 	// Use this for initialization
 	void Start ()
 	{
-	    fpsCamera = GetComponentInChildren<Camera>();
-	    xRayVision = fpsCamera.GetComponent<XRayVision>();
+	    _camera = GetComponentInChildren<Camera>();
 
 	    if (!interactionDescriptionText)
 	    {
@@ -43,7 +40,6 @@ public class ActionController : MonoBehaviour
 	{
         DetectInteractionInputs();
 	    CheckInteraction();
-        CheckVisionToggle();
 	}
 
     private void DetectInteractionInputs()
@@ -68,7 +64,7 @@ public class ActionController : MonoBehaviour
         string actionDescription = "";
 
         RaycastHit raycastHit = new RaycastHit();
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out raycastHit, maxDistance))
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out raycastHit, maxDistance))
         {
 //            Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
 
@@ -99,14 +95,6 @@ public class ActionController : MonoBehaviour
         {
             interactionDescriptionText.text = actionDescription;
             interactionDescriptionText.gameObject.SetActive(!actionDescription.Equals(""));
-        }
-    }
-
-    void CheckVisionToggle()
-    {
-        if (Input.GetButtonDown("Toggle Vision") && xRayVision)
-        {
-            xRayVision.enabled = !xRayVision.enabled;
         }
     }
 }

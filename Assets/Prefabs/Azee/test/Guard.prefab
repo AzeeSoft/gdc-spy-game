@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 33791168236717002}
   - component: {fileID: 135385649065339138}
   - component: {fileID: 23302397728260214}
+  - component: {fileID: 114557138702144498}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: a5d32f6ae3550d2409cd55af7767eeae, type: 2}
   m_StaticBatchInfo:
@@ -184,6 +186,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 37be440bc96b14546908f1ea99e6e567, type: 2}
   m_StaticBatchInfo:
@@ -286,6 +289,17 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114557138702144498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742632693236594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3880e556bdf0f34c9ccc65dc3ba13c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114905334876985060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultPatrolCircuit: {fileID: 0}
   MaxSightAngle: 90
+  _colorChanger: {fileID: 114557138702144498}
 --- !u!135 &135385649065339138
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -358,6 +373,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

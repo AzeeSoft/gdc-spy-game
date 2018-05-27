@@ -9,6 +9,7 @@ TagManager:
   - Terminal
   - Door
   - EndGoal
+  - CCTVCamera
   layers:
   - Default
   - TransparentFX
