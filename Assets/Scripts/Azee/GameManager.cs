@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
@@ -13,6 +13,8 @@ class GameManager : MonoBehaviour
 
     private bool _isPlaying;
     private GameObject _playerGameObject;
+
+    private PlayerControllable curPlayerControllable;
 
     public GameManager()
     {
@@ -25,6 +27,11 @@ class GameManager : MonoBehaviour
         _playerGameObject = GameObject.FindWithTag("Player");
     }
 
+    void Start()
+    {
+        switchPlayerControlToFirstPerson();
+    }
+
     public GameObject GetPlayerGameObject()
     {
         return _playerGameObject;
@@ -33,5 +40,22 @@ class GameManager : MonoBehaviour
     public void LogMessage(string msg)
     {
         Debug.Log(msg);
+    }
+
+    public void switchPlayerControl(PlayerControllable playerControllable)
+    {
+        if (curPlayerControllable)
+        {
+            curPlayerControllable.ReleaseControl();
+        }
+
+        curPlayerControllable = playerControllable;
+        curPlayerControllable.TakeControl();
+    }
+
+    public void switchPlayerControlToFirstPerson()
+    {
+        PlayerControllable playerControllable = _playerGameObject.GetComponent<PlayerControllable>();
+        switchPlayerControl(playerControllable);
     }
 }
