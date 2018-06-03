@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Azee
 {
-    class StaticTools
+    public class StaticTools
     {
         public static Vector3 CloneVector3(Vector3 origVector3)
         {
