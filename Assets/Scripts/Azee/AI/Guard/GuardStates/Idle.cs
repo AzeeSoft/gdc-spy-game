@@ -33,7 +33,7 @@ namespace GuardStates
             /*
              * Checking if the guard can see player, and switching to chasing state, if so.
              */
-            GameObject playerGameObject = GameManager.Instance.GetPlayerGameObject();
+            GameObject playerGameObject = LevelManager.Instance.GetPlayerGameObject();
 
             if (owner.IsObjectInSight(playerGameObject))
             {

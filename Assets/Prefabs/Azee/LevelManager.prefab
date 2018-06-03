@@ -9,47 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1762848247369414}
+  m_RootGameObject: {fileID: 1376453708980684}
   m_IsPrefabParent: 1
---- !u!1 &1762848247369414
+--- !u!1 &1376453708980684
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4169417385051088}
-  - component: {fileID: 114945296896766826}
+  - component: {fileID: 4222162221945448}
+  - component: {fileID: 114206890501559180}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4169417385051088
+--- !u!4 &4222162221945448
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1762848247369414}
+  m_GameObject: {fileID: 1376453708980684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -98.824974, y: -33.394814, z: 143.61612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114945296896766826
+--- !u!114 &114206890501559180
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1762848247369414}
+  m_GameObject: {fileID: 1376453708980684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb18ffbfa14864f4392a75740f333082, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c46f2bea467bca4996e1241bbd89104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameManager:
+    GameTitle: MyAwsmaticGame!
+    _profileListManager:
+      _profileListWrapper:
+        ProfileList: []
+    _currentProfile: default
+    _previewGameData: 1
+    _gameDataPreview:
+      _gameDataPreviewItems: []
   WinScreen: {fileID: 0}
   LoseScreen: {fileID: 0}

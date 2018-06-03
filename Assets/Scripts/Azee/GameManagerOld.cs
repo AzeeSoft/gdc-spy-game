@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManagerOld : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManagerOld Instance;
 
     public GameObject WinScreen;
     public GameObject LoseScreen;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerControllable curPlayerControllable;
 
-    public GameManager()
+    public GameManagerOld()
     {
         Instance = this;
         _isPlaying = true;
