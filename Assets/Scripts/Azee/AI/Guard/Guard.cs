@@ -9,14 +9,11 @@ using UnityStandardAssets.Utility;
 
 public class Guard : MonoBehaviour
 {
-    [Header("PatrolCircuit")]
-    public WaypointCircuitExtended DefaultPatrolCircuit;
+    [Header("PatrolCircuit")] public WaypointCircuitExtended DefaultPatrolCircuit;
 
-    [Header("AISight")]
-    public float MaxSightAngle;
+    [Header("AISight")] public float MaxSightAngle;
 
-    [SerializeField]
-    private ColorChanger _colorChanger;
+    [SerializeField] private ColorChanger _colorChanger;
 
     public readonly Patrol.StateData PatrolStateData;
     public readonly Chase.StateData ChaseStateData;
@@ -27,7 +24,7 @@ public class Guard : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private InteractiveObject _interactiveObject;
 
-    private List<StateMachine<Guard>.State> _nonStunnableStates = new List<StateMachine<Guard>.State>(); 
+    private List<StateMachine<Guard>.State> _nonStunnableStates = new List<StateMachine<Guard>.State>();
 
     public Guard()
     {
@@ -40,6 +37,11 @@ public class Guard : MonoBehaviour
         PatrolStateData = new Patrol.StateData {IsMoving = false, TargetWaypointIndex = -1};
         ChaseStateData = new Chase.StateData {TargetTransform = null};
         StunnedStateData = new Stunned.StateData();
+    }
+
+    void OnDrawGizmos()
+    {
+        DebugExtension.DrawCone(transform.position, transform.forward * 10, Color.blue, MaxSightAngle);
     }
 
     void Awake()
@@ -78,23 +80,23 @@ public class Guard : MonoBehaviour
 
     public bool IsObjectInSight(GameObject otherObject)
     {
-        Vector3 playerDir = (otherObject.transform.position - transform.position).normalized;
+        Vector3 guardToObject = (otherObject.transform.position - transform.position);
+        Vector3 objectDir = guardToObject.normalized;
 
-
-        if (Vector3.Angle(transform.forward, playerDir) < MaxSightAngle)
+        if (Vector3.Angle(transform.forward, objectDir) < MaxSightAngle)
         {
             RaycastHit raycastHit;
-            if (Physics.Raycast(transform.position, playerDir, out raycastHit))
+            if (Physics.Raycast(transform.position, objectDir, out raycastHit))
             {
                 if (raycastHit.transform.gameObject == otherObject)
                 {
-                    Debug.DrawLine(transform.position, transform.position + playerDir * 50, Color.red);
+                    Debug.DrawLine(transform.position, otherObject.transform.position, Color.red);
                     return true;
                 }
             }
         }
 
-        Debug.DrawLine(transform.position, transform.position + playerDir * 50, Color.blue);
+        Debug.DrawLine(transform.position, otherObject.transform.position, Color.blue);
         return false;
     }
 
@@ -134,6 +136,5 @@ public class Guard : MonoBehaviour
     public StateMachine<Guard> GetStateMachine()
     {
         return _stateMachine;
-    } 
-
+    }
 }

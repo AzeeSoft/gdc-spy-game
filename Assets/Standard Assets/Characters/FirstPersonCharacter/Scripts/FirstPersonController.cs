@@ -1,4 +1,5 @@
 using System;
+using System.Security;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -47,6 +48,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
         private float m_FootstepVolume;
 
+        private float m_OrigHeight = 1.8f;
+        private Vector3 m_OrigCenter = new Vector3(0, -0.5f, 0);
+
         // Use this for initialization
         private void Start()
         {
@@ -60,6 +64,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            m_OrigHeight = m_CharacterController.height;
+            m_OrigCenter = m_CharacterController.center;
         }
 
 
@@ -105,6 +112,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             float speed;
             GetInput(out speed);
+
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
@@ -139,7 +147,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
+            ComputeCapsuleForCrouch();
+
             m_MouseLook.UpdateCursorLock();
+        }
+
+        private void ComputeCapsuleForCrouch()
+        {
+            float targetHeight = m_OrigHeight;
+            Vector3 targetCenter = new Vector3(m_OrigCenter.x, m_OrigCenter.y, m_OrigCenter.z);
+
+            if (m_IsCrouching)
+            {
+                targetHeight = m_OrigHeight / 2;
+                targetCenter.y += Math.Abs(m_OrigHeight - targetHeight) / 2;
+            }
+
+//            m_CharacterController.height = Mathf.Lerp(m_CharacterController.height, targetHeight, Time.fixedDeltaTime * 2);
+//            m_CharacterController.center = Vector3.Lerp(m_CharacterController.center, targetCenter, Time.fixedDeltaTime * 2);
+
+            m_CharacterController.height = targetHeight;
+            m_CharacterController.center = targetCenter;
         }
 
 
