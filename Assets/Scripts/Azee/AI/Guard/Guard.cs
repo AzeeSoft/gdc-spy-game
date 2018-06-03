@@ -80,6 +80,7 @@ public class Guard : MonoBehaviour
     {
         Vector3 playerDir = (otherObject.transform.position - transform.position).normalized;
 
+
         if (Vector3.Angle(transform.forward, playerDir) < MaxSightAngle)
         {
             RaycastHit raycastHit;
@@ -87,11 +88,13 @@ public class Guard : MonoBehaviour
             {
                 if (raycastHit.transform.gameObject == otherObject)
                 {
+                    Debug.DrawLine(transform.position, transform.position + playerDir * 50, Color.red);
                     return true;
                 }
             }
         }
 
+        Debug.DrawLine(transform.position, transform.position + playerDir * 50, Color.blue);
         return false;
     }
 
