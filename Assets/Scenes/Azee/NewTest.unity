@@ -3214,6 +3214,36 @@ Prefab:
       propertyPath: m_Name
       value: SecurityCamera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 20174615297638772, guid: 54faaf3d7ad5f364cad89e894bad1a4e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575891815671770, guid: 54faaf3d7ad5f364cad89e894bad1a4e,
+        type: 2}
+      propertyPath: RFNoise
+      value: 0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575891815671770, guid: 54faaf3d7ad5f364cad89e894bad1a4e,
+        type: 2}
+      propertyPath: QuantizeRGB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575891815671770, guid: 54faaf3d7ad5f364cad89e894bad1a4e,
+        type: 2}
+      propertyPath: VideoMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575891815671770, guid: 54faaf3d7ad5f364cad89e894bad1a4e,
+        type: 2}
+      propertyPath: RollingVSyncTime
+      value: 1.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575891815671770, guid: 54faaf3d7ad5f364cad89e894bad1a4e,
+        type: 2}
+      propertyPath: RollingFlickerFactor
+      value: 0.078
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54faaf3d7ad5f364cad89e894bad1a4e, type: 2}
   m_IsPrefabParent: 0
@@ -4318,6 +4348,11 @@ Prefab:
     - target: {fileID: 1775504240588780, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864985178241272, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
