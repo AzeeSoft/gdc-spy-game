@@ -37,6 +37,7 @@ namespace GuardStates
             stateData.LastKnownPosition = transform.position;
 
             owner.GetColorChanger().turnRed();
+            owner.GetColorChanger().spotlightRed();
         }
 
         public void Update(Guard owner)
@@ -99,6 +100,7 @@ namespace GuardStates
             stateData.LastKnownPosition = Vector3.zero;
 
             owner.GetColorChanger().turnDefault();
+            owner.GetColorChanger().spotlightDefault();
         }
     }
 }

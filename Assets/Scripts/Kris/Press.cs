@@ -17,9 +17,7 @@ public class Press : MonoBehaviour
     {
         if(Input.GetKeyDown("f"))
         {
-            Debug.Log("It works");
             canActivate = false;
-
         }
     }
 
