@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4169678325391570}
   - component: {fileID: 108603578480451296}
+  - component: {fileID: 114905524317413432}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -103,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751286407098278}
   m_LocalRotation: {x: -0, y: -0.036639657, z: -0, w: -0.99932855}
-  m_LocalPosition: {x: -36.7, y: -2.57, z: 94.5}
+  m_LocalPosition: {x: -36.7, y: -2.57, z: 144.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4813150526905756}
@@ -231,7 +232,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 0.3419431, b: 0.18295847, a: 1}
+  m_Color: {r: 1, g: 0.8896551, b: 0, a: 1}
   m_Intensity: 4
   m_Range: 31.250237
   m_SpotAngle: 35.2
@@ -314,6 +315,31 @@ MonoBehaviour:
   DefaultPatrolCircuit: {fileID: 0}
   MaxSightAngle: 60
   _colorChanger: {fileID: 114557138702144498}
+--- !u!114 &114905524317413432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1400061320318348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafc90245bfe9e2408e358f71deace2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SampleCount: 12
+  ScatteringCoef: 0.089
+  ExtinctionCoef: 0.0296
+  SkyboxExtinctionCoef: 0.9
+  MieG: 0.281
+  HeightFog: 0
+  HeightScale: 0.1
+  GroundLevel: 0
+  Noise: 1
+  NoiseScale: 0.6
+  NoiseIntensity: 1.15
+  NoiseIntensityOffset: 0.3
+  NoiseVelocity: {x: 1, y: 0.5}
+  MaxRayLength: 400
 --- !u!135 &135385649065339138
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -78,6 +78,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 RotateView();
             }
 
+            if (Input.GetButtonDown("Crouch"))
+            {
+                m_IsCrouching = !m_IsCrouching;
+            }
+
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
@@ -264,7 +269,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
 
-            m_IsCrouching = Input.GetButton("Crouch");
 
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
