@@ -8521,6 +8521,16 @@ Prefab:
       propertyPath: m_Name
       value: Guard Light Test
       objectReference: {fileID: 0}
+    - target: {fileID: 108603578480451296, guid: 3a9f47f400c29814a8a0af62e19fd077,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.8896551
+      objectReference: {fileID: 0}
+    - target: {fileID: 108603578480451296, guid: 3a9f47f400c29814a8a0af62e19fd077,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
   m_IsPrefabParent: 0
