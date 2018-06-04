@@ -8,10 +8,12 @@ public class SecurityCameraController : MonoBehaviour
     public GameObject SecurityCameraUI; 
 
     private Camera _cctvCamera;
+    private SecurityCamera _securityCamera;
 
     void Awake()
     {
         _cctvCamera = GetComponentInChildren<Camera>();
+        _securityCamera = GetComponent<SecurityCamera>();
     }
 
 	// Use this for initialization
@@ -38,7 +40,12 @@ public class SecurityCameraController : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            GameManager.Instance.switchPlayerControlToFirstPerson();
+            LevelManager.Instance.switchPlayerControlToFirstPerson();
         }
+    }
+
+    public void RequestPlayerControl()
+    {
+        LevelManager.Instance.switchPlayerControl(_securityCamera);
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class XRayVision : MonoBehaviour
 {
-    public Shader XRayShader;
     public Color XRayVisionColor;
+    Shader _xRayShader;
 
     // Use this for initialization
     void Start () {
@@ -25,10 +25,12 @@ public class XRayVision : MonoBehaviour
 
     void OnEnable()
     {
-        if (XRayShader != null)
+        if (_xRayShader == null)
         {
-            GetComponent<Camera>().SetReplacementShader(XRayShader, "");
+            _xRayShader = Shader.Find("Azee/XRayShader");
         }
+
+        GetComponent<Camera>().SetReplacementShader(_xRayShader, "");
     }
 
     void OnDisable()
