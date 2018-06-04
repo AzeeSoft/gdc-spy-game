@@ -42,4 +42,26 @@ public class ColorChanger : MonoBehaviour
 
         mat.SetColor("_EmissionColor", finalColor);
     }
+
+    public void spotlightRed()
+    {
+        Light renderer = GetComponentInChildren<Light>();
+
+        Color baseColor = Color.red;
+
+        Color finalColor = baseColor;
+
+        renderer.color = finalColor; 
+    }
+
+    public void spotlightDefault()
+    {
+        Light renderer = GetComponentInChildren<Light>();
+
+        Color baseColor = Color.yellow;
+
+        Color finalColor = baseColor;
+
+        renderer.color = finalColor;
+    }
 }
