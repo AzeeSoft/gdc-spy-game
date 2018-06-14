@@ -23,6 +23,7 @@ public class Guard : MonoBehaviour
     private GuardsManager _guardsManager;
     private NavMeshAgent _navMeshAgent;
     private InteractiveObject _interactiveObject;
+    private AudioController _audioController;
 
     private List<StateMachine<Guard>.State> _nonStunnableStates = new List<StateMachine<Guard>.State>();
 
@@ -49,6 +50,7 @@ public class Guard : MonoBehaviour
         _guardsManager = FindObjectOfType<GuardsManager>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _interactiveObject = GetComponent<InteractiveObject>();
+        _audioController = GetComponent<AudioController>();
 
         _stateMachine.SwitchState(GuardStates.Idle.Instance);
     }
@@ -136,5 +138,10 @@ public class Guard : MonoBehaviour
     public StateMachine<Guard> GetStateMachine()
     {
         return _stateMachine;
+    }
+
+    public AudioController GetAudioController()
+    {
+        return _audioController;
     }
 }

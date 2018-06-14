@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class SecurityCameraController : MonoBehaviour
 {
-    public GameObject SecurityCameraUI; 
+    public GameObject SecurityCameraUI;
 
     private Camera _cctvCamera;
     private SecurityCamera _securityCamera;
+    private AudioController _audioController;
 
     void Awake()
     {
+        _audioController = GetComponent<AudioController>();
         _cctvCamera = GetComponentInChildren<Camera>();
         _securityCamera = GetComponent<SecurityCamera>();
     }
@@ -41,6 +43,7 @@ public class SecurityCameraController : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             LevelManager.Instance.switchPlayerControlToFirstPerson();
+            _audioController.PlayClip(1);
         }
     }
 
