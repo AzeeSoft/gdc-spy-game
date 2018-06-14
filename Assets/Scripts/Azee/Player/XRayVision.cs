@@ -1,12 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class XRayVision : MonoBehaviour
 {
     public Color XRayVisionColor;
+    public float FarClipPlaneDistance = 200;
+    public PostProcessingProfile XRayPostProcessingProfile;
+
     Shader _xRayShader;
+
+    private Camera _camera;
+    private PostProcessingBehaviour _postProcessingBehaviour;
+    private VolumetricLightRenderer _volumetricLightRenderer;
+
+    struct PreXRayConfig
+    {
+        public static float FarClipPlaneDistance = 1000;
+        public static PostProcessingProfile PrevPostProcessingProfile = null;
+        public static bool VolumetricLightEnabled = false;
+    }
+
+    public void Awake()
+    {
+        DefineVarsIfMissing();
+    }
 
     // Use this for initialization
     void Start () {
@@ -30,11 +50,59 @@ public class XRayVision : MonoBehaviour
             _xRayShader = Shader.Find("Azee/XRayShader");
         }
 
-        GetComponent<Camera>().SetReplacementShader(_xRayShader, "");
+        DefineVarsIfMissing();
+
+        _camera.SetReplacementShader(_xRayShader, "");
+
+        PreXRayConfig.FarClipPlaneDistance = _camera.farClipPlane;
+        _camera.farClipPlane = FarClipPlaneDistance;
+
+        if (_postProcessingBehaviour)
+        {
+            PreXRayConfig.PrevPostProcessingProfile = _postProcessingBehaviour.profile;
+            _postProcessingBehaviour.profile = XRayPostProcessingProfile;
+        }
+
+        if (_volumetricLightRenderer)
+        {
+            PreXRayConfig.VolumetricLightEnabled = _volumetricLightRenderer.enabled;
+            _volumetricLightRenderer.enabled = false;
+        }
     }
 
     void OnDisable()
     {
-        GetComponent<Camera>().ResetReplacementShader();
+        DefineVarsIfMissing();
+
+        _camera.ResetReplacementShader();
+
+        _camera.farClipPlane = PreXRayConfig.FarClipPlaneDistance;
+        if (_postProcessingBehaviour)
+        {
+            _postProcessingBehaviour.profile = PreXRayConfig.PrevPostProcessingProfile;
+        }
+
+        if (_volumetricLightRenderer)
+        {
+            _volumetricLightRenderer.enabled = PreXRayConfig.VolumetricLightEnabled;
+        }
+    }
+
+    private void DefineVarsIfMissing()
+    {
+        if (_camera == null)
+        {
+            _camera = GetComponent<Camera>();
+        }
+
+        if (_postProcessingBehaviour == null)
+        {
+            _postProcessingBehaviour = GetComponent<PostProcessingBehaviour>();
+        }
+
+        if (_volumetricLightRenderer == null)
+        {
+            _volumetricLightRenderer = GetComponent<VolumetricLightRenderer>();
+        }
     }
 }

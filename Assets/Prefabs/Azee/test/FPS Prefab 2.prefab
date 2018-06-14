@@ -143,7 +143,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
-  m_LocalRotation: {x: 0, y: 0.48671654, z: 0, w: 0.87355995}
+  m_LocalRotation: {x: -0, y: -0.256711, z: 0, w: -0.9664882}
   m_LocalPosition: {x: -63.68, y: -0.86, z: 65.4}
   m_LocalScale: {x: 1.708929, y: 1.7, z: 1.7089291}
   m_Children:
@@ -151,7 +151,7 @@ Transform:
   - {fileID: 4358407090237042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 273.505, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 389.75, z: 0}
 --- !u!4 &4241457729593926
 Transform:
   m_ObjectHideFlags: 1
@@ -243,7 +243,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -677,7 +677,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2c9d2d7d8855e4e949c115f840a20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XRayVisionColor: {r: 0.029411793, g: 0.028979266, b: 0.028979266, a: 0}
+  XRayVisionColor: {r: 0, g: 0.015686275, b: 0, a: 0}
+  FarClipPlaneDistance: 200
+  XRayPostProcessingProfile: {fileID: 11400000, guid: cfaa64fbe6e4ba04295ddccfedc20dcf,
+    type: 2}
 --- !u!114 &114966421613149378
 MonoBehaviour:
   m_ObjectHideFlags: 1
