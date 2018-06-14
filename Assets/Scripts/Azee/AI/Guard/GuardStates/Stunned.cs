@@ -32,6 +32,7 @@ namespace GuardStates
         {
             owner.StopMoving();
             owner.StunnedStateData.stunStartTime = Time.time;
+            owner.GetAudioController().PlayClip(0);
         }
 
         public void Update(Guard owner)
