@@ -9,6 +9,7 @@ public class SecurityCamera : PlayerControllable
     private ActionController _actionController;
     private FreeLookCam _freeLookCam;
     private InteractiveObject _interactiveObject;
+    private AudioController _audioController;
 
     private Camera _camera;
     private AudioListener _audioListener;
@@ -19,6 +20,7 @@ public class SecurityCamera : PlayerControllable
         _actionController = GetComponent<ActionController>();
         _freeLookCam = GetComponent<FreeLookCam>();
         _interactiveObject = GetComponent<InteractiveObject>();
+        _audioController = GetComponent<AudioController>();
 
         _camera = GetComponentInChildren<Camera>();
         _audioListener = GetComponentInChildren<AudioListener>();
@@ -46,6 +48,8 @@ public class SecurityCamera : PlayerControllable
 
         _camera.enabled = true;
         _audioListener.enabled = true;
+
+        _audioController.PlayClip(0);
     }
 
     protected override void OnControlEnd()

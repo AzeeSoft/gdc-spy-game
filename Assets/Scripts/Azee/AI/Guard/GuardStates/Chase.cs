@@ -38,6 +38,7 @@ namespace GuardStates
 
             owner.GetColorChanger().turnRed();
             owner.GetColorChanger().spotlightRed();
+            owner.GetAudioController().PlayClip(1);
         }
 
         public void Update(Guard owner)
