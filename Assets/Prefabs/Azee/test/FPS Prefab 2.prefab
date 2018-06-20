@@ -99,6 +99,9 @@ GameObject:
   - component: {fileID: 114278790996198248}
   - component: {fileID: 114864985178241272}
   - component: {fileID: 114966421613149378}
+  - component: {fileID: 95578685929777526}
+  - component: {fileID: 82825741628372138}
+  - component: {fileID: 114331070147224702}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -143,7 +146,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
-  m_LocalRotation: {x: 0, y: 0.48671654, z: 0, w: 0.87355995}
+  m_LocalRotation: {x: -0, y: -0.256711, z: 0, w: -0.9664882}
   m_LocalPosition: {x: -63.68, y: -0.86, z: 65.4}
   m_LocalScale: {x: 1.708929, y: 1.7, z: 1.7089291}
   m_Children:
@@ -151,7 +154,7 @@ Transform:
   - {fileID: 4358407090237042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 273.505, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 389.75, z: 0}
 --- !u!4 &4241457729593926
 Transform:
   m_ObjectHideFlags: 1
@@ -243,7 +246,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -429,6 +432,119 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82825741628372138
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778366368411078}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!95 &95578685929777526
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778366368411078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 204be6889194ec145b9483024f891d21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108281926247582134
 Light:
   m_ObjectHideFlags: 1
@@ -500,6 +616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d394c2d108081843ac19326da8ec219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InfiniteBattery: 0
+  MaxBattery: 100
+  DepletionTime: 5
+  RechargeTime: 10
+  CoolDownTime: 3
+  _currentBattery: 100
 --- !u!114 &114278790996198248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,6 +634,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 2a42de35fd58f09489f20ada0ab0d0b5, type: 2}
+--- !u!114 &114331070147224702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778366368411078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1a97bfb8443e149af3e5bdb61eeb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectedAudioSource: {fileID: 82825741628372138}
+  AudioClips:
+  - {fileID: 8300000, guid: 835d6b643205abe41b912f62c223c00d, type: 3}
+  - {fileID: 8300000, guid: 4b72de4034cd0d845855c72741ca7804, type: 3}
 --- !u!114 &114531995163384834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -677,7 +814,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2c9d2d7d8855e4e949c115f840a20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XRayVisionColor: {r: 0.029411793, g: 0.028979266, b: 0.028979266, a: 0}
+  XRayVisionColor: {r: 0, g: 0.015686275, b: 0, a: 0}
+  FarClipPlaneDistance: 200
+  XRayPostProcessingProfile: {fileID: 11400000, guid: cfaa64fbe6e4ba04295ddccfedc20dcf,
+    type: 2}
 --- !u!114 &114966421613149378
 MonoBehaviour:
   m_ObjectHideFlags: 1

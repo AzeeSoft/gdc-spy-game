@@ -49,16 +49,20 @@ Shader "Azee/XRayShader"
 			
 			fixed4 frag (v2f i) : SV_TARGET 
 			{
+				half4 color = _XRayColor;
+
 				if (_XRayColor.r == 0 && _XRayColor.g == 0 && _XRayColor.b == 0) 
 				{
-					return _XRayDefaultColor;
-				} else {
-					return _XRayColor;
+					color = _XRayDefaultColor;
 				}
+
+				// color = color * (i.depth);
+
+				return color;
 			}
 
 			ENDCG
 		}
 	}
-	FallBack "Diffuse"
+	FallBack "Azee/CustomStandard"
 }
