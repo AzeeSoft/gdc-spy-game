@@ -6,11 +6,23 @@ public class VisionToggler : MonoBehaviour
 {
     public bool InfiniteBattery = false;
     public float MaxBattery = 100f;
-    public float depletionTime = 3f;
-    public float rechargeTime = 6f;
+    public float DepletionTime = 3f;
+    public float RechargeTime = 6f;
+    public float CoolDownTime = 2f;
 
     [SerializeField] [ReadOnly] private float _currentBattery = 100f;
-    [SerializeField] [ReadOnly] private float _minRequiredBattery = 10f;
+
+    private float _minRequiredBattery = 0f;
+
+    private float DepletionPerSecond
+    {
+        get { return MaxBattery / DepletionTime; }
+    }
+
+    private float RechargePerSecond
+    {
+        get { return MaxBattery / RechargeTime; }
+    }
 
     private Camera fpsCamera;
     private XRayVision xRayVision;
@@ -47,9 +59,12 @@ public class VisionToggler : MonoBehaviour
         if (xRayVision.enabled)
         {
             DepleteBattery();
-            if (_currentBattery <= 0)
+            if (_currentBattery <= _minRequiredBattery)
             {
                 DisbleXRayVision();
+
+                // If force disabled xray vision, set current battery to negative (Works like a cooldown value)
+                _currentBattery = -RechargePerSecond * CoolDownTime;
             }
         }
         else
@@ -62,7 +77,7 @@ public class VisionToggler : MonoBehaviour
     {
         if (_currentBattery > 0)
         {
-            _currentBattery -= (MaxBattery / depletionTime) * Time.deltaTime;
+            _currentBattery -= DepletionPerSecond * Time.deltaTime;
 
             if (_currentBattery < 0)
             {
@@ -75,7 +90,7 @@ public class VisionToggler : MonoBehaviour
     {
         if (_currentBattery < MaxBattery)
         {
-            _currentBattery += (MaxBattery / rechargeTime) * Time.deltaTime;
+            _currentBattery += RechargePerSecond * Time.deltaTime;
 
             if (_currentBattery > MaxBattery)
             {

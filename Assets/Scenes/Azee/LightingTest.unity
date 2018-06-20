@@ -6469,6 +6469,21 @@ Prefab:
       propertyPath: InfiniteBattery
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114225649914256562, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: DepletionTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114225649914256562, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: RechargeTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114225649914256562, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: CoolDownTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
   m_IsPrefabParent: 0
