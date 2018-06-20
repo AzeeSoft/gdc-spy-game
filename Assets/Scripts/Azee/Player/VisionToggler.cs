@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VisionToggler : MonoBehaviour
 {
+    public bool InfiniteBattery = false;
     public float MaxBattery = 100f;
     public float depletionTime = 3f;
     public float rechargeTime = 6f;
@@ -33,6 +34,16 @@ public class VisionToggler : MonoBehaviour
 
     void UpdateBattery()
     {
+        if (InfiniteBattery)
+        {
+            if (_currentBattery < MaxBattery)
+            {
+                _currentBattery = MaxBattery;
+            }
+
+            return;
+        }
+
         if (xRayVision.enabled)
         {
             DepleteBattery();

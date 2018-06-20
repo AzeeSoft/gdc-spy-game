@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 114278790996198248}
   - component: {fileID: 114864985178241272}
   - component: {fileID: 114966421613149378}
+  - component: {fileID: 95578685929777526}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -429,6 +430,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95578685929777526
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778366368411078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 204be6889194ec145b9483024f891d21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108281926247582134
 Light:
   m_ObjectHideFlags: 1
@@ -500,6 +519,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d394c2d108081843ac19326da8ec219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InfiniteBattery: 1
+  MaxBattery: 100
+  depletionTime: 3
+  rechargeTime: 6
+  _currentBattery: 100
+  _minRequiredBattery: 10
 --- !u!114 &114278790996198248
 MonoBehaviour:
   m_ObjectHideFlags: 1
