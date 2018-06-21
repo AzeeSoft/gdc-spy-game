@@ -72,9 +72,19 @@ public class LevelManager : MonoBehaviour
     {
         if (curPlayerControllable)
         {
-            curPlayerControllable.ReleaseControl();
+            curPlayerControllable.ReleaseControl(true, () =>
+            {
+                setCurPlayerControllable(playerControllable);
+            });
         }
+        else
+        {
+            setCurPlayerControllable(playerControllable);
+        }
+    }
 
+    private void setCurPlayerControllable(PlayerControllable playerControllable)
+    {
         curPlayerControllable = playerControllable;
         curPlayerControllable.TakeControl();
     }
