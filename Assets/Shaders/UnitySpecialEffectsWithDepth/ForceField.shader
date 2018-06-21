@@ -12,6 +12,7 @@ Properties
 	_DistortTimeFactor("DistortTimeFactor", Range(0,1)) = 0.2
 	_RimStrength("RimStrength",Range(0, 10)) = 2
 	_IntersectPower("IntersectPower", Range(0, 3)) = 2
+	_XRayColor("X-Ray Color", Color) = (0,0,0,1)
 }
 
 SubShader
