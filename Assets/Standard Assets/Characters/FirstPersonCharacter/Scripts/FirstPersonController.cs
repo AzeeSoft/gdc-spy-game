@@ -51,6 +51,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_OrigHeight = 1.8f;
         private Vector3 m_OrigCenter = new Vector3(0, -0.5f, 0);
 
+        private float _slowDownFactor = 1f;
+
+        struct OriginalSpeeds
+        {
+            public static float CrouchSpeed;
+            public static float WalkSpeed;
+            public static float RunSpeed;
+        }
+
         // Use this for initialization
         private void Start()
         {
@@ -67,6 +76,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_OrigHeight = m_CharacterController.height;
             m_OrigCenter = m_CharacterController.center;
+
+            UpdateOriginalSpeeds();
         }
 
 
@@ -316,7 +327,30 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public float getCurrentFootstepVolume()
         {
-            return m_FootstepVolume;
+            return m_FootstepVolume * _slowDownFactor;
+        }
+
+        private void UpdateOriginalSpeeds()
+        {
+            OriginalSpeeds.CrouchSpeed = m_CrouchSpeed;
+            OriginalSpeeds.WalkSpeed = m_WalkSpeed;
+            OriginalSpeeds.RunSpeed = m_RunSpeed;
+        }
+
+        public void SlowDown(float factor)
+        {
+            m_CrouchSpeed = OriginalSpeeds.CrouchSpeed * factor;
+            m_WalkSpeed = OriginalSpeeds.WalkSpeed * factor;
+            m_RunSpeed = OriginalSpeeds.RunSpeed * factor;
+            _slowDownFactor = factor;
+        }
+
+        public void ResetSpeeds()
+        {
+            m_CrouchSpeed = OriginalSpeeds.CrouchSpeed;
+            m_WalkSpeed = OriginalSpeeds.WalkSpeed;
+            m_RunSpeed = OriginalSpeeds.RunSpeed;
+            _slowDownFactor = 1f;
         }
     }
 }
