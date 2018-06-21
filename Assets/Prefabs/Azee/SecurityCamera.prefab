@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 114324946195719428}
   - component: {fileID: 114575891815671770}
   - component: {fileID: 114831643489652968}
+  - component: {fileID: 95425944368858912}
   m_Layer: 0
   m_Name: CctvCamera
   m_TagString: CCTVCamera
@@ -155,7 +156,7 @@ Camera:
   m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -176,7 +177,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -333,6 +334,24 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800716380880594}
   m_Enabled: 1
+--- !u!95 &95425944368858912
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800716380880594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1eadb1497e5a05a478c7c2e2340273a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114040510733929924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,6 +562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c36e5f4ef7e5940bb4bda8c641c54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CamAnimator: {fileID: 95425944368858912}
+  ExitDuration: 0.25
 --- !u!124 &124778414141892132
 Behaviour:
   m_ObjectHideFlags: 1
