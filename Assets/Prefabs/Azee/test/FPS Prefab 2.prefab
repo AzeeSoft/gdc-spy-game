@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 95578685929777526}
   - component: {fileID: 82825741628372138}
   - component: {fileID: 114331070147224702}
+  - component: {fileID: 114020938580714876}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -581,6 +582,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114020938580714876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778366368411078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0075fa00dafe12e45b3afcf5f7b3823a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114078804603093104
 MonoBehaviour:
   m_ObjectHideFlags: 1
