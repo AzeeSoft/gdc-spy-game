@@ -14,6 +14,8 @@ public class LazerTrap : MonoBehaviour
     private bool _wasOpen = true;
     private bool _isOpen = true;
 
+    private float _guardsInsideZone = 0;
+
     void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -30,6 +32,11 @@ public class LazerTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_guardsInsideZone > 0)
+        {
+            _isOpen = false;
+        }
+
         if (_wasOpen != _isOpen)
         {
             _wasOpen = _isOpen;
@@ -47,11 +54,19 @@ public class LazerTrap : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider collider)
+    void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Guard"))
         {
-            _isOpen = false;
+            _guardsInsideZone++;
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("Guard"))
+        {
+            _guardsInsideZone--;
         }
     }
 

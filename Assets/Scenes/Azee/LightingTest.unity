@@ -5163,11 +5163,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 65943563281762020, guid: 0a9110d9d30ea6140998b9372f4f832f,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a9110d9d30ea6140998b9372f4f832f, type: 2}
   m_IsPrefabParent: 0
@@ -8701,10 +8696,6 @@ Prefab:
     - target: {fileID: 1751286407098278, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
       propertyPath: m_Name
       value: Guard Light Test
-      objectReference: {fileID: 0}
-    - target: {fileID: 1751286407098278, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a9f47f400c29814a8a0af62e19fd077, type: 2}
