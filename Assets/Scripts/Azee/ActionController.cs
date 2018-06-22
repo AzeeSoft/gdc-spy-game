@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class ActionController : MonoBehaviour
 {
     private const int MaxInteractions = 2;
+
     private readonly string[] InteractionInputButtons = new string[MaxInteractions]
     {
         "Primary Interaction",
         "Secondary Interaction"
     };
+
     private readonly string[] InteractionDescriptionPrefixes = new string[MaxInteractions]
     {
         "Primary: ",
@@ -25,22 +27,22 @@ public class ActionController : MonoBehaviour
 
     private bool[] interactionInputs = new bool[MaxInteractions];
 
-	// Use this for initialization
-	void Start ()
-	{
-	    _camera = GetComponentInChildren<Camera>();
+    // Use this for initialization
+    void Start()
+    {
+        _camera = GetComponentInChildren<Camera>();
 
-	    if (!interactionDescriptionText)
-	    {
+        if (!interactionDescriptionText)
+        {
             Debug.LogWarning("Interaction Description Text is not assigned!!!");
         }
-	}
-	
-	void LateUpdate ()
-	{
+    }
+
+    void LateUpdate()
+    {
         DetectInteractionInputs();
-	    CheckInteraction();
-	}
+        CheckInteraction();
+    }
 
     private void DetectInteractionInputs()
     {
@@ -54,7 +56,7 @@ public class ActionController : MonoBehaviour
             if (Input.GetButtonDown(InteractionInputButtons[i]))
             {
                 interactionInputs[i] = true;
-                return;     // Ensures that at most only one interaction input is ever true
+                return; // Ensures that at most only one interaction input is ever true
             }
         }
     }
@@ -64,7 +66,11 @@ public class ActionController : MonoBehaviour
         string actionDescription = "";
 
         RaycastHit raycastHit = new RaycastHit();
-        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out raycastHit, maxDistance))
+
+        int layerMask = -5; //All layers
+
+        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out raycastHit, maxDistance,
+            layerMask, QueryTriggerInteraction.Ignore))
         {
 //            Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
 
@@ -77,7 +83,8 @@ public class ActionController : MonoBehaviour
                 {
                     InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
 
-                    if (interaction.enabled && Vector3.Distance(transform.position, interactiveObject.transform.position) <=
+                    if (interaction.enabled &&
+                        Vector3.Distance(transform.position, interactiveObject.transform.position) <=
                         interaction.maxRange)
                     {
                         actionDescription += InteractionDescriptionPrefixes[i] + interaction.description + "\n";
