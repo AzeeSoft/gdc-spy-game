@@ -60,6 +60,7 @@ Shader "Hidden/OutlineDepthBuffer" {
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			int _SeeThrough;
 
 			sampler2D _CameraDepthTexture;
 			float4 _CameraDepthTexture_ST;
@@ -91,25 +92,21 @@ Shader "Hidden/OutlineDepthBuffer" {
 
 			half4 frag(v2f IN) : Color
 			{
-				float sceneDepthSample = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, IN.uv);
-				// float rawZ = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(IN.projPos));
-				float rawZ = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(IN.projPos)).r);
-				// float testDepth = IN.projPos.z;
-				// float testDepth = IN.projPos.z;
-				float testDepth = IN.depth;
-
-				bool zTestFail = false;
-
-				if (testDepth  - rawZ > 0.000001) 
+				bool zTestPass = true;
+				
+				if (!_SeeThrough)
 				{
-					zTestFail = true;
-					// return (testDepth - rawZ);
+					// float rawZ = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(IN.projPos));
+					float closestLinearDepth = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(IN.projPos)).r);
+					// float testDepth = IN.projPos.z;
+
+					if (IN.depth - closestLinearDepth > 0.000001) 
+					{
+						zTestPass = false;
+					}		
 				}
 
-				// return sceneDepthSample;
-				// return rawZ;
-				// return testDepth;
-				return (zTestFail) ? half4(0, 0, 0, 0) : half4(1, 1, 1, 1);
+				return (zTestPass) ? half4(1, 1, 1, 1) : half4(0, 0, 0, 0);
 			}
 
 			ENDCG
