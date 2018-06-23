@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutlineCount: 3
-  lineThickness: 2
+  lineThickness: 1.5
   lineIntensity: 0.5
   fillAmount: 0.05
   lineColor0: {r: 1, g: 0, b: 0, a: 1}
