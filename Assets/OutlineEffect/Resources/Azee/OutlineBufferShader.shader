@@ -30,12 +30,6 @@ Shader "Hidden/OutlineBufferEffect" {
 		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
 	}
 
-	CGINCLUDE
-
-        #pragma target 3.0
-
-    ENDCG
-
 	SubShader
 	{ 
 		Tags
@@ -47,84 +41,68 @@ Shader "Hidden/OutlineBufferEffect" {
 		ZTest Less
 
 		// Change this stuff in OutlineEffect.cs instead!
-		//ZWrite Off
-		Blend One One
+		ZWrite Off
+		//Blend One OneMinusSrcAlpha
 		Cull [_Culling]
-		// Lighting Off
+		Lighting Off
+			
+		CGPROGRAM
 
-		Pass
+		#pragma surface surf Lambert vertex:vert 
+		#pragma multi_compile _ PIXELSNAP_ON
+		#include "UnityCG.cginc"
+
+		sampler2D _MainTex;
+		float4 _MainTex_ST;
+		fixed4 _Color;
+		float _OutlineAlphaCutoff;
+		sampler2D _OutlineDepth;
+		
+        sampler2D _CameraDepthTexture;
+
+		struct Input
 		{
-			CGPROGRAM
+			float4 position : SV_POSITION;
+			float2 uv : TEXCOORD0;
+			float4 projPos : TEXCOORD1;
+			// float3 worldPos : TEXCOORD2;
+			//fixed4 color;
+		};
 
-			#pragma vertex vert
-			#pragma fragment frag
-			#pragma multi_compile _ PIXELSNAP_ON
+		bool passesZTest(half4 outlineDepth)
+		{
+			return (outlineDepth.x == 1 && outlineDepth.y == 1 && outlineDepth.z == 1);				
+		}
 
-			#include "UnityCG.cginc"
+		void vert(inout appdata_full v, out Input o)
+		{			
+			/* #if defined(PIXELSNAP_ON)
+			v.vertex = UnityPixelSnap(v.vertex);
+			#endif */
 
-			sampler2D _MainTex;
-			float4 _MainTex_ST;
-			fixed4 _Color;
-			float _OutlineAlphaCutoff;
+			o.position = UnityObjectToClipPos(v.vertex);
+			o.uv = v.texcoord;
+			o.projPos = ComputeScreenPos(o.position);
+			// o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+		}
 
-			sampler2D _CameraDepthTexture;
+		void surf(Input IN, inout SurfaceOutput o)
+		{
+			// half4 outlineDepth = tex2D(_OutlineDepth, UnityStereoScreenSpaceUVAdjust(IN.uv, _MainTex_ST));
+			half4 outlineDepth = tex2Dproj(_OutlineDepth, UNITY_PROJ_COORD(IN.projPos));
 
-			struct v2f
+			bool zTestPass = passesZTest(outlineDepth);
+			if (!zTestPass)
 			{
-				float4 position : SV_POSITION;
-				float2 uv : TEXCOORD0;
-				float4 projPos : TEXCOORD1;
-				//fixed4 color;
-			};
-
-			v2f vert(appdata_full v)
-			{
-			   	v2f o;
-
-				/* #if defined(PIXELSNAP_ON)
-				v.vertex = UnityPixelSnap(v.vertex);
-				#endif */
-
-				o.position = UnityObjectToClipPos(v.vertex);
-				o.uv = v.texcoord;
-				o.projPos = ComputeScreenPos(o.position);
-				//o.color = v.color;
-
-				return o;
+				discard;
 			}
 
-			half4 frag(v2f IN) : Color
-			{
-				// float sceneDepthSample = tex2D(_CameraDepthTexture, UnityStereoScreenSpaceUVAdjust(IN.uv, _MainTex_ST));
-				// float sceneDepthSample = tex2D(_CameraDepthTexture, IN.uv);
+			o.Albedo = 0;
+			o.Alpha = 1;
+			o.Emission = _Color;
+		}
 
-				// fixed4 c = tex2D(_MainTex, IN.uv_MainTex);// * IN.color;
-				// if (c.a < _OutlineAlphaCutoff) discard;
-
-				float rawZ = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(IN.projPos));
-				// float rawZ = tex2D(_CameraDepthTexture, IN.uv_MainTex);;
-				float sceneZ = LinearEyeDepth(rawZ);
-				// float partZ = IN.eyeDepth;
-
-
-
-				// float alpha = c.a * 99999999;
-
-				// o.Albedo = rawZ * alpha;
-
-				// float testDepth = rawZ;
-				float testDepth = IN.projPos.z;
-
-				if (IN.projPos.z < testDepth) {
-					// discard;
-				}
-
-
-				return _Color;
-			}
-
-			ENDCG
-		}	
+		ENDCG		
 	}
 
 	Fallback "Transparent/VertexLit"

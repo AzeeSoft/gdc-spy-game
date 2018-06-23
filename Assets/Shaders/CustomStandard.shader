@@ -75,13 +75,6 @@ Shader "Azee/CustomStandard"
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite] 
 
-            Stencil 
-			{
-				Ref 1
-				Comp Always
-				Pass Replace
-			}
-
             CGPROGRAM
             #pragma target 3.0
 
@@ -181,13 +174,6 @@ Shader "Azee/CustomStandard"
         {
             Name "DEFERRED"
             Tags { "LightMode" = "Deferred" }
-
-            Stencil 
-			{
-				Ref 1
-				Comp Always
-				Pass Replace
-			}
 
             CGPROGRAM
             #pragma target 3.0
@@ -292,13 +278,6 @@ Shader "Azee/CustomStandard"
 
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite]
-
-            Stencil 
-			{
-				Ref 1
-				Comp Always
-				Pass Replace
-			}
             
             CGPROGRAM
             #pragma target 2.0

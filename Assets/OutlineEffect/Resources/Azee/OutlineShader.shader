@@ -300,9 +300,6 @@ Shader "Hidden/OutlineEffect"
 
 			half4 frag (v2f input) : COLOR
 			{
-				float sceneDepthSample = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos));
-				// float sceneDepthSample = LinearEyeDepth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos)).r);
-
 				float2 uv = input.uv;
 				if (_FlipY == 1)
 					uv.y = 1 - uv.y;
@@ -312,16 +309,12 @@ Shader "Hidden/OutlineEffect"
 				#endif
 
 				half4 originalPixel = tex2D(_MainTex, UnityStereoScreenSpaceUVAdjust(input.uv, _MainTex_ST));
-
 				half4 outlineSource = tex2D(_OutlineSource, UnityStereoScreenSpaceUVAdjust(uv, _MainTex_ST));
-				// half4 outlineDepth = tex2Dproj(_OutlineDepth, UNITY_PROJ_COORD(input.projPos));
-				half4 outlineDepth = tex2D(_OutlineDepth, UnityStereoScreenSpaceUVAdjust(uv, _MainTex_ST));
-				
+				// half4 outlineDepth = tex2D(_OutlineDepth, UnityStereoScreenSpaceUVAdjust(uv, _MainTex_ST));
 
-				// return sceneDepthSample;
 				// return originalPixel;
-				// return outlineDepth;
 				// return outlineSource;
+				// return outlineDepth;
 				// return 1;
 								
 				const float h = .95f;
@@ -330,21 +323,7 @@ Shader "Hidden/OutlineEffect"
 				
 				if (hasOutline) 
 				{
-					bool passesZTest = performOutlineZTest(uv, outlineDepth, h);
-
-					/* // float depth = Linear01Depth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos)).r);
-					float depth = input.projPos.z;
-					// float depth = input.position.z;
-
-					float4 screenPos = ComputeScreenPos(input.position);
-					// bool zTestFailed = (sceneDepthSample > depth); 
-
-					float diff = sceneDepthSample - outlineDepth;
-					float threshold = 0.2;
-
-					bool zTestFailed = (diff > threshold);
-
-					depth = screenPos.z; */
+					// bool passesZTest = performOutlineZTest(uv, outlineDepth, h);
 
 					// return sceneDepthSample;
 					// return depth;
@@ -352,12 +331,10 @@ Shader "Hidden/OutlineEffect"
 					// return outlineDepth;
 					// return sceneDepthSample - depth - 1;
 
-					if (!passesZTest) 
+					/* if (!passesZTest) 
 					{
 						return originalPixel;
-					}
-
-					// UNITY_OUTPUT_DEPTH(i.depth);
+					} */
 
 					return lerp(originalPixel + outline, outline, _FillAmount);
 					// return originalPixel + outline;

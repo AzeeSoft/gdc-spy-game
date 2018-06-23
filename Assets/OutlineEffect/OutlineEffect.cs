@@ -24,6 +24,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Rendering;
 using UnityEngine.VR;
 
@@ -50,6 +51,8 @@ namespace cakeslice
         private OutlineEffect() { }
 
         private readonly LinkedSet<Outline> outlines = new LinkedSet<Outline>();
+
+        [ReadOnly] public float OutlineCount;
 
         [Range(1.0f, 6.0f)]
         public float lineThickness = 1.25f;
@@ -159,6 +162,11 @@ namespace cakeslice
             sourceCamera.AddCommandBuffer(CameraEvent.BeforeImageEffects, commandBuffer);
         }
 
+        void Update()
+        {
+            OutlineCount = outlines.Count();
+        }
+
         public void OnPreRender()
         {
             PrepareOutlineSource();
@@ -186,10 +194,46 @@ namespace cakeslice
             UpdateOutlineCameraFromSource();
             outlineCamera.targetTexture = renderTexture;
 
-//            void* depthBufferPtr = renderTexture.depthBuffer.GetNativeRenderBufferPtr().ToPointer();
-//                sourceCamera.activeTexture.depthBuffer.GetNativeRenderBufferPtr();
-
             commandBuffer.Clear();
+
+            commandBuffer.SetRenderTarget(depthRenderTexture);
+            if (outlines != null)
+            {
+                foreach (Outline outline in outlines)
+                {
+                    LayerMask l = sourceCamera.cullingMask;
+
+                    if (outline != null && l == (l | (1 << outline.originalLayer)))
+                    {
+                        for (int v = 0; v < outline.Renderer.sharedMaterials.Length; v++)
+                        {
+                            Material m = outlineDepthMaterial;
+
+                            SetLineThicknessOnMaterial(m);
+
+                            if (cornerOutlines)
+                                m.SetInt("_CornerOutlines", 1);
+                            else
+                                m.SetInt("_CornerOutlines", 0);
+
+                            commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
+                            MeshFilter mL = outline.GetComponent<MeshFilter>();
+                            if (mL)
+                            {
+                                for (int i = 1; i < mL.sharedMesh.subMeshCount; i++)
+                                    commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
+                            }
+                            SkinnedMeshRenderer sMR = outline.GetComponent<SkinnedMeshRenderer>();
+                            if (sMR)
+                            {
+                                for (int i = 1; i < sMR.sharedMesh.subMeshCount; i++)
+                                    commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
+                            }
+                        }
+                    }
+                }
+            }
+
             commandBuffer.SetRenderTarget(renderTexture);
             if (outlines != null)
             {
@@ -239,6 +283,8 @@ namespace cakeslice
                             else
                                 m.SetInt("_Culling", (int)UnityEngine.Rendering.CullMode.Off);
 
+                            m.SetTexture("_OutlineDepth", depthRenderTexture);
+
                             commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
                             MeshFilter mL = outline.GetComponent<MeshFilter>();
                             if(mL)
@@ -250,75 +296,6 @@ namespace cakeslice
                             if(sMR)
                             {
                                 for(int i = 1; i < sMR.sharedMesh.subMeshCount; i++)
-                                    commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
-                            }
-                        }
-                    }
-                }
-            }
-
-            commandBuffer.SetRenderTarget(depthRenderTexture);
-            if (outlines != null)
-            {
-                foreach (Outline outline in outlines)
-                {
-                    LayerMask l = sourceCamera.cullingMask;
-
-                    if (outline != null && l == (l | (1 << outline.originalLayer)))
-                    {
-                        for (int v = 0; v < outline.Renderer.sharedMaterials.Length; v++)
-                        {
-                            Material m = outlineDepthMaterial;
-
-                            /*if (outline.Renderer.sharedMaterials[v].mainTexture != null && outline.Renderer.sharedMaterials[v])
-                            {
-                                foreach (Material g in materialBuffer)
-                                {
-                                    if (g.mainTexture == outline.Renderer.sharedMaterials[v].mainTexture)
-                                    {
-                                        if (outline.eraseRenderer && g.color == outlineEraseMaterial.color)
-                                            m = g;
-                                        else if (g.color == GetMaterialFromID(outline.color).color)
-                                            m = g;
-                                    }
-                                }
-
-                                if (m == null)
-                                {
-                                    if (outline.eraseRenderer)
-                                        m = new Material(outlineEraseMaterial);
-                                    else
-                                        m = new Material(GetMaterialFromID(outline.color));
-                                    m.mainTexture = outline.Renderer.sharedMaterials[v].mainTexture;
-                                    materialBuffer.Add(m);
-                                }
-                            }
-                            else
-                            {
-                                if (outline.eraseRenderer)
-                                    m = outlineEraseMaterial;
-                                else
-                                    m = GetMaterialFromID(outline.color);
-                            }*/
-
-                            SetLineThicknessOnMaterial(m);
-
-                            if (cornerOutlines)
-                                m.SetInt("_CornerOutlines", 1);
-                            else
-                                m.SetInt("_CornerOutlines", 0);
-
-                            commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
-                            MeshFilter mL = outline.GetComponent<MeshFilter>();
-                            if (mL)
-                            {
-                                for (int i = 1; i < mL.sharedMesh.subMeshCount; i++)
-                                    commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
-                            }
-                            SkinnedMeshRenderer sMR = outline.GetComponent<SkinnedMeshRenderer>();
-                            if (sMR)
-                            {
-                                for (int i = 1; i < sMR.sharedMesh.subMeshCount; i++)
                                     commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, i, 0);
                             }
                         }
@@ -353,9 +330,8 @@ namespace cakeslice
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-//            PrepareOutlineSource();
             outlineShaderMaterial.SetTexture("_OutlineSource", renderTexture);
-            outlineShaderMaterial.SetTexture("_OutlineDepth", depthRenderTexture);
+//            outlineShaderMaterial.SetTexture("_OutlineDepth", depthRenderTexture);
 
             if(addLinesBetweenColors)
             {
@@ -371,7 +347,7 @@ namespace cakeslice
                 outlineShader = Resources.Load<Shader>("Azee/OutlineShader");
             if(outlineBufferShader == null)
             {
-                outlineBufferShader = Resources.Load<Shader>("OutlineBufferShader");
+                outlineBufferShader = Resources.Load<Shader>("Azee/OutlineBufferShader");
             }
             if (outlineDepthBufferShader == null)
             {
