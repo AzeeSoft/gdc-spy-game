@@ -87,8 +87,11 @@ public class Guard : MonoBehaviour
 
         if (Vector3.Angle(transform.forward, objectDir) < MaxSightAngle)
         {
+            int layerMask = -5; //All layers
+
             RaycastHit raycastHit;
-            if (Physics.Raycast(transform.position, objectDir, out raycastHit))
+            if (Physics.Raycast(transform.position, objectDir, out raycastHit, float.MaxValue, layerMask,
+                QueryTriggerInteraction.Ignore))
             {
                 if (raycastHit.transform.gameObject == otherObject)
                 {
