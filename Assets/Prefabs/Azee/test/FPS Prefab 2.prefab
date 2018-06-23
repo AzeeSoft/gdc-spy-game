@@ -717,7 +717,7 @@ MonoBehaviour:
   outlineCamera: {fileID: 20285353036580202}
   outlineShaderMaterial: {fileID: 0}
   renderTexture: {fileID: 0}
-  depthRenderTexture: {fileID: 0}
+  depthMaskRenderTexture: {fileID: 0}
   extraRenderTexture: {fileID: 0}
 --- !u!114 &114181825347534366
 MonoBehaviour:
@@ -747,7 +747,7 @@ MonoBehaviour:
   MaxBattery: 100
   DepletionTime: 5
   RechargeTime: 10
-  CoolDownTime: 3
+  CoolDownTime: 5
   _currentBattery: 100
 --- !u!114 &114278790996198248
 MonoBehaviour:
