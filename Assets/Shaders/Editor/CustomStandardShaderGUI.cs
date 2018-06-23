@@ -49,8 +49,8 @@ class CustomStandardShaderGUI : ShaderGUI
         public static GUIContent detailAlbedoText = new GUIContent("Detail Albedo x2", "Albedo (RGB) multiplied by 2");
         public static GUIContent detailNormalMapText = new GUIContent("Normal Map", "Normal Map");
         public static GUIContent xRayColorText = new GUIContent("X-Ray Color", "X-Ray Color (Black for default)");
-        public static GUIContent outlineThickness = new GUIContent("Outline Thickness", "Outline Thickness");
-        public static GUIContent outlineColor = new GUIContent("Outline Color", "Outline Color");
+//        public static GUIContent outlineThickness = new GUIContent("Outline Thickness", "Outline Thickness");
+//        public static GUIContent outlineColor = new GUIContent("Outline Color", "Outline Color");
 
         public static string primaryMapsText = "Main Maps";
         public static string secondaryMapsText = "Secondary Maps";
@@ -87,8 +87,8 @@ class CustomStandardShaderGUI : ShaderGUI
     MaterialProperty detailNormalMap = null;
     MaterialProperty uvSetSecondary = null;
     MaterialProperty xRayColorForRendering = null;
-    MaterialProperty outlineThickness = null;
-    MaterialProperty outlineColor = null;
+//    MaterialProperty outlineThickness = null;
+//    MaterialProperty outlineColor = null;
 
     MaterialEditor m_MaterialEditor;
     WorkflowMode m_WorkflowMode = WorkflowMode.Specular;
@@ -131,8 +131,8 @@ class CustomStandardShaderGUI : ShaderGUI
         detailNormalMap = FindProperty("_DetailNormalMap", props);
         uvSetSecondary = FindProperty("_UVSec", props);
         xRayColorForRendering = FindProperty("_XRayColor", props);
-        outlineThickness = FindProperty("_OutlineThickness", props);
-        outlineColor = FindProperty("_OutlineColor", props);
+//        outlineThickness = FindProperty("_OutlineThickness", props);
+//        outlineColor = FindProperty("_OutlineColor", props);
     }
 
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] props)
@@ -191,10 +191,10 @@ class CustomStandardShaderGUI : ShaderGUI
             GUILayout.Label("X-Ray Vision", EditorStyles.boldLabel);
             DoXRayArea(material);
 
-            EditorGUILayout.Space();
+//            EditorGUILayout.Space();
 
-            GUILayout.Label("Outline", EditorStyles.boldLabel);
-            DoOutlineArea(material);
+//            GUILayout.Label("Outline", EditorStyles.boldLabel);
+//            DoOutlineArea(material);
 
             // Third properties
             GUILayout.Label(Styles.forwardText, EditorStyles.boldLabel);
@@ -318,11 +318,11 @@ class CustomStandardShaderGUI : ShaderGUI
 
     }
 
-    void DoOutlineArea(Material material)
+    /*void DoOutlineArea(Material material)
     {
         m_MaterialEditor.FloatProperty(outlineThickness, Styles.outlineThickness.text);
         m_MaterialEditor.ColorProperty(outlineColor, Styles.outlineColor.text);
-    }
+    }*/
 
     void DoEmissionArea(Material material)
     {
