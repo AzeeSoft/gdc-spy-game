@@ -35,20 +35,7 @@ namespace cakeslice
     [ExecuteInEditMode]
     public class OutlineEffect : MonoBehaviour
     {
-        private static OutlineEffect m_instance;
-        public static OutlineEffect Instance
-        {
-            get
-            {
-                if(Equals(m_instance, null))
-                {
-                    return m_instance = FindObjectOfType(typeof(OutlineEffect)) as OutlineEffect;
-                }
-
-                return m_instance;
-            }
-        }
-        private OutlineEffect() { }
+        
 
         private readonly LinkedSet<Outline> outlines = new LinkedSet<Outline>();
 
@@ -127,7 +114,7 @@ namespace cakeslice
 
         private void Awake()
         {
-            m_instance = this;
+//            m_instance = this;
         }
 
         void Start()
@@ -145,11 +132,23 @@ namespace cakeslice
 
             if(outlineCamera == null)
             {
+                foreach (Camera camera in GetComponentsInChildren<Camera>())
+                {
+                    if (camera.gameObject.name.Equals("Outline Camera"))
+                    {
+                        outlineCamera = camera;
+                    }
+                }
+            }
+
+            if (outlineCamera == null)
+            {
                 GameObject cameraGameObject = new GameObject("Outline Camera");
                 cameraGameObject.transform.parent = sourceCamera.transform;
                 outlineCamera = cameraGameObject.AddComponent<Camera>();
-                outlineCamera.enabled = false;
             }
+
+            outlineCamera.enabled = false;
 
             renderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
             depthRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
@@ -310,10 +309,12 @@ namespace cakeslice
         {
             Outline[] o = FindObjectsOfType<Outline>();
 
-            foreach(Outline oL in o)
+            foreach(Outline outline in o)
             {
-                oL.enabled = false;
-                oL.enabled = true;
+                if (outline.enabled)
+                {
+                    outline.BroadcastOutline(this, true);
+                }
             }
         }
 
