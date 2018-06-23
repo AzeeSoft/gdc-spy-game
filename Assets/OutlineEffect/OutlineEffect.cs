@@ -75,16 +75,16 @@ namespace cakeslice
         Material outline2Material;
         Material outline3Material;
         Material outlineEraseMaterial;
-        Material outlineDepthMaterial;
+        Material outlineDepthMaskMaterial;
         Shader outlineShader;
         Shader outlineBufferShader;
-        Shader outlineDepthBufferShader;
+        Shader outlineDepthMaskBufferShader;
         [HideInInspector]
         public Material outlineShaderMaterial;
         [HideInInspector]
         public RenderTexture renderTexture;
         [HideInInspector]
-        public RenderTexture depthRenderTexture;
+        public RenderTexture depthMaskRenderTexture;
         [HideInInspector]
         public RenderTexture extraRenderTexture;
 
@@ -153,7 +153,7 @@ namespace cakeslice
             outlineCamera.enabled = false;
 
             renderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
-            depthRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
+            depthMaskRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
             extraRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
             UpdateOutlineCameraFromSource();
 
@@ -183,13 +183,13 @@ namespace cakeslice
             if(renderTexture == null || renderTexture.width != sourceCamera.pixelWidth || renderTexture.height != sourceCamera.pixelHeight)
             {
                 renderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
-                depthRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
+                depthMaskRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
                 extraRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
                 outlineCamera.targetTexture = renderTexture;
             }
 
             renderTexture.Release();
-            depthRenderTexture.Release();
+            depthMaskRenderTexture.Release();
 
             UpdateMaterialsPublicProperties();
             UpdateOutlineCameraFromSource();
@@ -197,7 +197,7 @@ namespace cakeslice
 
             commandBuffer.Clear();
 
-            commandBuffer.SetRenderTarget(depthRenderTexture);
+            commandBuffer.SetRenderTarget(depthMaskRenderTexture);
             if (outlines != null)
             {
                 foreach (Outline outline in outlines)
@@ -208,14 +208,12 @@ namespace cakeslice
                     {
                         for (int v = 0; v < outline.Renderer.sharedMaterials.Length; v++)
                         {
-                            Material m = outlineDepthMaterial;
+                            Material m = outlineDepthMaskMaterial;
 
                             SetLineThicknessOnMaterial(m);
 
-                            if (cornerOutlines)
-                                m.SetInt("_CornerOutlines", 1);
-                            else
-                                m.SetInt("_CornerOutlines", 0);
+                            m.SetInt("_CornerOutlines", cornerOutlines ? 1 : 0);
+                            m.SetInt("_SeeThrough", SeeThrough ? 1 : 0);
 
                             commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
                             MeshFilter mL = outline.GetComponent<MeshFilter>();
@@ -284,8 +282,7 @@ namespace cakeslice
                             else
                                 m.SetInt("_Culling", (int)UnityEngine.Rendering.CullMode.Off);
 
-                            m.SetTexture("_OutlineDepth", depthRenderTexture);
-                            m.SetInt("_SeeThrough", SeeThrough ? 1 : 0);
+                            m.SetTexture("_OutlineDepthMask", depthMaskRenderTexture);
 
                             commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
                             MeshFilter mL = outline.GetComponent<MeshFilter>();
@@ -325,8 +322,8 @@ namespace cakeslice
         {
             if(renderTexture != null)
                 renderTexture.Release();
-            if (depthRenderTexture != null)
-                depthRenderTexture.Release();
+            if (depthMaskRenderTexture != null)
+                depthMaskRenderTexture.Release();
             if (extraRenderTexture != null)
                 extraRenderTexture.Release();
             DestroyMaterials();
@@ -335,7 +332,7 @@ namespace cakeslice
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
             outlineShaderMaterial.SetTexture("_OutlineSource", renderTexture);
-//            outlineShaderMaterial.SetTexture("_OutlineDepth", depthRenderTexture);
+//            outlineShaderMaterial.SetTexture("_OutlineDepth", depthMaskRenderTexture);
 
             if(addLinesBetweenColors)
             {
@@ -353,10 +350,10 @@ namespace cakeslice
             {
                 outlineBufferShader = Resources.Load<Shader>("Azee/OutlineBufferShader");
             }
-            if (outlineDepthBufferShader == null)
+            if (outlineDepthMaskBufferShader == null)
             {
-                outlineDepthBufferShader = Resources.Load<Shader>("Azee/OutlineDepthBufferShader");
-//                outlineDepthBufferShader = Shader.Find("Hidden/Render Depth");
+                outlineDepthMaskBufferShader = Resources.Load<Shader>("Azee/OutlineDepthMaskBufferShader");
+//                outlineDepthMaskBufferShader = Shader.Find("Hidden/Render Depth");
             }
             if (outlineShaderMaterial == null)
             {
@@ -372,9 +369,9 @@ namespace cakeslice
                 outline2Material = CreateMaterial(new Color(0, 1, 0, 0));
             if(outline3Material == null)
                 outline3Material = CreateMaterial(new Color(0, 0, 1, 0));
-            if (outlineDepthMaterial == null)
+            if (outlineDepthMaskMaterial == null)
             {
-                outlineDepthMaterial = new Material(outlineDepthBufferShader);
+                outlineDepthMaskMaterial = new Material(outlineDepthMaskBufferShader);
             }
         }
 
@@ -390,7 +387,7 @@ namespace cakeslice
             DestroyImmediate(outline3Material);
             outlineShader = null;
             outlineBufferShader = null;
-            outlineDepthBufferShader = null;
+            outlineDepthMaskBufferShader = null;
             outlineShaderMaterial = null;
             outlineEraseMaterial = null;
             outline1Material = null;

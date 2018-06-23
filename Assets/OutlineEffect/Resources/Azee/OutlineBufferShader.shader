@@ -56,8 +56,7 @@ Shader "Hidden/OutlineBufferEffect" {
 		float4 _MainTex_ST;
 		fixed4 _Color;
 		float _OutlineAlphaCutoff;
-		sampler2D _OutlineDepth;
-		int _SeeThrough;
+		sampler2D _OutlineDepthMask;
 		
         sampler2D _CameraDepthTexture;
 
@@ -89,15 +88,12 @@ Shader "Hidden/OutlineBufferEffect" {
 
 		void surf(Input IN, inout SurfaceOutput o)
 		{
-			if (!_SeeThrough)
-			{
-				half4 outlineDepth = tex2Dproj(_OutlineDepth, UNITY_PROJ_COORD(IN.projPos));
+			half4 outlineDepth = tex2Dproj(_OutlineDepthMask, UNITY_PROJ_COORD(IN.projPos));
 
-				bool zTestPass = passesZTest(outlineDepth);
-				if (!zTestPass)
-				{
-					discard;
-				}
+			bool zTestPass = passesZTest(outlineDepth);
+			if (!zTestPass)
+			{
+				discard;
 			}
 
 			o.Albedo = 0;
