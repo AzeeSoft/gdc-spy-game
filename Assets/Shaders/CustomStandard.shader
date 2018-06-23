@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
 Shader "Azee/CustomStandard"
@@ -39,8 +41,12 @@ Shader "Azee/CustomStandard"
 
         [Enum(UV0,0,UV1,1)] _UVSec ("UV Set for secondary textures", Float) = 0
         
+        [Header(XRay Vision)]
         _XRayColor("X-Ray Color", Color) = (0,0,0,1)
 
+        [Header(Outline)]
+        _OutlineThickness ("Outline thickness", Range(0., 2.)) = 0.
+        _OutlineColor ("Outline color", color) = (1., 1., 1., 1.)
 
         // Blending state
         [HideInInspector] _Mode ("__mode", Float) = 0.0
@@ -53,11 +59,11 @@ Shader "Azee/CustomStandard"
         #define UNITY_SETUP_BRDF_INPUT MetallicSetup
     ENDCG
 
+    
     SubShader
     {
         Tags { "RenderType"="Opaque" "PerformanceChecks"="False" }
         LOD 300
-
 
         // ------------------------------------------------------------------
         //  Base forward pass (directional light, emission, lightmaps, ...)
@@ -67,7 +73,7 @@ Shader "Azee/CustomStandard"
             Tags { "LightMode" = "ForwardBase" }
 
             Blend [_SrcBlend] [_DstBlend]
-            ZWrite [_ZWrite]
+            ZWrite [_ZWrite] 
 
             CGPROGRAM
             #pragma target 3.0
@@ -221,7 +227,42 @@ Shader "Azee/CustomStandard"
             #include "UnityStandardMeta.cginc"
             ENDCG
         }
+
+        /* Pass
+        {
+            Name "Outline"
+
+            ZTest Greater
+            Cull Front
+ 
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            #include "includes/outlineFuncs.cginc"
+ 
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "OutlineDeferred"
+            Tags { "LightMode" = "Deferred" }
+
+            ZWrite Off
+            Cull Front
+ 
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            #include "includes/outlineFuncs.cginc"
+ 
+            ENDCG
+        }
+ */
     }
+    
 
     SubShader
     {
@@ -237,7 +278,7 @@ Shader "Azee/CustomStandard"
 
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite]
-
+            
             CGPROGRAM
             #pragma target 2.0
 
@@ -344,6 +385,12 @@ Shader "Azee/CustomStandard"
         }
     }
 
+    /* SubShader
+    {
+        Tags { "Queue"="Geometry" "RenderType"="Opaque" }
+       
+        
+    } */
 
     FallBack "VertexLit"
     CustomEditor "CustomStandardShaderGUI"

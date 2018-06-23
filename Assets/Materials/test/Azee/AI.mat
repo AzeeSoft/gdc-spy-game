@@ -65,6 +65,8 @@ Material:
     - _Metallic: 0.982
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OutlineThickness: 0
+    - _OutlineVal: 0
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -74,4 +76,6 @@ Material:
     m_Colors:
     - _Color: {r: 0.26176462, g: 0.16360295, b: 0.6544118, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineCol: {r: 0.6415094, g: 0.057493754, b: 0.057493754, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _XRayColor: {r: 1, g: 0, b: 0, a: 1}
