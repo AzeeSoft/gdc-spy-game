@@ -52,6 +52,8 @@ namespace cakeslice
         public Color lineColor1 = Color.green;
         public Color lineColor2 = Color.blue;
 
+        public bool SeeThrough = false;
+
         public bool additiveRendering = false;
 
         public bool backfaceCulling = true;
@@ -283,6 +285,7 @@ namespace cakeslice
                                 m.SetInt("_Culling", (int)UnityEngine.Rendering.CullMode.Off);
 
                             m.SetTexture("_OutlineDepth", depthRenderTexture);
+                            m.SetInt("_SeeThrough", SeeThrough ? 1 : 0);
 
                             commandBuffer.DrawRenderer(outline.GetComponent<Renderer>(), m, 0, 0);
                             MeshFilter mL = outline.GetComponent<MeshFilter>();
