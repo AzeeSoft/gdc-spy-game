@@ -37,7 +37,7 @@ Shader "Hidden/OutlineEffect"
 		{
 			Tags{ "RenderType" = "Opaque" }
 			LOD 200
-			ZTest Always
+			ZTest Less
 			ZWrite Off
 			Cull Off
 
@@ -59,6 +59,7 @@ Shader "Hidden/OutlineEffect"
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			sampler2D _OutlineSource;
+			sampler2D _OutlineDepth;
 
 			struct v2f
 			{
@@ -117,9 +118,10 @@ Shader "Hidden/OutlineEffect"
 		{
 			Tags { "RenderType"="Opaque" }
 			LOD 200
-			ZTest Always
+			ZTest Less
 			ZWrite Off
 			Cull Off
+			Lighting Off
 			
 			
 			CGPROGRAM
@@ -132,6 +134,7 @@ Shader "Hidden/OutlineEffect"
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			sampler2D _OutlineSource;
+			sampler2D _OutlineDepth;
 
 			struct v2f {
 			   float4 position : SV_POSITION;
@@ -167,31 +170,8 @@ Shader "Hidden/OutlineEffect"
 
             uniform sampler2D _CameraDepthTexture;
 
-			half4 frag (v2f input) : COLOR
+			bool computeOutline(float2 uv, half4 outlineSource, const float h, inout half4 outline, inout half4 originalPixel) 
 			{
-				float sceneDepthSample = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos));
-				// float sceneDepthSample = LinearEyeDepth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos)).r);
-
-				float2 uv = input.uv;
-				if (_FlipY == 1)
-					uv.y = 1 - uv.y;
-				#if UNITY_UV_STARTS_AT_TOP
-					if (_MainTex_TexelSize.y < 0)
-						uv.y = 1 - uv.y;
-				#endif
-
-				half4 originalPixel = tex2D(_MainTex, UnityStereoScreenSpaceUVAdjust(input.uv, _MainTex_ST));
-
-				half4 outlineSource = tex2D(_OutlineSource, UnityStereoScreenSpaceUVAdjust(uv, _MainTex_ST));
-
-				// return sceneDepthSample;
-				// return originalPixel;
-				// return outlineSource;
-				// return 1;
-
-								
-				const float h = .95f;
-				half4 outline = 0;
 				bool hasOutline = false;
 
 				half4 sample1 = tex2D(_OutlineSource, uv + float2(_LineThicknessX,0.0));
@@ -264,25 +244,115 @@ Shader "Hidden/OutlineEffect"
 
 					if (!outside)
 						outline *= _FillAmount;
-				}					
-						
+				}	
+
+				return hasOutline;	
+			}
+
+			bool passesZTest(half4 outlineDepth)
+			{
+				return (outlineDepth.x == 1 && outlineDepth.y == 1 && outlineDepth.z == 1);				
+			}
+
+			bool performOutlineZTest(float2 uv, half4 outlineDepth, const float h) 
+			{
+				half4 sample1 = tex2D(_OutlineDepth, uv + float2(_LineThicknessX,0.0));
+				half4 sample2 = tex2D(_OutlineDepth, uv + float2(-_LineThicknessX,0.0));
+				half4 sample3 = tex2D(_OutlineDepth, uv + float2(.0,_LineThicknessY));
+				half4 sample4 = tex2D(_OutlineDepth, uv + float2(.0,-_LineThicknessY));
+				
+				bool outside = outlineDepth.a < h;
+				bool outsideDark = outside && _Dark;
+
+				if (passesZTest(outlineDepth)) {
+					return true;
+				} else if (passesZTest(sample1)) {
+					return true;
+				} else if (passesZTest(sample2)) {
+					return true;
+				} else if (passesZTest(sample3)) {
+					return true;
+				} else if (passesZTest(sample4)) {
+					return true;
+				}
+
+				if (_CornerOutlines)
+				{
+					// TODO: Conditional compile
+					half4 sample5 = tex2D(_OutlineDepth, uv + float2(_LineThicknessX, _LineThicknessY));
+					half4 sample6 = tex2D(_OutlineDepth, uv + float2(-_LineThicknessX, -_LineThicknessY));
+					half4 sample7 = tex2D(_OutlineDepth, uv + float2(_LineThicknessX, -_LineThicknessY));
+					half4 sample8 = tex2D(_OutlineDepth, uv + float2(-_LineThicknessX, _LineThicknessY));
+
+					if (passesZTest(sample5)) {
+						return true;
+					} else if (passesZTest(sample6)) {
+						return true;
+					} else if (passesZTest(sample7)) {
+						return true;
+					} else if (passesZTest(sample8)) {
+						return true;
+					}
+				}
+
+				return false;
+			}
+
+			half4 frag (v2f input) : COLOR
+			{
+				float sceneDepthSample = tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos));
+				// float sceneDepthSample = LinearEyeDepth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos)).r);
+
+				float2 uv = input.uv;
+				if (_FlipY == 1)
+					uv.y = 1 - uv.y;
+				#if UNITY_UV_STARTS_AT_TOP
+					if (_MainTex_TexelSize.y < 0)
+						uv.y = 1 - uv.y;
+				#endif
+
+				half4 originalPixel = tex2D(_MainTex, UnityStereoScreenSpaceUVAdjust(input.uv, _MainTex_ST));
+
+				half4 outlineSource = tex2D(_OutlineSource, UnityStereoScreenSpaceUVAdjust(uv, _MainTex_ST));
+				// half4 outlineDepth = tex2Dproj(_OutlineDepth, UNITY_PROJ_COORD(input.projPos));
+				half4 outlineDepth = tex2D(_OutlineDepth, UnityStereoScreenSpaceUVAdjust(uv, _MainTex_ST));
+				
+
+				// return sceneDepthSample;
+				// return originalPixel;
+				// return outlineDepth;
+				// return outlineSource;
+				// return 1;
+								
+				const float h = .95f;
+				half4 outline = 0;
+				bool hasOutline = computeOutline(uv, outlineSource, h, outline, originalPixel);
+				
 				if (hasOutline) 
 				{
-					// float depth = Linear01Depth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos)).r);
+					bool passesZTest = performOutlineZTest(uv, outlineDepth, h);
+
+					/* // float depth = Linear01Depth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.projPos)).r);
 					float depth = input.projPos.z;
 					// float depth = input.position.z;
 
 					float4 screenPos = ComputeScreenPos(input.position);
-					bool zTestFailed = (sceneDepthSample > depth);
+					// bool zTestFailed = (sceneDepthSample > depth); 
 
-					depth = screenPos.z;
+					float diff = sceneDepthSample - outlineDepth;
+					float threshold = 0.2;
+
+					bool zTestFailed = (diff > threshold);
+
+					depth = screenPos.z; */
 
 					// return sceneDepthSample;
 					// return depth;
 					// return outlineSource;
+					// return outlineDepth;
 					// return sceneDepthSample - depth - 1;
 
-					if (zTestFailed) 
+					if (!passesZTest) 
 					{
 						return originalPixel;
 					}

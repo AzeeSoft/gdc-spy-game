@@ -55,6 +55,8 @@ namespace cakeslice
 
 			foreach (OutlineEffect effect in effects)
             {
+//                Debug.Log("Adding outline to ");
+//                Debug.Log(effect.gameObject);
                 effect.AddOutline(this);
             }
         }
