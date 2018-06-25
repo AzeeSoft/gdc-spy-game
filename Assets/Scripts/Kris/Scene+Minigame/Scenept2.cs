@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Scenept2 : MonoBehaviour
 {
+    public Transform SavePos;
+
 
     void Update()
     {
