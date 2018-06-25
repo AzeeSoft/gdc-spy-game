@@ -12,6 +12,10 @@ public class Progress : MonoBehaviour {
 
     public Transform TextLoading;
 
+    public Transform SavePos; 
+
+
+
     [SerializeField] public float currentAmount;
     [SerializeField] private float speed;
 
