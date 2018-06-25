@@ -638,7 +638,7 @@ MonoBehaviour:
   outlineCamera: {fileID: 20010510218821852}
   outlineShaderMaterial: {fileID: 0}
   renderTexture: {fileID: 0}
-  depthRenderTexture: {fileID: 0}
+  depthMaskRenderTexture: {fileID: 0}
   extraRenderTexture: {fileID: 0}
 --- !u!114 &114831643489652968
 MonoBehaviour:
