@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mazeMovement : MonoBehaviour {
 
@@ -15,22 +16,22 @@ public class mazeMovement : MonoBehaviour {
 	void Update () {
         if (Input.GetKey("w"))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, -3);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, -6);
         }
 
         else if(Input.GetKey("a"))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(3, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(6, 0);
         }
 
         else if (Input.GetKey("s"))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 3);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 6);
         }
 
         else if (Input.GetKey("d"))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-3, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(-6, 0);
         }
 
         else
@@ -39,5 +40,10 @@ public class mazeMovement : MonoBehaviour {
         }
 
 
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        SceneManager.LoadScene(sceneName: "testK");
     }
 }
