@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Outline = cakeslice.Outline;
 
 public class ActionController : MonoBehaviour
 {
+    public float InteractionRadius = 0.5f;
+    public float HighlightRadius = 10f;
+
     private const int MaxInteractions = 2;
 
     private readonly string[] InteractionInputButtons = new string[MaxInteractions]
@@ -19,20 +23,22 @@ public class ActionController : MonoBehaviour
         "Secondary: "
     };
 
-    [SerializeField] private float maxDistance = 100f;
+    [SerializeField] private float _maxDistance = 100f;
 
-    [SerializeField] private Text interactionDescriptionText;
+    [SerializeField] private Text _interactionDescriptionText;
 
     private Camera _camera;
 
-    private bool[] interactionInputs = new bool[MaxInteractions];
+    private bool[] _interactionInputs = new bool[MaxInteractions];
+
+    private Stack<Outline> _activeOutlines = new Stack<Outline>();
 
     // Use this for initialization
     void Start()
     {
         _camera = GetComponentInChildren<Camera>();
 
-        if (!interactionDescriptionText)
+        if (!_interactionDescriptionText)
         {
             Debug.LogWarning("Interaction Description Text is not assigned!!!");
         }
@@ -40,6 +46,7 @@ public class ActionController : MonoBehaviour
 
     void LateUpdate()
     {
+        CheckHighlights();
         DetectInteractionInputs();
         CheckInteraction();
     }
@@ -48,14 +55,14 @@ public class ActionController : MonoBehaviour
     {
         for (int i = 0; i < MaxInteractions; i++)
         {
-            interactionInputs[i] = false;
+            _interactionInputs[i] = false;
         }
 
         for (int i = 0; i < MaxInteractions; i++)
         {
             if (Input.GetButtonDown(InteractionInputButtons[i]))
             {
-                interactionInputs[i] = true;
+                _interactionInputs[i] = true;
                 return; // Ensures that at most only one interaction input is ever true
             }
         }
@@ -65,43 +72,104 @@ public class ActionController : MonoBehaviour
     {
         string actionDescription = "";
 
-        RaycastHit raycastHit = new RaycastHit();
-
         int layerMask = -5; //All layers
+        
+        RaycastHit raycastHit;
 
-        if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out raycastHit, maxDistance,
-            layerMask, QueryTriggerInteraction.Ignore))
+        bool hitDetected = Physics.SphereCast(_camera.transform.position, InteractionRadius,
+            _camera.transform.forward,
+            out raycastHit,
+            _maxDistance,
+            layerMask, QueryTriggerInteraction.Ignore);
+
+        if (hitDetected)
         {
-//            Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
-
-            InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
-            if (interactiveObject != null)
+            if (raycastHit.distance > 0)
             {
-                int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
-
-                for (int i = 0; i < interactionCount; i++)
+                InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
+                if (interactiveObject != null)
                 {
-                    InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
+                    int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
 
-                    if (interaction.enabled &&
-                        Vector3.Distance(transform.position, interactiveObject.transform.position) <=
-                        interaction.maxRange)
+                    for (int i = 0; i < interactionCount; i++)
                     {
-                        actionDescription += InteractionDescriptionPrefixes[i] + interaction.description + "\n";
+                        InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
 
-                        if (interactionInputs[i])
+                        if (interaction.enabled &&
+                            Vector3.Distance(transform.position, interactiveObject.transform.position) <=
+                            interaction.maxRange)
                         {
-                            interaction.onInteractionEvent.Invoke();
+                            actionDescription += InteractionDescriptionPrefixes[i] + interaction.description + "\n";
+
+                            if (_interactionInputs[i])
+                            {
+                                interaction.onInteractionEvent.Invoke();
+                            }
                         }
                     }
                 }
             }
         }
 
-        if (interactionDescriptionText)
+        if (_interactionDescriptionText)
         {
-            interactionDescriptionText.text = actionDescription;
-            interactionDescriptionText.gameObject.SetActive(!actionDescription.Equals(""));
+            _interactionDescriptionText.text = actionDescription;
+            _interactionDescriptionText.gameObject.SetActive(!actionDescription.Equals(""));
+        }
+    }
+
+    void CheckHighlights()
+    {
+        foreach (Outline outline in _activeOutlines)
+        {
+            outline.enabled = false;
+        }
+        _activeOutlines.Clear();
+
+
+        int layerMask = -5; //All layers
+
+        RaycastHit[] raycastHits = Physics.SphereCastAll(_camera.transform.position, HighlightRadius,
+            _camera.transform.forward,
+            _maxDistance,
+            layerMask, QueryTriggerInteraction.Ignore);
+
+        foreach (RaycastHit raycastHit in raycastHits)
+        {
+            Outline[] outlines = raycastHit.collider.gameObject.GetComponentsInChildren<Outline>();
+
+            if (outlines.Length > 0)
+            {
+//                Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
+                InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
+                if (interactiveObject != null)
+                {
+                    int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
+
+                    bool highlightable = false;
+                    for (int i = 0; i < interactionCount; i++)
+                    {
+                        InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
+
+                        if (interaction.enabled &&
+                            Vector3.Distance(transform.position, interactiveObject.transform.position) <=
+                            interaction.maxRange)
+                        {
+                            highlightable = true;
+                            break;
+                        }
+                    }
+
+                    if (highlightable)
+                    {
+                        foreach (Outline outline in outlines)
+                        {
+                            outline.enabled = true;
+                            _activeOutlines.Push(outline);
+                        }
+                    }
+                }
+            }
         }
     }
 }
