@@ -42,11 +42,7 @@ Shader "Azee/CustomStandard"
         [Enum(UV0,0,UV1,1)] _UVSec ("UV Set for secondary textures", Float) = 0
         
         [Header(XRay Vision)]
-        _XRayColor("X-Ray Color", Color) = (0,0,0,1)
-
-        [Header(Outline)]
-        _OutlineThickness ("Outline thickness", Range(0., 2.)) = 0.
-        _OutlineColor ("Outline color", color) = (1., 1., 1., 1.)
+        _XRayColor("X-Ray Color", Color) = (0,0,0,1) 
 
         // Blending state
         [HideInInspector] _Mode ("__mode", Float) = 0.0

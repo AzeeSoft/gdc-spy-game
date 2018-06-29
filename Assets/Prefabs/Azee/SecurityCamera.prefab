@@ -431,8 +431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a310ad761303fe547aef630d2fce0ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 100
-  interactionDescriptionText: {fileID: 0}
+  InteractionRadius: 0.5
+  HighlightRadius: 20
+  _maxDistance: 100
+  _interactionDescriptionText: {fileID: 0}
 --- !u!114 &114124072886526398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -499,7 +501,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1914026747101564}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -619,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutlineCount: 3
+  OutlineCount: 0
   lineThickness: 1.5
   lineIntensity: 0.5
   fillAmount: 0.06
@@ -638,7 +640,7 @@ MonoBehaviour:
   outlineCamera: {fileID: 20010510218821852}
   outlineShaderMaterial: {fileID: 0}
   renderTexture: {fileID: 0}
-  depthRenderTexture: {fileID: 0}
+  depthMaskRenderTexture: {fileID: 0}
   extraRenderTexture: {fileID: 0}
 --- !u!114 &114831643489652968
 MonoBehaviour:
