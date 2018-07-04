@@ -2962,6 +2962,7 @@ MonoBehaviour:
   LoadingBar: {fileID: 1307294903}
   TextForHacking: {fileID: 630685794}
   TextLoading: {fileID: 1790067062}
+  SavePos: {fileID: 0}
   currentAmount: 0
   speed: 30
 --- !u!114 &892007834
