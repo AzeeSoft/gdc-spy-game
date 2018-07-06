@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Azee.Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace GuardStates
 {
@@ -12,6 +13,7 @@ namespace GuardStates
         {
             public Transform TargetTransform;
             public Vector3 LastKnownPosition;
+            public float PrevAgentSpeed;
         }
 
 
@@ -33,8 +35,13 @@ namespace GuardStates
             Transform transform = (Transform) args[0];
 
             StateData stateData = owner.ChaseStateData;
+            NavMeshAgent navMeshAgent = owner.GetNavMeshAgent();
+
             stateData.TargetTransform = transform;
             stateData.LastKnownPosition = transform.position;
+            stateData.PrevAgentSpeed = navMeshAgent.speed;
+
+            navMeshAgent.speed = owner.ChaseSpeed;
 
             owner.GetColorChanger().turnRed();
             owner.GetColorChanger().spotlightRed();
@@ -97,8 +104,12 @@ namespace GuardStates
         public void Exit(Guard owner)
         {
             StateData stateData = owner.ChaseStateData;
+
+            owner.GetNavMeshAgent().speed = stateData.PrevAgentSpeed;
+
             stateData.TargetTransform = null;
             stateData.LastKnownPosition = Vector3.zero;
+            stateData.PrevAgentSpeed = 0;
 
             owner.GetColorChanger().turnDefault();
             owner.GetColorChanger().spotlightDefault();

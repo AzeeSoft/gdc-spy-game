@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Assets.Scripts.Azee.Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace GuardStates
 {
@@ -13,6 +14,7 @@ namespace GuardStates
         {
             public bool IsMoving;
             public int TargetWaypointIndex;
+            public float PrevAgentSpeed;
         }
 
         const float ArrivalDistance = 3f;
@@ -32,10 +34,16 @@ namespace GuardStates
         public void Enter(Guard owner, params object[] args)
         {
             StateData stateData = owner.PatrolStateData;
+            NavMeshAgent navMeshAgent = owner.GetNavMeshAgent();
+
             stateData.IsMoving = false;
 
             int nearestWaypointIndex = owner.DefaultPatrolCircuit.FindNearestWaypointIndex(owner.transform.position);
             stateData.TargetWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(nearestWaypointIndex);
+
+            stateData.PrevAgentSpeed = navMeshAgent.speed;
+
+            navMeshAgent.speed = owner.PatrolSpeed;
 
             /* 
             int nextWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(nearestWaypointIndex);
@@ -109,8 +117,12 @@ namespace GuardStates
         public void Exit(Guard owner)
         {
             StateData stateData = owner.PatrolStateData;
+
+            owner.GetNavMeshAgent().speed = stateData.PrevAgentSpeed;
+
             stateData.IsMoving = false;
             stateData.TargetWaypointIndex = -1;
+            stateData.PrevAgentSpeed = 0;
         }
     }
 }

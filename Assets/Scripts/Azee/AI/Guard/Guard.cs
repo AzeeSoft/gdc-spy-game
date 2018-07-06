@@ -13,6 +13,9 @@ public class Guard : MonoBehaviour
 
     [Header("AISight")] public float MaxSightAngle;
 
+    public float PatrolSpeed = 5f;
+    public float ChaseSpeed = 7.5f;
+
     [SerializeField] private ColorChanger _colorChanger;
 
     public readonly Patrol.StateData PatrolStateData;
@@ -73,6 +76,11 @@ public class Guard : MonoBehaviour
     void OnStateSwitched(StateMachine<Guard> stateMachine)
     {
         _interactiveObject.ToggleInteraction(0, !_nonStunnableStates.Contains(_stateMachine.GetCurrentState()));
+    }
+
+    public NavMeshAgent GetNavMeshAgent()
+    {
+        return _navMeshAgent;
     }
 
 
