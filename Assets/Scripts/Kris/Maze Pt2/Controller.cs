@@ -16,15 +16,22 @@ public class Controller : MonoBehaviour {
     public Sprite emptyHeart;
     public Sprite fullHeart;
 
-    public Image damageImage;
-    public float flashSpeed = 5f;
-    public int numFlashes = 4;
-    public float timeBetweenFlash = 0.5f;
-    public Color flashColor = Color.red;
+    public FadeZ fadeScript;
 
-    void Start()
+    public AudioClip voltShock;
+    private AudioSource source;
+
+    public Shake Shaker;
+    public float duration = 1f;
+
+
+
+
+    void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        source = GetComponent<AudioSource>();
+        fadeScript.GetComponent<FadeZ>();
     }
 
     void FixedUpdate()
@@ -107,32 +114,19 @@ public class Controller : MonoBehaviour {
         }
     }
 
-    IEnumerator FlashInput(InputField input)
-    {
-        // save the InputField.textComponent color
-        Color defaultColor = input.textComponent.color;
-        for (int i = 0; i < numFlashes; i++)
-        {
-            // if the current color is the default color - change it to the flash color
-            if (input.textComponent.color == defaultColor)
-            {
-                input.textComponent.color = flashColor;
-            }
-            else // otherwise change it back to the default color
-            {
-                input.textComponent.color = defaultColor;
-            }
-            yield return new WaitForSeconds(timeBetweenFlash);
-        }
-        yield return new WaitForSeconds(1);
-    }   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (health != 0)
         {
             TakeDamage(1);
-            StartCoroutine(FlashInput());
+
+            
+            fadeScript.OnHitColor();
+
+            source.PlayOneShot(voltShock, 1f);
+
+            Shaker.cShake(duration);
         }
     }
 }
