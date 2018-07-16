@@ -4,11 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Kris/testK.unity
-    guid: 8d3914fa96d896a42b90ae29093281e1
-  - enabled: 1
-    path: Assets/Scenes/Kris/Minigame.unity
-    guid: ec4d66399426c7c40a4ab457e1cb5f35
+  m_Scenes: []
   m_configObjects: {}
