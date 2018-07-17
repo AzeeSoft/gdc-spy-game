@@ -32,7 +32,13 @@ public class Progress : MonoBehaviour {
         {
             TextLoading.gameObject.SetActive(false);
             TextForHacking.GetComponent<Text>().text = "Done!";
-            SceneManager.LoadScene(sceneName: "Minigame");
+            
+          //  Time.timeScale = 0.0f;
+            SceneManager.LoadScene("Maze2", LoadSceneMode.Additive);
+
+           int buildIndex = SceneManager.GetSceneByName("Maze2").buildIndex;
+           SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
+            
         }
 
         LoadingBar.GetComponent<Image>().fillAmount = currentAmount / 100;

@@ -8,7 +8,8 @@ public class Scene : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown("h"))
         {
-            SceneManager.LoadScene(sceneName: "Minigame");
+            SceneManager.LoadScene("Maze2", LoadSceneMode.Additive);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Maze2"));
         }
-	}
+    }
 }
