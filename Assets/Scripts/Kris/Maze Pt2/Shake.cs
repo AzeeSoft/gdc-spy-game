@@ -41,7 +41,7 @@ public class Shake : MonoBehaviour {
         var startTime = Time.realtimeSinceStartup;
         while(Time.realtimeSinceStartup < startTime + _pendingShakeDuration)
         {
-            var randomPoint = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), _initialPos.z);
+            var randomPoint = new Vector3(Random.Range(-.25f, .25f), Random.Range(-.5f, .25f), _initialPos.z);
             _target.localPosition = randomPoint;
             yield return null;
         }
