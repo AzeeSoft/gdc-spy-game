@@ -9,6 +9,7 @@ namespace GuardStates
 {
     public class Chase : StateMachine<Guard>.State
     {
+        [Serializable]
         public class StateData
         {
             public Transform TargetTransform;

@@ -22,6 +22,7 @@
 //  THE SOFTWARE.
 */
 
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
@@ -166,6 +167,11 @@ namespace cakeslice
         void Update()
         {
             OutlineCount = outlines.Count();
+
+            if (Input.GetKeyDown(KeyCode.Period))
+            {
+                Debug.Break();
+            }
         }
 
         public void OnPreRender()
@@ -188,6 +194,7 @@ namespace cakeslice
                 outlineCamera.targetTexture = renderTexture;
             }
 
+//            renderTexture.DiscardContents();
             renderTexture.Release();
             depthMaskRenderTexture.Release();
 
@@ -198,6 +205,7 @@ namespace cakeslice
             commandBuffer.Clear();
 
             commandBuffer.SetRenderTarget(depthMaskRenderTexture);
+            commandBuffer.ClearRenderTarget(false, true, Color.black);
             if (outlines != null)
             {
                 foreach (Outline outline in outlines)
@@ -234,6 +242,7 @@ namespace cakeslice
             }
 
             commandBuffer.SetRenderTarget(renderTexture);
+            commandBuffer.ClearRenderTarget(false, true, Color.black);
             if (outlines != null)
             {
                 foreach(Outline outline in outlines)
@@ -344,16 +353,34 @@ namespace cakeslice
 
         private void CreateMaterialsIfNeeded()
         {
-            if(outlineShader == null)
-                outlineShader = Resources.Load<Shader>("Azee/OutlineShader");
+            if (outlineShader == null)
+            {
+                outlineShader = Shader.Find("Hidden/OutlineEffect");
+//                outlineShader = Resources.Load<Shader>("Azee/OutlineShader");
+                if (outlineShader == null)
+                {
+                    throw new Exception("Critical Error: \"Hidden/OutlineEffect\" shader is missing. Make sure it is included in \"Always Included Shaders\" in ProjectSettings/Graphics.");
+                }
+            }
+
             if(outlineBufferShader == null)
             {
-                outlineBufferShader = Resources.Load<Shader>("Azee/OutlineBufferShader");
+                outlineBufferShader = Shader.Find("Hidden/OutlineBufferEffect");
+//                outlineBufferShader = Resources.Load<Shader>("Azee/OutlineBufferShader");
+                if (outlineBufferShader == null)
+                {
+                    throw new Exception("Critical Error: \"Hidden/OutlineBufferEffect\" shader is missing. Make sure it is included in \"Always Included Shaders\" in ProjectSettings/Graphics.");
+                }
             }
             if (outlineDepthMaskBufferShader == null)
             {
-                outlineDepthMaskBufferShader = Resources.Load<Shader>("Azee/OutlineDepthMaskBufferShader");
-//                outlineDepthMaskBufferShader = Shader.Find("Hidden/Render Depth");
+                outlineDepthMaskBufferShader = Shader.Find("Hidden/OutlineDepthBuffer");
+//                outlineDepthMaskBufferShader = Resources.Load<Shader>("Azee/OutlineDepthMaskBufferShader");
+                //                outlineDepthMaskBufferShader = Shader.Find("Hidden/Render Depth");
+                if (outlineDepthMaskBufferShader == null)
+                {
+                    throw new Exception("Critical Error: \"Hidden/OutlineDepthBuffer\" shader is missing. Make sure it is included in \"Always Included Shaders\" in ProjectSettings/Graphics.");
+                }
             }
             if (outlineShaderMaterial == null)
             {

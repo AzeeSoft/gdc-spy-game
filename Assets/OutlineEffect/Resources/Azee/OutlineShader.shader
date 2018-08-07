@@ -170,6 +170,11 @@ Shader "Hidden/OutlineEffect"
 
             uniform sampler2D _CameraDepthTexture;
 
+			bool isOutside(half4 sample) {
+				const float h = 0.05f;
+				return sample.r < h && sample.g < h && sample.b < h;
+			}
+
 			bool computeOutline(float2 uv, half4 outlineSource, const float h, inout half4 outline, inout half4 originalPixel) 
 			{
 				bool hasOutline = false;
@@ -179,7 +184,7 @@ Shader "Hidden/OutlineEffect"
 				half4 sample3 = tex2D(_OutlineSource, uv + float2(.0,_LineThicknessY));
 				half4 sample4 = tex2D(_OutlineSource, uv + float2(.0,-_LineThicknessY));
 				
-				bool outside = outlineSource.a < h;
+				bool outside = isOutside(outlineSource);
 				bool outsideDark = outside && _Dark;
 
 				if (_CornerOutlines)
@@ -215,7 +220,11 @@ Shader "Hidden/OutlineEffect"
 						hasOutline = true;
 					}
 
-					if (!outside)
+					bool atEdge = (outside) && 
+						(isOutside(sample1) || isOutside(sample2) || isOutside(sample3) || isOutside(sample4)
+						|| isOutside(sample5) || isOutside(sample6) || isOutside(sample7) || isOutside(sample8));
+
+					if (!atEdge)
 						outline *= _FillAmount;
 				}
 				else
@@ -242,7 +251,8 @@ Shader "Hidden/OutlineEffect"
 						hasOutline = true;
 					}
 
-					if (!outside)
+					bool atEdge = (outside) && (isOutside(sample1) || isOutside(sample2) || isOutside(sample3) || isOutside(sample4));
+					if (!atEdge)
 						outline *= _FillAmount;
 				}	
 
