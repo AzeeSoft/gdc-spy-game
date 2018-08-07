@@ -1,8 +1,4 @@
-﻿/*
-	created by chenjd
-	http://www.cnblogs.com/murongxiaopifu/
-*/
-Shader "chenjd/SeeThroughWall"
+﻿Shader "Azee/SeeThroughWall"
 {
 	Properties
 	{

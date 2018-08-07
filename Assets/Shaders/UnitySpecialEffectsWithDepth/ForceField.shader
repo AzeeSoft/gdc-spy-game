@@ -1,8 +1,4 @@
-﻿/*
-	Created by chenjd
-	http://www.cnblogs.com/murongxiaopifu/
-*/
-Shader "chenjd/ForceField"
+﻿Shader "Azee/ForceField"
 {
 Properties
 {
@@ -94,20 +90,16 @@ fixed4 _Color;
 
 fixed4 frag(v2f i) : SV_Target
 {
-	//获取已有的深度信息,此时的深度图里没有力场的信息
-	//判断相交
 	float sceneZ = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPos)));
 	float partZ = i.screenPos.z;
 
 	float diff = sceneZ - partZ;
 	float intersect = (1 - diff) * _IntersectPower;
 
-	//圆环
 	float3 viewDir = normalize(UnityWorldSpaceViewDir(mul(unity_ObjectToWorld, i.vertex)));
 	float rim = 1 - abs(dot(i.normal, normalize(i.viewDir))) * _RimStrength;
 	float glow = max(intersect, rim);
 
-	//扭曲
 	float4 offset = tex2D(_NoiseTex, i.uv - _Time.xy * _DistortTimeFactor);
 	i.grabPos.xy -= offset.xy * _DistortStrength;
 	fixed4 color = tex2Dproj(_GrabTempTex, i.grabPos);

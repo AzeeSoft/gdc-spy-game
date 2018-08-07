@@ -1,4 +1,4 @@
-﻿Shader "SFHologram/HologramShader"
+﻿Shader "Azee/HologramShader"
 {
 	Properties
 	{
@@ -25,6 +25,8 @@
 		_FlickerTex ("Flicker Control Texture", 2D) = "white" {}
 		_FlickerSpeed ("Flicker Speed", Range(0.01, 100)) = 1.0
 
+        _XRayColor("X-Ray Color", Color) = (0,0,0,1) 
+		
 		// Settings
 		[HideInInspector] _Fold("__fld", Float) = 1.0
 	}
