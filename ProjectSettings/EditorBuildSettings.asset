@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kris/testK.unity
     guid: 8d3914fa96d896a42b90ae29093281e1
   - enabled: 1
     path: Assets/Scenes/Kris/Maze2.unity
     guid: 5da608d69864e8445a4986ceb5b5b86f
-  - enabled: 1
-    path: Assets/Scenes/Azee/LightingTest.unity
-    guid: 9d0bb12b171e99f4c9d004c08e0b3255
-  - enabled: 1
-    path: Assets/Scenes/Azee/SwitchSceneTest.unity
-    guid: 996d073c23a6ff84bb0672e459d90670
+  - enabled: 0
+    path: Assets/Scenes/Sam/Start Screen.unity
+    guid: 9b84189886979eb43b175617ab8a279f
+  - enabled: 0
+    path: Assets/Scenes/Sam/Revised Layout.unity
+    guid: 2835516871fc474499f0f740a7c43fdd
   m_configObjects: {}

@@ -24,7 +24,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 0.25, y: 0.25}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 1, y: 1}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -60,9 +60,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 0.67
-    - _Glossiness: 0.94
+    - _Glossiness: 0.887
     - _GlossyReflections: 1
-    - _Metallic: 0.936
+    - _Metallic: 0.908
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
