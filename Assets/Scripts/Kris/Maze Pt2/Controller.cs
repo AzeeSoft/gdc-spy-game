@@ -16,7 +16,6 @@ public class Controller : MonoBehaviour {
     public Sprite emptyHeart;
     public Sprite fullHeart;
 
-    public FadeZ fadeScript;
 
     public AudioClip voltShock;
     private AudioSource source;
@@ -25,13 +24,15 @@ public class Controller : MonoBehaviour {
     public float duration = 1f;
 
 
+    public Animator screenFlash;
+
 
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         source = GetComponent<AudioSource>();
-        fadeScript.GetComponent<FadeZ>();
+        screenFlash.SetBool("isDamaged", false);
     }
 
     void FixedUpdate()
@@ -95,7 +96,6 @@ public class Controller : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        //SceneManager.LoadScene("testK", LoadSceneMode.Additive);
 
         int buildIndex = SceneManager.GetSceneByName("testK").buildIndex;
         SceneManager.LoadScene(buildIndex);
@@ -121,12 +121,18 @@ public class Controller : MonoBehaviour {
         {
             TakeDamage(1);
 
-            
-            fadeScript.OnHitColor();
-
+           
             source.PlayOneShot(voltShock, 1f);
 
             Shaker.cShake(duration);
+
+            screenFlash.SetBool("isDamaged", true);
+
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        screenFlash.SetBool("isDamaged", false);
     }
 }
