@@ -699,18 +699,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutlineCount: 0
-  lineThickness: 1.75
-  lineIntensity: 0.5
+  lineThickness: 2.28
+  lineIntensity: 4.7
   fillAmount: 0.05
   lineColor0: {r: 1, g: 0, b: 0, a: 1}
   lineColor1: {r: 0, g: 1, b: 0, a: 1}
   lineColor2: {r: 0, g: 0, b: 1, a: 1}
   SeeThrough: 0
-  additiveRendering: 1
-  backfaceCulling: 1
+  additiveRendering: 0
+  backfaceCulling: 0
   cornerOutlines: 0
   addLinesBetweenColors: 0
-  scaleWithScreenSize: 1
+  scaleWithScreenSize: 0
   alphaCutoff: 0.5
   flipY: 0
   sourceCamera: {fileID: 20745884600214100}

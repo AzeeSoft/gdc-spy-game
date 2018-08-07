@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
@@ -42,6 +43,11 @@ public class XRayVision : MonoBehaviour
 
     void OnValidate()
     {
+        ApplyDefaultXRayVisionColor();
+    }
+
+    void ApplyDefaultXRayVisionColor()
+    {
         Shader.SetGlobalColor("_XRayDefaultColor", XRayVisionColor);
     }
 
@@ -50,7 +56,13 @@ public class XRayVision : MonoBehaviour
         if (_xRayShader == null)
         {
             _xRayShader = Shader.Find("Azee/XRayShader");
+            if (_xRayShader == null)
+            {
+                throw new Exception("Critical Error: \"Azee/XRayShader\" shader is missing. Make sure it is included in \"Always Included Shaders\" in ProjectSettings/Graphics.");
+            }
         }
+        ApplyDefaultXRayVisionColor();
+
 
         DefineVarsIfMissing();
 

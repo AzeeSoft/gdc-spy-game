@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Azee/Outline Shader"
+Shader "Azee/Outline Shader Test"
 {
     Properties
     {
