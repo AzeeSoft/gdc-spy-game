@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 using UnityStandardAssets.Cameras;
 
 public class SecurityCamera : PlayerControllable
@@ -12,6 +13,7 @@ public class SecurityCamera : PlayerControllable
     private AudioController _audioController;
 
     private Camera _camera;
+    private PostProcessingBehaviour _postProcessingBehaviour;
     private AudioListener _audioListener;
 
     void Awake()
@@ -23,6 +25,7 @@ public class SecurityCamera : PlayerControllable
         _audioController = GetComponent<AudioController>();
 
         _camera = GetComponentInChildren<Camera>();
+        _postProcessingBehaviour = GetComponentInChildren<PostProcessingBehaviour>();
         _audioListener = GetComponentInChildren<AudioListener>();
 
         ReleaseControl();
@@ -47,6 +50,7 @@ public class SecurityCamera : PlayerControllable
         _interactiveObject.enabled = false;
 
         _camera.enabled = true;
+        _postProcessingBehaviour.enabled = true;
         _audioListener.enabled = true;
 
         _audioController.PlayClip(0);
@@ -61,6 +65,7 @@ public class SecurityCamera : PlayerControllable
         _interactiveObject.enabled = true;
 
         _camera.enabled = false;
+        _postProcessingBehaviour.enabled = false;
         _audioListener.enabled = false;
     }
 }
