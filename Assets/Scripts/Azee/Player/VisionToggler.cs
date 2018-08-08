@@ -56,12 +56,12 @@ public class VisionToggler : MonoBehaviour
             return;
         }
 
-        if (xRayVision.enabled)
+        if (xRayVision.IsXRayVisionEnabled)
         {
             DepleteBattery();
             if (_currentBattery <= _minRequiredBattery)
             {
-                DisbleXRayVision();
+                DisableXRayVision();
 
                 // If force disabled xray vision, set current battery to negative (Works like a cooldown value)
                 _currentBattery = -RechargePerSecond * CoolDownTime;
@@ -109,16 +109,25 @@ public class VisionToggler : MonoBehaviour
 
     void ToggleVision()
     {
-        xRayVision.enabled = !xRayVision.enabled;
+        if (xRayVision.IsXRayVisionEnabled)
+        {
+            DisableXRayVision();
+        }
+        else
+        {
+            EnableXRayVision();
+        }
     }
 
-    void EnableXRayVision()
+    public void EnableXRayVision(bool immediate = false)
     {
-        xRayVision.enabled = true;
+        xRayVision.skipAnimation = immediate;
+        xRayVision.EnableXRayVision();
     }
 
-    void DisbleXRayVision()
+    public void DisableXRayVision(bool immediate = false)
     {
-        xRayVision.enabled = false;
+        xRayVision.skipAnimation = immediate;
+        xRayVision.DisableXRayVision();
     }
 }

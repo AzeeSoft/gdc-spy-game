@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 82112635379140556}
   - component: {fileID: 114763125755369256}
   - component: {fileID: 54344899521368040}
+  - component: {fileID: 114172645632604754}
   m_Layer: 10
   m_Name: Guard
   m_TagString: Guard
@@ -250,7 +251,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -371,6 +372,49 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114172645632604754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751286407098278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b85ca3889e1d419f82c442d065dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnScenePaused:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114905334876985060}
+        m_MethodName: OnScenePaused
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnSceneResumed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114905334876985060}
+        m_MethodName: OnSceneResumed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114364871166508576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,6 +485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultPatrolCircuit: {fileID: 0}
   MaxSightAngle: 60
+  PatrolSpeed: 5
+  ChaseSpeed: 7.5
   _colorChanger: {fileID: 114557138702144498}
 --- !u!114 &114905524317413432
 MonoBehaviour:

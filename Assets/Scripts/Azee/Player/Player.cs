@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : PlayerControllable
@@ -12,6 +13,7 @@ public class Player : PlayerControllable
     private Lean _leanScript;
 
     private Camera _camera;
+    private PostProcessingBehaviour _postProcessingBehaviour;
     private AudioListener _audioListener;
 
     void Awake()
@@ -21,6 +23,7 @@ public class Player : PlayerControllable
         _visionToggler = GetComponent<VisionToggler>();
         _leanScript = GetComponentInChildren<Lean>();
         _camera = GetComponentInChildren<Camera>();
+        _postProcessingBehaviour = GetComponentInChildren<PostProcessingBehaviour>();
         _audioListener = GetComponentInChildren<AudioListener>();
     }
 
@@ -41,6 +44,7 @@ public class Player : PlayerControllable
         _visionToggler.enabled = true;
         _leanScript.enabled = true;
         _camera.enabled = true;
+        _postProcessingBehaviour.enabled = true;
         _audioListener.enabled = true;
     }
 
@@ -51,6 +55,17 @@ public class Player : PlayerControllable
         _visionToggler.enabled = false;
         _leanScript.enabled = false;
         _camera.enabled = false;
+        _postProcessingBehaviour.enabled = false;
         _audioListener.enabled = false;
+    }
+
+    new void OnEnable()
+    {
+        base.OnEnable();
+    }
+
+    new void OnDisable()
+    {
+        base.OnDisable();
     }
 }
