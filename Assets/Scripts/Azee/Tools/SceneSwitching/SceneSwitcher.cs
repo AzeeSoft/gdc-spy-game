@@ -14,10 +14,20 @@ public class SceneSwitcher : MonoBehaviour
         foreach (Animator animator in FindObjectsOfType<Animator>())
         {
             GameObject animGameObject = animator.gameObject;
-            if (animGameObject.GetComponent<SceneSwitchAnimatorPreserver>() == null)
+            if (animGameObject.GetComponent<SceneSwitchAnimatorHandler>() == null)
             {
-                SceneSwitchAnimatorPreserver animatorPreserver = animGameObject.AddComponent<SceneSwitchAnimatorPreserver>();
-                animatorPreserver.enabled = true;
+                SceneSwitchAnimatorHandler animatorHandler = animGameObject.AddComponent<SceneSwitchAnimatorHandler>();
+                animatorHandler.enabled = true;
+            }
+        }
+
+        foreach (AudioSource audioSource in FindObjectsOfType<AudioSource>())
+        {
+            GameObject audioSourceGameObject = audioSource.gameObject;
+            if (audioSourceGameObject.GetComponent<SceneSwitchAudioSourceHandler>() == null)
+            {
+                SceneSwitchAudioSourceHandler audioSourceHandler = audioSourceGameObject.AddComponent<SceneSwitchAudioSourceHandler>();
+                audioSourceHandler.enabled = true;
             }
         }
     }

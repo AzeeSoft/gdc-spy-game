@@ -7,8 +7,8 @@ public class SceneSwitchHandler : MonoBehaviour
 {
 //    public bool SkipDefaultBehaviour = false;
 
-    public UnityEvent OnScenePaused = new UnityEvent();
-    public UnityEvent OnSceneResumed = new UnityEvent();
+    [HideInInspector] public UnityEvent OnScenePaused = new UnityEvent();
+    [HideInInspector] public UnityEvent OnSceneResumed = new UnityEvent();
 
     // Use this for initialization
     void Start()

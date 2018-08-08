@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneSwitchAnimatorPreserver : SceneSwitchHandler
+public class SceneSwitchAnimatorHandler : SceneSwitchHandler
 {
     private Animator _animator = null;
 
