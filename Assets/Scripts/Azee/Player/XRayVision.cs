@@ -13,9 +13,18 @@ public class XRayVision : MonoBehaviour
 
     public bool skipAnimation = false;
 
+    public XRayVisionState VisionState
+    {
+        get { return _xRayVisionState; }
+    }
+
     public bool IsXRayVisionEnabled
     {
-        get { return _xRayVisionState == XRayVisionState.XRay; }
+        get
+        {
+            return _xRayVisionState == XRayVision.XRayVisionState.XRay ||
+                   _xRayVisionState == XRayVision.XRayVisionState.TransitioningToXRay;
+        }
     }
 
     Shader _xRayShader;
@@ -35,7 +44,7 @@ public class XRayVision : MonoBehaviour
         public static bool VolumetricLightEnabled = false;
     }
 
-    enum XRayVisionState
+    public enum XRayVisionState
     {
         Normal,
         TransitioningToXRay,
@@ -49,9 +58,10 @@ public class XRayVision : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        SavePreXRayConfig();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -153,32 +163,38 @@ public class XRayVision : MonoBehaviour
         }
     }
 
-    public void SwitchToXRayView()
+    private void SavePreXRayConfig()
     {
-        _camera.SetReplacementShader(_xRayShader, "");
-
         PreXRayConfig.FarClipPlaneDistance = _camera.farClipPlane;
-        _camera.farClipPlane = FarClipPlaneDistance;
 
         if (_postProcessingBehaviour)
         {
             PreXRayConfig.PrevPostProcessingProfile = _postProcessingBehaviour.profile;
-            _postProcessingBehaviour.profile = XRayPostProcessingProfile;
         }
 
         if (_volumetricLightRenderer)
         {
             PreXRayConfig.VolumetricLightEnabled = _volumetricLightRenderer.enabled;
-            _volumetricLightRenderer.enabled = false;
         }
-
-        _xRayVisionState = XRayVisionState.XRay;
     }
 
-    public void SwitchToNormalView()
+    private void LoadXRayConfig()
     {
-        _camera.ResetReplacementShader();
+        _camera.farClipPlane = FarClipPlaneDistance;
 
+        if (_postProcessingBehaviour)
+        {
+            _postProcessingBehaviour.profile = XRayPostProcessingProfile;
+        }
+
+        if (_volumetricLightRenderer)
+        {
+            _volumetricLightRenderer.enabled = false;
+        }
+    }
+
+    private void LoadPreXRayConfig()
+    {
         _camera.farClipPlane = PreXRayConfig.FarClipPlaneDistance;
         if (_postProcessingBehaviour)
         {
@@ -189,7 +205,30 @@ public class XRayVision : MonoBehaviour
         {
             _volumetricLightRenderer.enabled = PreXRayConfig.VolumetricLightEnabled;
         }
+    }
 
+    public void SwitchToXRayView()
+    {
+        _camera.SetReplacementShader(_xRayShader, "");
+
+//        SavePreXRayConfig();
+        LoadXRayConfig();
+    }
+
+    public void SwitchToNormalView()
+    {
+        _camera.ResetReplacementShader();
+
+        LoadPreXRayConfig();
+    }
+
+    public void OnXRayShown()
+    {
+        _xRayVisionState = XRayVisionState.XRay;
+    }
+
+    public void OnXRayHidden()
+    {
         _xRayVisionState = XRayVisionState.Normal;
     }
 
@@ -210,5 +249,6 @@ public class XRayVision : MonoBehaviour
                 break;
         }
 
+//        DisableXRayVision();
     }
 }
