@@ -53,4 +53,14 @@ public class Player : PlayerControllable
         _camera.enabled = false;
         _audioListener.enabled = false;
     }
+
+    void OnEnable()
+    {
+
+    }
+
+    void OnDisable()
+    {
+
+    }
 }

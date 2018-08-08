@@ -180,9 +180,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146507236149084}
-  m_LocalRotation: {x: -0.0000000018626451, y: 0.000000014897615, z: 3.2506636e-10,
-    w: 1}
-  m_LocalPosition: {x: -0.00000033527613, y: -0.000000120118, z: 0.00000001821177}
+  m_LocalRotation: {x: -0.14044291, y: 0.8401453, z: -0.20558234, w: -0.48183772}
+  m_LocalPosition: {x: 10.448272, y: 2.3351324, z: 17.8962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843909884389072}
@@ -287,9 +286,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 1
+  far clip plane: 4000
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -938,7 +937,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778366368411078}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba2c9d2d7d8855e4e949c115f840a20a, type: 3}
   m_Name: 
@@ -947,6 +946,7 @@ MonoBehaviour:
   FarClipPlaneDistance: 200
   XRayPostProcessingProfile: {fileID: 11400000, guid: cfaa64fbe6e4ba04295ddccfedc20dcf,
     type: 2}
+  skipAnimation: 0
 --- !u!114 &114966421613149378
 MonoBehaviour:
   m_ObjectHideFlags: 1

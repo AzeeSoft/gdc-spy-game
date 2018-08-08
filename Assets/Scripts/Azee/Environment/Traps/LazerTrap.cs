@@ -35,7 +35,7 @@ public class LazerTrap : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("Enabling Lazer Trap");
+//        Debug.Log("Enabling Lazer Trap");
         StartCoroutine(LazerOpenCloseCoroutine);
     }
 
@@ -81,7 +81,7 @@ public class LazerTrap : MonoBehaviour
 
     void OnDisable()
     {
-        Debug.Log("Disabling Lazer Trap");
+//        Debug.Log("Disabling Lazer Trap");
         StopCoroutine(LazerOpenCloseCoroutine);
     }
 
