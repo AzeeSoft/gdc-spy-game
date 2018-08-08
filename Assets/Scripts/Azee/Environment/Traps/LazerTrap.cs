@@ -16,17 +16,27 @@ public class LazerTrap : MonoBehaviour
 
     private float _guardsInsideZone = 0;
 
+    private IEnumerator LazerOpenCloseCoroutine;
+
     void Awake()
     {
         _animator = GetComponent<Animator>();
         _lazerBeamCollisionDetector = LazerBeamsGameObject.AddComponent<LazerBeamCollisionDetector>();
         _lazerBeamCollisionDetector.Initialize(this);
+
+        LazerOpenCloseCoroutine = LoopBeamOpenClose();
     }
 
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(LoopBeamOpenClose());
+
+    }
+
+    void OnEnable()
+    {
+        Debug.Log("Enabling Lazer Trap");
+        StartCoroutine(LazerOpenCloseCoroutine);
     }
 
     // Update is called once per frame
@@ -49,7 +59,6 @@ public class LazerTrap : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(LoopTime);
-
             _isOpen = !_isOpen;
         }
     }
@@ -69,6 +78,13 @@ public class LazerTrap : MonoBehaviour
             _guardsInsideZone--;
         }
     }
+
+    void OnDisable()
+    {
+        Debug.Log("Disabling Lazer Trap");
+        StopCoroutine(LazerOpenCloseCoroutine);
+    }
+
 
     private void OnLazerBeamCollisionDetected(Collision collision)
     {
@@ -95,5 +111,15 @@ public class LazerTrap : MonoBehaviour
 //            Debug.Log(collision.collider.gameObject);
             _lazerTrap.OnLazerBeamCollisionDetected(collision);
         }
+    }
+
+    public void OnScenePaused()
+    {
+
+    }
+
+    public void OnSceneResumed()
+    {
+
     }
 }
