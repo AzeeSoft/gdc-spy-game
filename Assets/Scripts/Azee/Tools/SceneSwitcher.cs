@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
@@ -16,6 +17,7 @@ public class SceneSwitcher : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -28,15 +30,40 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
+    public void CallOnScenePausedHandlers()
+    {
+        foreach (SceneSwitchHandler sceneSwitchHandler in FindObjectsOfType<SceneSwitchHandler>())
+        {
+            sceneSwitchHandler.OnScenePaused.Invoke();
+        }
+    }
+
+    public void CallOnSceneResumedHandlers()
+    {
+        foreach (SceneSwitchHandler sceneSwitchHandler in FindObjectsOfType<SceneSwitchHandler>())
+        {
+            sceneSwitchHandler.OnSceneResumed.Invoke();
+        }
+    }
+
     private void SaveToStack()
     {
-        EnableSceneObjects(false);
+        CallOnScenePausedHandlers();
+        SetSceneObjectsState(false);
         SavedSceneSwitchers.Push(this);
     }
 
-    private void EnableSceneObjects(bool enable)
+    private void LoadFromStack()
+    {
+        SceneSwitcher lastSceneSwitcher = SavedSceneSwitchers.Pop();
+        lastSceneSwitcher.SetSceneObjectsState(true);
+        CallOnSceneResumedHandlers();
+    }
+
+    private void SetSceneObjectsState(bool enable)
     {
         gameObject.SetActive(enable);
+//        Time.timeScale = enable ? 1 : 0;
     }
 
     private void DestroySceneObjects()
@@ -49,7 +76,11 @@ public class SceneSwitcher : MonoBehaviour
         if (saveScene)
         {
             SaveToStack();
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            asyncOperation.completed += operation =>
+            {
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+            };
         }
         else
         {
@@ -62,9 +93,9 @@ public class SceneSwitcher : MonoBehaviour
         if (SavedSceneSwitchers.Count > 0)
         {
             DestroySceneObjects();
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
-            SceneSwitcher lastSceneSwitcher = SavedSceneSwitchers.Pop();
-            lastSceneSwitcher.EnableSceneObjects(true);
+            LoadFromStack();
         }
         else
         {
