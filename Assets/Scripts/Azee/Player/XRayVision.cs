@@ -239,7 +239,7 @@ public class XRayVision : MonoBehaviour
 
     void OnEnable()
     {
-        switch (_xRayVisionState)
+        /*switch (_xRayVisionState)
         {
             case XRayVisionState.TransitioningToXRay:
                 EnableXRayVision();
@@ -247,8 +247,8 @@ public class XRayVision : MonoBehaviour
             case XRayVisionState.TransitioningToNormal:
                 DisableXRayVision();
                 break;
-        }
+        }*/
 
-//        DisableXRayVision();
+        //        DisableXRayVision();
     }
 }

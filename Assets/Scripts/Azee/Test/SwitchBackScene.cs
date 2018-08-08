@@ -15,7 +15,7 @@ public class SwitchBackScene : MonoBehaviour {
 
 	    if (Input.GetKeyDown(KeyCode.Backspace))
 	    {
-	        Debug.Log("Switching to LightingTest");
+//	        Debug.Log("Switching to LightingTest");
 	        FindObjectOfType<SceneSwitcher>().ShowLastSavedScene();
 	    }
     }

@@ -11,7 +11,15 @@ public class SceneSwitcher : MonoBehaviour
 
     void Awake()
     {
-
+        foreach (Animator animator in FindObjectsOfType<Animator>())
+        {
+            GameObject animGameObject = animator.gameObject;
+            if (animGameObject.GetComponent<SceneSwitchAnimatorPreserver>() == null)
+            {
+                SceneSwitchAnimatorPreserver animatorPreserver = animGameObject.AddComponent<SceneSwitchAnimatorPreserver>();
+                animatorPreserver.enabled = true;
+            }
+        }
     }
 
     // Use this for initialization
@@ -25,7 +33,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log("Switching to SwitchSceneTest");
+//            Debug.Log("Switching to SwitchSceneTest");
             SwitchScene("SwitchSceneTest", true);
         }
     }

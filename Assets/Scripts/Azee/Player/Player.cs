@@ -54,13 +54,13 @@ public class Player : PlayerControllable
         _audioListener.enabled = false;
     }
 
-    void OnEnable()
+    new void OnEnable()
     {
-
+        base.OnEnable();
     }
 
-    void OnDisable()
+    new void OnDisable()
     {
-
+        base.OnDisable();
     }
 }

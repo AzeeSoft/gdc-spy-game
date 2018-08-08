@@ -7,17 +7,16 @@ public class SceneSwitchHandler : MonoBehaviour
 {
 //    public bool SkipDefaultBehaviour = false;
 
-    public UnityEvent OnScenePaused;
-    public UnityEvent OnSceneResumed;
+    public UnityEvent OnScenePaused = new UnityEvent();
+    public UnityEvent OnSceneResumed = new UnityEvent();
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
 }
