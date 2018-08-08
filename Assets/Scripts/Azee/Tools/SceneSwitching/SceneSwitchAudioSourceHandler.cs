@@ -9,7 +9,9 @@ public class SceneSwitchAudioSourceHandler : SceneSwitchHandler
     {
         public AudioSource audioSource = null;
         public bool wasPlaying = false;
-        public float offset = 0f;
+        public float prevTime = 0f;
+        public int prevTimeSamples = 0;
+        public IEnumerator resetPlaybackTimeCoroutine;
     }
 
     private List<AudioSourceData> _audioSourceDataList = null;
@@ -37,7 +39,6 @@ public class SceneSwitchAudioSourceHandler : SceneSwitchHandler
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void OnScenePausedCallback()
@@ -47,7 +48,8 @@ public class SceneSwitchAudioSourceHandler : SceneSwitchHandler
         foreach (AudioSourceData audioSourceData in _audioSourceDataList)
         {
             audioSourceData.wasPlaying = audioSourceData.audioSource.isPlaying;
-            audioSourceData.offset = audioSourceData.audioSource.time;
+            audioSourceData.prevTime = audioSourceData.audioSource.time;
+            audioSourceData.prevTimeSamples = audioSourceData.audioSource.timeSamples;
         }
     }
 
@@ -59,10 +61,43 @@ public class SceneSwitchAudioSourceHandler : SceneSwitchHandler
         {
             if (audioSourceData.wasPlaying)
             {
-                audioSourceData.audioSource.time = audioSourceData.offset;
+                // NOTE: This can cause a glitch when the audio source plays some other clip before this clip is finished and the audio source is reset.
+                // NOTE: It won't cause a glitch on looping audio sources.
+
+                audioSourceData.audioSource.time = audioSourceData.prevTime;
                 audioSourceData.audioSource.Play();
+
+                if (!audioSourceData.audioSource.loop)
+                {
+                    audioSourceData.resetPlaybackTimeCoroutine = ResetPlaybackTimeAtEndOfClip(audioSourceData);
+                    StartCoroutine(audioSourceData.resetPlaybackTimeCoroutine);
+                }
+            }
+            else
+            {
+                if (!audioSourceData.audioSource.loop)
+                {
+                    if (audioSourceData.resetPlaybackTimeCoroutine != null)
+                    {
+                        ResetPlaybackTimeNow(audioSourceData);
+                    }
+                }
             }
         }
+    }
+
+    IEnumerator ResetPlaybackTimeAtEndOfClip(AudioSourceData audioSourceData)
+    {
+        float remainingTime = audioSourceData.audioSource.clip.length - audioSourceData.audioSource.time;
+        yield return new WaitForSecondsRealtime(remainingTime);
+
+        ResetPlaybackTimeNow(audioSourceData);
+    }
+
+    void ResetPlaybackTimeNow(AudioSourceData audioSourceData)
+    {
+        audioSourceData.audioSource.time = 0;
+        audioSourceData.resetPlaybackTimeCoroutine = null;
     }
 
     void InitMissingVars()
