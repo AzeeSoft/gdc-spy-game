@@ -50,6 +50,7 @@ public class AudioController : MonoBehaviour
     {
         if (SelectClip(index))
         {
+//            _selectedAudioSource.time = 0;
             _selectedAudioSource.Play();
         }
     }

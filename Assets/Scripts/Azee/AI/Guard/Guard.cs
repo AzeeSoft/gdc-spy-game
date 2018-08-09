@@ -155,4 +155,33 @@ public class Guard : MonoBehaviour
     {
         return _audioController;
     }
+
+
+    /**********************************
+     * Scene Switch Handler Functions *
+     **********************************/
+
+    private class SceneSwitchData
+    {
+        public Vector3? NavMeshDestination = null;
+    }
+    private SceneSwitchData _sceneSwitchData = new SceneSwitchData();
+
+    public void OnScenePaused()
+    {
+        _sceneSwitchData = new SceneSwitchData();
+
+        if (_navMeshAgent.hasPath)
+        {
+            _sceneSwitchData.NavMeshDestination = _navMeshAgent.destination;
+        }
+    }
+
+    public void OnSceneResumed()
+    {
+        if (_sceneSwitchData.NavMeshDestination != null)
+        {
+            _navMeshAgent.SetDestination(_sceneSwitchData.NavMeshDestination.Value);
+        }
+    }
 }

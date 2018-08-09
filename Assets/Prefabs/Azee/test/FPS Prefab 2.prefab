@@ -165,9 +165,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
-  m_LocalRotation: {x: -0, y: -0.256711, z: 0, w: -0.9664882}
-  m_LocalPosition: {x: -63.68, y: -2.25, z: 65.4}
-  m_LocalScale: {x: 1.708929, y: 1.7, z: 1.7089291}
+  m_LocalRotation: {x: -0, y: -0.256711, z: -0, w: -0.9664882}
+  m_LocalPosition: {x: 3.5047302, y: 4.7023764, z: 1.8481941}
+  m_LocalScale: {x: 1.7089287, y: 1.7, z: 1.7089291}
   m_Children:
   - {fileID: 4241457729593926}
   - {fileID: 4358407090237042}
@@ -181,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146507236149084}
   m_LocalRotation: {x: -0.14044291, y: 0.8401453, z: -0.20558234, w: -0.48183772}
-  m_LocalPosition: {x: 10.448269, y: 2.3351324, z: 17.8962}
+  m_LocalPosition: {x: 10.448272, y: 2.3351324, z: 17.8962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843909884389072}
@@ -428,7 +428,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -523,7 +523,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -686,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CamAnimator: {fileID: 95578685929777526}
   ExitDuration: 0.25
+  controlsPlayer: 0
 --- !u!114 &114159492117876654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,18 +699,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutlineCount: 0
-  lineThickness: 1.75
-  lineIntensity: 0.5
+  lineThickness: 2.28
+  lineIntensity: 4.7
   fillAmount: 0.05
   lineColor0: {r: 1, g: 0, b: 0, a: 1}
   lineColor1: {r: 0, g: 1, b: 0, a: 1}
   lineColor2: {r: 0, g: 0, b: 1, a: 1}
   SeeThrough: 0
-  additiveRendering: 1
-  backfaceCulling: 1
+  additiveRendering: 0
+  backfaceCulling: 0
   cornerOutlines: 0
   addLinesBetweenColors: 0
-  scaleWithScreenSize: 1
+  scaleWithScreenSize: 0
   alphaCutoff: 0.5
   flipY: 0
   sourceCamera: {fileID: 20745884600214100}
@@ -799,7 +800,7 @@ MonoBehaviour:
   m_MouseLook:
     XSensitivity: 2
     YSensitivity: 2
-    clampVerticalRotation: 0
+    clampVerticalRotation: 1
     MinimumX: -90
     MaximumX: 90
     smooth: 0
@@ -913,7 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionRadius: 0.5
-  HighlightRadius: 15
+  HighlightRadius: 5
   _maxDistance: 100
   _interactionDescriptionText: {fileID: 0}
 --- !u!114 &114845936571441590
@@ -937,7 +938,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778366368411078}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba2c9d2d7d8855e4e949c115f840a20a, type: 3}
   m_Name: 
@@ -946,6 +947,7 @@ MonoBehaviour:
   FarClipPlaneDistance: 200
   XRayPostProcessingProfile: {fileID: 11400000, guid: cfaa64fbe6e4ba04295ddccfedc20dcf,
     type: 2}
+  skipAnimation: 0
 --- !u!114 &114966421613149378
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -38,6 +38,8 @@ public class HologramShaderGUI : ShaderGUI
     private MaterialProperty Flicker = null;
     private MaterialProperty FlickerSpeed = null;
 
+    private MaterialProperty XRayColor = null;
+
     private static class Styles
     {
         public static GUIContent AlbedoText = new GUIContent("Albedo");
@@ -48,6 +50,7 @@ public class HologramShaderGUI : ShaderGUI
     {
         General = 0,
         Effects,
+        XRay,
     }
 
     void AssignProperties()
@@ -72,6 +75,8 @@ public class HologramShaderGUI : ShaderGUI
 
         Flicker = FindProperty("_FlickerTex", _props);
         FlickerSpeed = FindProperty("_FlickerSpeed", _props);
+
+        XRayColor = FindProperty("_XRayColor", _props);
     }
 
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] props)
@@ -145,7 +150,7 @@ public class HologramShaderGUI : ShaderGUI
 
     void DrawGUI()
     {
-        DrawBanner();
+//        DrawBanner();
 
         if (Layout.BeginFold((int)Category.General, "- Surface -"))
             DrawGeneralSettings();
@@ -160,6 +165,10 @@ public class HologramShaderGUI : ShaderGUI
             DrawGlitchSettings();
             DrawFlickerSettings();
         }
+        Layout.EndFold();
+
+        if (Layout.BeginFold((int)Category.XRay, "- X-Ray -"))
+            DrawXRaySettings();
         Layout.EndFold();
     }
 
@@ -288,6 +297,17 @@ public class HologramShaderGUI : ShaderGUI
         _materialEditor.TexturePropertySingleLine(Styles.FlickerText, Flicker, null);
         EditorGUIUtility.labelWidth = ofs;
         _materialEditor.ShaderProperty(FlickerSpeed, "Speed");
+        EditorGUI.indentLevel--;
+    }
+
+    void DrawXRaySettings()
+    {
+        GUILayout.Space(-3);
+        EditorGUI.indentLevel++;
+        var ofs = EditorGUIUtility.labelWidth;
+        _materialEditor.SetDefaultGUIWidths();
+        EditorGUIUtility.labelWidth = 0;
+        _materialEditor.ColorProperty(XRayColor, "X-Ray Color");
         EditorGUI.indentLevel--;
     }
 }
