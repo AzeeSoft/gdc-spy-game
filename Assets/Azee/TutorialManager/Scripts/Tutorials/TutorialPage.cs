@@ -141,4 +141,17 @@ public class TutorialPage : MonoBehaviour
         _endAfterTimeCoroutine = null;
         End();
     }
+
+    void OnDisable()
+    {
+
+    }
+
+    void OnEnable()
+    {
+        if (_endAfterTimeCoroutine != null)
+        {
+            StartCoroutine(_endAfterTimeCoroutine);
+        }
+    }
 }
