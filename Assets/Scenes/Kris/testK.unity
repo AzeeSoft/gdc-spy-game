@@ -113,6 +113,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 2b6766f8947ffde40b3f65138d7234ab, type: 2}
+--- !u!84 &20999033
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 582
+  m_Height: 504
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &49029780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2076,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 509396373}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!84 &542180519
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 582
+  m_Height: 504
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &588531613
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,33 +3713,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1181827064}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1191023854 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1775504240588780, guid: 36bc9b791e3102140858696e1f70e911,
-    type: 2}
-  m_PrefabInternal: {fileID: 1880153360}
---- !u!114 &1191023855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1191023854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2fd538a2c6b0f94e8b47f87839c7cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1191023866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1191023854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5681bed896dcce246987b948ddadbf43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1214262872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5418,21 +5453,53 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 1921077343267720, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 20285353036580202, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: near clip plane
+      value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 4592452847191910, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.13
+    - target: {fileID: 20285353036580202, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: far clip plane
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 4592452847191910, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -9.63
+    - target: {fileID: 20285353036580202, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
-    - target: {fileID: 4592452847191910, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+    - target: {fileID: 20285353036580202, guid: 36bc9b791e3102140858696e1f70e911,
+        type: 2}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 542180519}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000000018626451
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0.00000010430813
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000014053762
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105655862223914, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.0000004858992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36bc9b791e3102140858696e1f70e911, type: 2}
@@ -5522,6 +5589,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921329272}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!84 &1924853818
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 582
+  m_Height: 504
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1951889118
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,12 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+
+[Serializable]
+public class ShakeProps
+{
+    public float x;
+    public float y;
+}
 
 public class Shake : MonoBehaviour {
 
     Transform _target;
 
     Vector3 _initialPos;
+
+
+
+    public ShakeProps shakeProp1;
+    public ShakeProps shakeProp2;
+    
+
+        
 
     private void Start()
     {
@@ -39,10 +56,12 @@ public class Shake : MonoBehaviour {
         _isShaking = true;
 
         var startTime = Time.realtimeSinceStartup;
+        Vector3 originalLocalPos = _target.localPosition;
+
         while(Time.realtimeSinceStartup < startTime + _pendingShakeDuration)
         {
-            var randomPoint = new Vector3(Random.Range(-.25f, .25f), Random.Range(-.5f, .25f), _initialPos.z);
-            _target.localPosition = randomPoint;
+            var randomPoint = new Vector3(UnityEngine.Random.Range(-shakeProp1.x, shakeProp2.x), UnityEngine.Random.Range(-shakeProp1.y, shakeProp2.y), _initialPos.z);
+            _target.localPosition = originalLocalPos + randomPoint;
             yield return null;
         }
 
