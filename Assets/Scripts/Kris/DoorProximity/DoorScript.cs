@@ -6,6 +6,8 @@ public class DoorScript : MonoBehaviour {
 
     private Animator _animator;
 
+    private int checkIfDoor;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -13,20 +15,38 @@ public class DoorScript : MonoBehaviour {
         _animator.SetBool("open", false);
 	}
 
+    private void FixedUpdate()
+    {
+        if (checkIfDoor == 0)
+        {
+            _animator.SetBool("open", false);
+        }
+        else if (checkIfDoor != 0)
+        {
+            _animator.SetBool("open", true);
+        }
+        else
+        {
+            Debug.Log("Door thing broke please check DoorScript.cs");
+        }
+
+
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Guard")
         {
-            _animator.SetBool("open", true);
+            checkIfDoor = checkIfDoor + 1;
         }      
     }
 
     void OnTriggerExit(Collider other)
     {
-        _animator.SetBool("open", false);
+        if (other.tag == "Player" || other.tag == "Guard")
+        {
+            checkIfDoor = checkIfDoor - 1;
+        }
     }
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
