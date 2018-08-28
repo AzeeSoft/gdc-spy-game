@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 65993795314667456}
   - component: {fileID: 65952988875803360}
   - component: {fileID: 95521384106315924}
-  - component: {fileID: 114067425637101654}
+  - component: {fileID: 114526780270899760}
+  - component: {fileID: 114195297419721754}
   m_Layer: 0
   m_Name: VerticalDoors
   m_TagString: Untagged
@@ -158,7 +159,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114067425637101654
+--- !u!114 &114195297419721754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -166,7 +167,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133553812824864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae6d3882700604d43b6d7f749677d73a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6df54ab56dcffbe4d86d93f82825e185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenPanel: {fileID: 0}
+  _isLocked: 1
+--- !u!114 &114526780270899760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133553812824864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcec54f738ad594a9609362d3eb8e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - enabled: 1
+    showGizmo: 1
+    gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+    showPrefix: 0
+    description: Door Locked
+    maxRange: 30
+    onInteractionEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - enabled: 0
+    showGizmo: 1
+    gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+    showPrefix: 1
+    description: 
+    maxRange: 30
+    onInteractionEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
