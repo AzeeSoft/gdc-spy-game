@@ -47,8 +47,11 @@ public class ActionController : MonoBehaviour
     void LateUpdate()
     {
         CheckHighlights();
-        DetectInteractionInputs();
-        CheckInteraction();
+        if (Time.timeScale > 0)
+        {
+            DetectInteractionInputs();
+            CheckInteraction();
+        }
     }
 
     private void DetectInteractionInputs()
