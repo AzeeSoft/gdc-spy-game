@@ -6,6 +6,8 @@ public class DoorScript : MonoBehaviour {
 
     private Animator _animator;
 
+    private int _objectsInProximity = 0;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -17,16 +19,21 @@ public class DoorScript : MonoBehaviour {
     {
         if (other.tag == "Player" || other.tag == "Guard")
         {
-            _animator.SetBool("open", true);
+            _objectsInProximity++;
         }      
     }
 
     void OnTriggerExit(Collider other)
     {
-        _animator.SetBool("open", false);
+        if (other.tag == "Player" || other.tag == "Guard")
+        {
+            _objectsInProximity--;
+        }
     }
+
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update ()
+    {
+        _animator.SetBool("open", _objectsInProximity > 0);
+    }
 }

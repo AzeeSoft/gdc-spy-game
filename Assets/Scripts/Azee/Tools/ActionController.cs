@@ -19,8 +19,8 @@ public class ActionController : MonoBehaviour
 
     private readonly string[] InteractionDescriptionPrefixes = new string[MaxInteractions]
     {
-        "Primary: ",
-        "Secondary: "
+        "Left Mouse: ",
+        "Right Mouse: "
     };
 
     [SerializeField] private float _maxDistance = 100f;
@@ -99,7 +99,7 @@ public class ActionController : MonoBehaviour
                             Vector3.Distance(transform.position, interactiveObject.transform.position) <=
                             interaction.maxRange)
                         {
-                            actionDescription += InteractionDescriptionPrefixes[i] + interaction.description + "\n";
+                            actionDescription += (interaction.showPrefix ? InteractionDescriptionPrefixes[i] : "") + interaction.description + "\n";
 
                             if (_interactionInputs[i])
                             {
