@@ -54,6 +54,7 @@ public class Player : PlayerControllable
     protected override void OnControlBegin()
     {
         _firstPersonController.canRotate = true;
+        _firstPersonController.enabled = true;
         _actionController.enabled = true;
         _visionToggler.enabled = true;
         _leanScript.enabled = true;
@@ -66,6 +67,7 @@ public class Player : PlayerControllable
     protected override void OnControlEnd()
     {
         _firstPersonController.canRotate = false;
+        _firstPersonController.enabled = false;
         _actionController.enabled = false;
         _visionToggler.enabled = false;
         _leanScript.enabled = false;

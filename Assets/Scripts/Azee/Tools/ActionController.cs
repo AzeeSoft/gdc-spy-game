@@ -47,8 +47,15 @@ public class ActionController : MonoBehaviour
     void LateUpdate()
     {
         CheckHighlights();
-        DetectInteractionInputs();
-        CheckInteraction();
+        if (Time.timeScale > 0)
+        {
+            DetectInteractionInputs();
+            CheckInteraction();
+        }
+        else
+        {
+            UpdateInteractionDescriptionText("");
+        }
     }
 
     private void DetectInteractionInputs()
@@ -111,6 +118,11 @@ public class ActionController : MonoBehaviour
             }
         }
 
+        UpdateInteractionDescriptionText(actionDescription);
+    }
+
+    void UpdateInteractionDescriptionText(string actionDescription)
+    {
         if (_interactionDescriptionText)
         {
             _interactionDescriptionText.text = actionDescription;
