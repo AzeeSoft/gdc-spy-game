@@ -27,12 +27,12 @@ public class LevelManager : MonoBehaviour
 
     private PlayerControllable curPlayerControllable;
 
-    void OnValidate()
+    protected void OnValidate()
     {
         _gameManager.GetProfileList();  // Just to force the profile list to be loaded in the inspector.
     }
 
-    void Awake()
+    protected void Awake()
     {
         Instance = this;
         
@@ -45,13 +45,13 @@ public class LevelManager : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start ()
+    protected void Start ()
     {
         switchPlayerControlToFirstPerson();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    protected void Update () {
 		
 	}
 
