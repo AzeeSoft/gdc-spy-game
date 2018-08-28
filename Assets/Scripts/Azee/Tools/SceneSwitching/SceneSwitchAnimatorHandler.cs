@@ -56,11 +56,13 @@ public class SceneSwitchAnimatorHandler : SceneSwitchHandler
         InitMissingVars();
 
 //        Debug.Log("Loading Animator State Info: ");
-
-        for (int i = 0; i < pendingLayerInfo.Length; i++)
+        if (pendingLayerInfo != null)
         {
+            for (int i = 0; i < pendingLayerInfo.Length; i++)
+            {
 //            PrintAnimatorStateInfo(i, pendingLayerInfo[i]);
-            _animator.Play(pendingLayerInfo[i].fullPathHash, i, pendingLayerInfo[i].normalizedTime);
+                _animator.Play(pendingLayerInfo[i].fullPathHash, i, pendingLayerInfo[i].normalizedTime);
+            }
         }
 
 //        Debug.Log("Loaded Animator State Info: ");

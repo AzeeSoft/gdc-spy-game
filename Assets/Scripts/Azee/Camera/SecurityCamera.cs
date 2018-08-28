@@ -19,8 +19,8 @@ public class SecurityCamera : PlayerControllable
     void Awake()
     {
         _securityCameraController = GetComponent<SecurityCameraController>();
-        _actionController = GetComponent<ActionController>();
-        _freeLookCam = GetComponent<FreeLookCam>();
+        _actionController = GetComponentInChildren<ActionController>();
+        _freeLookCam = GetComponentInChildren<FreeLookCam>();
         _interactiveObject = GetComponent<InteractiveObject>();
         _audioController = GetComponent<AudioController>();
 

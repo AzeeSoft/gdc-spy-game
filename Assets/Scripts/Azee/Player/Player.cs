@@ -10,6 +10,8 @@ public class Player : PlayerControllable
     [SerializeField]
     private int _health = 100;
 
+    public GameObject PlayerHUD;
+
     private FirstPersonController _firstPersonController;
     private ActionController _actionController;
     private VisionToggler _visionToggler;
@@ -58,6 +60,7 @@ public class Player : PlayerControllable
         _camera.enabled = true;
         _postProcessingBehaviour.enabled = true;
         _audioListener.enabled = true;
+        PlayerHUD.SetActive(true);
     }
 
     protected override void OnControlEnd()
@@ -69,6 +72,7 @@ public class Player : PlayerControllable
         _camera.enabled = false;
         _postProcessingBehaviour.enabled = false;
         _audioListener.enabled = false;
+        PlayerHUD.SetActive(false);
     }
 
     new void OnEnable()
