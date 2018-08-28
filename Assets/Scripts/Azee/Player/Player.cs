@@ -6,9 +6,20 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : PlayerControllable
 {
+    [SerializeField]
+    private float StunRefillRate = 0.5f;
 
     [SerializeField]
-    private int _health = 100;
+    private float StunDepleteRate = 2f;
+
+    [SerializeField]
+    private float _health = 100f;
+
+    [SerializeField]
+    private float _stunBar = 100f;
+
+    [SerializeField] [ReadOnly]
+    private bool _depletingStunBar = false;
 
     public GameObject PlayerHUD;
 
@@ -42,13 +53,17 @@ public class Player : PlayerControllable
 	
 	// Update is called once per frame
 	void Update () {
-		UpdateUI();
-	}
+        UpdateStunBar();
+	    UpdateUI();
+    }
 
     void UpdateUI()
     {
         if (_playerHudController.UIElements.HealthUI != null)
-            _playerHudController.UIElements.HealthUI.fillAmount = _health;
+            _playerHudController.UIElements.HealthUI.fillAmount = _health / 100.0f;
+
+        if (_playerHudController.UIElements.StunBarUI != null)
+            _playerHudController.UIElements.StunBarUI.fillAmount = _stunBar / 100.0f;
     }
 
     protected override void OnControlBegin()
@@ -85,5 +100,39 @@ public class Player : PlayerControllable
     new void OnDisable()
     {
         base.OnDisable();
+    }
+
+    public void ResetStunBar()
+    {
+        _depletingStunBar = true;
+    }
+
+    public bool CanStun()
+    {
+        return (!_depletingStunBar) && (_stunBar >= 100);
+    }
+
+    private void UpdateStunBar()
+    {
+        if (_depletingStunBar)
+        {
+            _stunBar -= StunDepleteRate;
+            if (_stunBar < 0)
+            {
+                _depletingStunBar = false;
+            }
+        }
+        else
+        {
+            if (_stunBar < 100)
+            {
+                Debug.Log("Refilling Stun Bar");
+                _stunBar += StunRefillRate;
+                if (_stunBar > 100)
+                {
+                    _stunBar = 100;
+                }
+            }
+        }
     }
 }

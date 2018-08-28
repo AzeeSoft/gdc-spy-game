@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,8 +7,18 @@ using Outline = cakeslice.Outline;
 
 public class ActionController : MonoBehaviour
 {
+    [Serializable]
+    public enum SpecialActionController
+    {
+        None,
+        Player,
+        Camera
+    }
+
     public float InteractionRadius = 0.5f;
     public float HighlightRadius = 10f;
+
+    public SpecialActionController SpecialActionControllerTag = SpecialActionController.None;
 
     private const int MaxInteractions = 2;
 
@@ -80,7 +91,7 @@ public class ActionController : MonoBehaviour
         string actionDescription = "";
 
         int layerMask = -5; //All layers
-        
+
         RaycastHit raycastHit;
 
         bool hitDetected = Physics.SphereCast(_camera.transform.position, InteractionRadius,
@@ -103,14 +114,17 @@ public class ActionController : MonoBehaviour
                         InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
 
                         if (interaction.enabled &&
+                            (interaction.requiresSpecialActionController == SpecialActionController.None ||
+                             interaction.requiresSpecialActionController == SpecialActionControllerTag) &&
                             Vector3.Distance(transform.position, interactiveObject.transform.position) <=
                             interaction.maxRange)
                         {
-                            actionDescription += (interaction.showPrefix ? InteractionDescriptionPrefixes[i] : "") + interaction.description + "\n";
+                            actionDescription += (interaction.showPrefix ? InteractionDescriptionPrefixes[i] : "") +
+                                                 interaction.description + "\n";
 
                             if (_interactionInputs[i])
                             {
-                                interaction.onInteractionEvent.Invoke();
+                                interaction.onInteractionEvent.Invoke(this);
                             }
                         }
                     }
@@ -136,6 +150,7 @@ public class ActionController : MonoBehaviour
         {
             outline.enabled = false;
         }
+
         _activeOutlines.Clear();
 
 

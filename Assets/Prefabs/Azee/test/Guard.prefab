@@ -106,15 +106,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751286407098278}
-  m_LocalRotation: {x: -0, y: -0.036639657, z: -0, w: -0.99932855}
-  m_LocalPosition: {x: -36.7, y: -2.57, z: 140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.615688, y: -4.657089, z: -2.8514862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4813150526905756}
   - {fileID: 4387240507390706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 364.2, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4387240507390706
 Transform:
   m_ObjectHideFlags: 1
@@ -428,23 +428,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - enabled: 1
+    showGizmo: 0
+    gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+    showPrefix: 1
     description: Stun
     maxRange: 100
+    requiresSpecialActionController: 1
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 114905334876985060}
           m_MethodName: Stun
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Testing Interactive AI
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
 --- !u!114 &114557138702144498
 MonoBehaviour:

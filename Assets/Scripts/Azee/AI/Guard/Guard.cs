@@ -123,9 +123,9 @@ public class Guard : MonoBehaviour
         _stateMachine.SwitchState(GuardStates.Chase.Instance, chaseTargetTransform);
     }
 
-    public void MoveTowards(Vector3 position)
+    public bool MoveTowards(Vector3 position)
     {
-        _navMeshAgent.SetDestination(position);
+        return _navMeshAgent.SetDestination(position);
     }
 
     public void StopMoving()
@@ -133,11 +133,22 @@ public class Guard : MonoBehaviour
         _navMeshAgent.ResetPath();
     }
 
-    public void Stun()
+    public void Stun(ActionController actionController)
     {
-        if (!_nonStunnableStates.Contains(_stateMachine.GetCurrentState()))
+        if (actionController.SpecialActionControllerTag == ActionController.SpecialActionController.Player)
         {
-            _stateMachine.SwitchState(GuardStates.Stunned.Instance);
+            Player player = actionController.GetComponent<Player>();
+            if (player != null)
+            {
+                if (player.CanStun())
+                {
+                    if (!_nonStunnableStates.Contains(_stateMachine.GetCurrentState()))
+                    {
+                        _stateMachine.SwitchState(GuardStates.Stunned.Instance);
+                        player.ResetStunBar();
+                    }
+                }
+            }
         }
     }
 
