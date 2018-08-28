@@ -16,4 +16,13 @@ public class TutorialLevelManager : LevelManager {
             TutorialManager.Instance.BroadcastTutorialAction("ok");
 	    }
 	}
+
+    public void OnSceneResultReceived(object data)
+    {
+        if (data is MazeSceneController.MazeSceneData)
+        {
+            MazeSceneController.MazeSceneData mazeSceneData = (MazeSceneController.MazeSceneData) data;
+            mazeSceneData.Terminal.OnHackAttemptResultReceived(mazeSceneData);
+        }
+    }
 }

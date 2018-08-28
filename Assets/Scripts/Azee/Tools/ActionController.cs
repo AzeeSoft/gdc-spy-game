@@ -87,7 +87,7 @@ public class ActionController : MonoBehaviour
             if (raycastHit.distance > 0)
             {
                 InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
-                if (interactiveObject != null)
+                if (interactiveObject != null && interactiveObject.enabled)
                 {
                     int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
 

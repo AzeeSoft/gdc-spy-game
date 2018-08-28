@@ -22,9 +22,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameManager _gameManager = GameManager.Instance;
 
-    public GameObject WinScreen;
-    public GameObject LoseScreen;
-
     private bool _isPlaying;
     private GameObject _playerGameObject;
 
