@@ -110,7 +110,7 @@ public class VisionToggler : MonoBehaviour
 
     void CheckVisionToggle()
     {
-        if (Input.GetButtonDown("Toggle Vision") && xRayVision && _currentBattery >= _minRequiredBattery)
+        if (Time.timeScale > 0 && Input.GetButtonDown("Toggle Vision") && xRayVision && _currentBattery >= _minRequiredBattery)
         {
             ToggleVision();
         }

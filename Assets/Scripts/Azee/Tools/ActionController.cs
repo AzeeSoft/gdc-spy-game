@@ -52,6 +52,10 @@ public class ActionController : MonoBehaviour
             DetectInteractionInputs();
             CheckInteraction();
         }
+        else
+        {
+            UpdateInteractionDescriptionText("");
+        }
     }
 
     private void DetectInteractionInputs()
@@ -114,6 +118,11 @@ public class ActionController : MonoBehaviour
             }
         }
 
+        UpdateInteractionDescriptionText(actionDescription);
+    }
+
+    void UpdateInteractionDescriptionText(string actionDescription)
+    {
         if (_interactionDescriptionText)
         {
             _interactionDescriptionText.text = actionDescription;
