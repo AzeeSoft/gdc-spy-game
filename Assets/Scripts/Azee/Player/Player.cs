@@ -7,14 +7,19 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Player : PlayerControllable
 {
 
+    [SerializeField]
+    private int _health = 100;
+
     private FirstPersonController _firstPersonController;
     private ActionController _actionController;
     private VisionToggler _visionToggler;
     private Lean _leanScript;
+    private PlayerHUDController _playerHudController;
 
     private Camera _camera;
     private PostProcessingBehaviour _postProcessingBehaviour;
     private AudioListener _audioListener;
+
 
     void Awake()
     {
@@ -25,6 +30,7 @@ public class Player : PlayerControllable
         _camera = GetComponentInChildren<Camera>();
         _postProcessingBehaviour = GetComponentInChildren<PostProcessingBehaviour>();
         _audioListener = GetComponentInChildren<AudioListener>();
+        _playerHudController = GetComponent<PlayerHUDController>();
     }
 
 	// Use this for initialization
@@ -34,8 +40,14 @@ public class Player : PlayerControllable
 	
 	// Update is called once per frame
 	void Update () {
-		
+		UpdateUI();
 	}
+
+    void UpdateUI()
+    {
+        if (_playerHudController.UIElements.HealthUI != null)
+            _playerHudController.UIElements.HealthUI.fillAmount = _health;
+    }
 
     protected override void OnControlBegin()
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,8 +11,10 @@ public class InteractiveObject : MonoBehaviour
     public class Interaction
     {
         public bool enabled = true;
+        public bool showGizmo = true;
+        public Color gizmoColor = Color.blue;
         public string description = "";
-        public float maxRange = 100f;
+        public float maxRange = 30f;
         public UnityEvent onInteractionEvent;
     }
 
@@ -26,6 +29,19 @@ public class InteractiveObject : MonoBehaviour
         {
             Debug.LogWarning("You can only have at most "+ MaxInteractions + " interactions!");
             Array.Resize(ref interactions, MaxInteractions);
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        foreach (Interaction interaction in interactions)
+        {
+            if (interaction.enabled && interaction.showGizmo)
+            {
+                DebugExtension.DrawCircle(transform.position, Vector3.up, interaction.gizmoColor, interaction.maxRange);
+                DebugExtension.DrawCircle(transform.position, Vector3.right, interaction.gizmoColor, interaction.maxRange);
+                DebugExtension.DrawCircle(transform.position, Vector3.forward, interaction.gizmoColor, interaction.maxRange);
+            }
         }
     }
 

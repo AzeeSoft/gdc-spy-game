@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 114225649914256562}
   - component: {fileID: 114078804603093104}
   - component: {fileID: 65728343254156186}
+  - component: {fileID: 114081063130523216}
   m_Layer: 0
   m_Name: FPS Prefab 2
   m_TagString: Player
@@ -158,30 +159,30 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4036945542781036
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
-  m_LocalRotation: {x: -0, y: -0.256711, z: -0, w: -0.9664882}
-  m_LocalPosition: {x: 3.5047302, y: 4.7023764, z: 1.8481941}
-  m_LocalScale: {x: 1.7089287, y: 1.7, z: 1.7089291}
+  m_LocalRotation: {x: -0, y: -0.032040842, z: -0, w: -0.99948657}
+  m_LocalPosition: {x: -7.57, y: 219.43, z: 3.3}
+  m_LocalScale: {x: 2.2045183, y: 2.193, z: 2.2045183}
   m_Children:
   - {fileID: 4241457729593926}
   - {fileID: 4358407090237042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 389.75, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 363.672, z: 0}
 --- !u!4 &4105655862223914
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146507236149084}
-  m_LocalRotation: {x: -0.14044291, y: 0.8401453, z: -0.20558234, w: -0.48183772}
-  m_LocalPosition: {x: 10.448272, y: 2.3351324, z: 17.8962}
+  m_LocalRotation: {x: -0.0000000018626451, y: -1.2697905e-12, z: 5.8193807e-11, w: 1}
+  m_LocalPosition: {x: -0.00000011175871, y: -0.0000017857832, z: -0.0000000929821}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843909884389072}
@@ -286,9 +287,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1
-  far clip plane: 4000
-  field of view: 100
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -314,7 +315,7 @@ Camera:
   m_GameObject: {fileID: 1778366368411078}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -417,7 +418,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778366368411078}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!82 &82032617348217738
 AudioSource:
   m_ObjectHideFlags: 1
@@ -687,6 +688,21 @@ MonoBehaviour:
   CamAnimator: {fileID: 95578685929777526}
   ExitDuration: 0.25
   controlsPlayer: 0
+  _health: 100
+--- !u!114 &114081063130523216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775504240588780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c6e864770c10849b82b4983aedada6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIElements:
+    XRayUI: {fileID: 0}
+    HealthUI: {fileID: 0}
 --- !u!114 &114159492117876654
 MonoBehaviour:
   m_ObjectHideFlags: 1
