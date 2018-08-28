@@ -5,12 +5,17 @@ using UnityEngine;
 public class TutorialLevelManager : LevelManager {
 
 	// Use this for initialization
-	void Start () {
-		TutorialManager.Instance.ShowTutorial("Initializing");
+	new void Start ()
+	{
+	    base.Start();
+
+	    TutorialManager.Instance.ShowTutorial("Initializing");
 	}
 	
 	// Update is called once per frame
-	void Update () {
+    new void Update () {
+        base.Update();
+
 	    if (Input.GetButtonDown("Submit"))
 	    {
             TutorialManager.Instance.BroadcastTutorialAction("ok");

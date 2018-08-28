@@ -253,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
   m_LocalRotation: {x: -0, y: -0.032040842, z: -0, w: -0.99948657}
-  m_LocalPosition: {x: -7.57, y: 219.43, z: 3.3}
+  m_LocalPosition: {x: -11.585689, y: -2.7670898, z: -25.481487}
   m_LocalScale: {x: 2.2045183, y: 2.193, z: 2.2045183}
   m_Children:
   - {fileID: 4241457729593926}
@@ -269,7 +269,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146507236149084}
   m_LocalRotation: {x: -0.0000000018626451, y: -1.2697905e-12, z: 5.8193807e-11, w: 1}
-  m_LocalPosition: {x: -0.00000011175871, y: -0.0000017857832, z: -0.0000000929821}
+  m_LocalPosition: {x: 0.00000010430813, y: -0.000001791099, z: 0.000000028770302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843909884389072}
@@ -1106,8 +1106,8 @@ MonoBehaviour:
   m_FootstepSounds:
   - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
-  m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
-  m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  m_JumpSound: {fileID: 0}
+  m_LandSound: {fileID: 0}
 --- !u!114 &114563712030883428
 MonoBehaviour:
   m_ObjectHideFlags: 1
