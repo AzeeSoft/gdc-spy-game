@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LockableDoors : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class LockableDoors : MonoBehaviour
 
     private InteractiveObject _interactiveObject;
 
+    private NavMeshObstacle _navMeshObstacle;
+
     // Use this for initialization
     void Awake()
     {
         _interactiveObject = GetComponent<InteractiveObject>();
         _animator = GetComponent<Animator>();
+        _navMeshObstacle = GetComponent<NavMeshObstacle>();
     }
 
     void Start()
@@ -25,6 +29,7 @@ public class LockableDoors : MonoBehaviour
         _animator.SetBool("open", false);
 
         _interactiveObject.enabled = _isLocked;
+        _navMeshObstacle.enabled = _isLocked;
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,18 +51,21 @@ public class LockableDoors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _animator.SetBool("open", !_isLocked && _objectsInProximity > 0);
+        bool isOpen = !_isLocked && _objectsInProximity > 0;
+        _animator.SetBool("open", isOpen);
     }
 
     public void Lock()
     {
         _isLocked = true;
         _interactiveObject.enabled = true;
+        _navMeshObstacle.enabled = true;
     }
 
     public void Unlock()
     {
         _isLocked = false;
         _interactiveObject.enabled = false;
+        _navMeshObstacle.enabled = false;
     }
 }

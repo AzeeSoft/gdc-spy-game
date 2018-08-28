@@ -792,7 +792,11 @@ MonoBehaviour:
   CamAnimator: {fileID: 95578685929777526}
   ExitDuration: 0.25
   controlsPlayer: 0
+  StunRefillRate: 0.25
+  StunDepleteRate: 2
   _health: 100
+  _stunBar: 100
+  _depletingStunBar: 0
   PlayerHUD: {fileID: 1878472844350352}
 --- !u!114 &114081063130523216
 MonoBehaviour:
@@ -808,6 +812,7 @@ MonoBehaviour:
   UIElements:
     XRayUI: {fileID: 114765861193677142}
     HealthUI: {fileID: 0}
+    StunBarUI: {fileID: 114428282642421576}
 --- !u!114 &114150518004378926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1187,6 +1192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionRadius: 0.5
   HighlightRadius: 3
+  SpecialActionControllerTag: 1
   _maxDistance: 100
   _interactionDescriptionText: {fileID: 114437509176235936}
 --- !u!114 &114765861193677142
@@ -1546,6 +1552,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.0003345632, y: -100.00013}
+  m_AnchoredPosition: {x: -0.00036621094, y: -100.00013}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}

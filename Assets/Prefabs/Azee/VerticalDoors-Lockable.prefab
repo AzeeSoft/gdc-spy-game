@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 95521384106315924}
   - component: {fileID: 114526780270899760}
   - component: {fileID: 114195297419721754}
+  - component: {fileID: 208016336627920162}
   m_Layer: 0
   m_Name: VerticalDoors
   m_TagString: Untagged
@@ -205,3 +206,18 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!208 &208016336627920162
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133553812824864}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 22.02, y: 201.085, z: 153.8}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

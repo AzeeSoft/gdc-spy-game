@@ -12,6 +12,7 @@ public class PlayerHUDController : MonoBehaviour {
     {
         [CanBeNull] public Image XRayUI;
         [CanBeNull] public Image HealthUI;
+        [CanBeNull] public Image StunBarUI;
     }
 
     public UIElementsModel UIElements;

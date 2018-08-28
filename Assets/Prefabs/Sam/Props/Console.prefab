@@ -27,7 +27,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 9
   m_IsActive: 1
 --- !u!1 &1457349635784296
 GameObject:
@@ -47,7 +47,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1460603316625436
 GameObject:
@@ -66,7 +66,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4269658606578924
 Transform:
@@ -87,8 +87,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457349635784296}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.75, y: 218, z: 25.5}
+  m_LocalRotation: {x: -0, y: -0.9999501, z: -0, w: -0.009989262}
+  m_LocalPosition: {x: -2.25, y: 218, z: 73.5}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 224422723495030410}
@@ -249,8 +249,10 @@ MonoBehaviour:
   - enabled: 1
     showGizmo: 1
     gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+    showPrefix: 1
     description: Hack Console
     maxRange: 30
+    requiresSpecialActionController: 0
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls:
@@ -265,17 +267,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - enabled: 0
     showGizmo: 1
     gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+    showPrefix: 1
     description: 
     maxRange: 30
+    requiresSpecialActionController: 0
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
 --- !u!114 &114478564171943634
 MonoBehaviour:
@@ -402,10 +406,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b5722c77df30a41bc469706a8a6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MazeLevelKey: tutorial_hallway
+  MazeLevelKey: tutorial_maze_2
   OnHacked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: BroadcastTutorialAction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: console2Hacked
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnFailed:

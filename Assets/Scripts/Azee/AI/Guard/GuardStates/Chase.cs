@@ -77,7 +77,11 @@ namespace GuardStates
 
             if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > LostDistance)
             {
-                owner.MoveTowards(stateData.LastKnownPosition);
+                if (!owner.MoveTowards(stateData.LastKnownPosition))
+                {
+                    StateMachine<Guard> stateMachine = owner.GetStateMachine();
+                    stateMachine.SwitchState(stateMachine.GetPreviousState() ?? GuardStates.Idle.Instance);
+                }
             }
             else
             {

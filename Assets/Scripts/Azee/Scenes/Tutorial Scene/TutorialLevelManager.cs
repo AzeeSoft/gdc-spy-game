@@ -1,13 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialLevelManager : LevelManager {
 
+    [Serializable]
+    public struct HallwayObjectsInfo
+    {
+        public GameObject GuardGameObject;
+    }
+
+    public HallwayObjectsInfo HallwayObjects;
+
 	// Use this for initialization
 	new void Start ()
 	{
 	    base.Start();
+        DeactivateHallwayObjects();
 
 	    TutorialManager.Instance.ShowTutorial("Initializing");
 	}
@@ -29,5 +39,15 @@ public class TutorialLevelManager : LevelManager {
             MazeSceneController.MazeSceneData mazeSceneData = (MazeSceneController.MazeSceneData) data;
             mazeSceneData.Terminal.OnHackAttemptResultReceived(mazeSceneData);
         }
+    }
+
+    public void DeactivateHallwayObjects()
+    {
+        HallwayObjects.GuardGameObject.SetActive(false);
+    }
+
+    public void ActivateHallwayObjects()
+    {
+        HallwayObjects.GuardGameObject.SetActive(true);
     }
 }
