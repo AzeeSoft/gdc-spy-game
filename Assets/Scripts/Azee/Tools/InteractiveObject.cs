@@ -13,6 +13,7 @@ public class InteractiveObject : MonoBehaviour
         public bool enabled = true;
         public bool showGizmo = true;
         public Color gizmoColor = Color.blue;
+        public bool showPrefix = true;
         public string description = "";
         public float maxRange = 30f;
         public UnityEvent onInteractionEvent;
