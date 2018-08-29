@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLocked: 1
+  LockedXRayColor: {r: 0.6132076, g: 0.078097194, b: 0.078097194, a: 1}
+  UnlockedXRayColor: {r: 0.058339275, g: 0.5377358, b: 0.058339275, a: 1}
 --- !u!114 &114526780270899760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,10 +192,11 @@ MonoBehaviour:
     showPrefix: 0
     description: Door Locked
     maxRange: 30
+    requiresSpecialActionController: 0
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - enabled: 0
     showGizmo: 1
@@ -201,10 +204,11 @@ MonoBehaviour:
     showPrefix: 1
     description: 
     maxRange: 30
+    requiresSpecialActionController: 0
     onInteractionEvent:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
 --- !u!208 &208016336627920162
 NavMeshObstacle:
