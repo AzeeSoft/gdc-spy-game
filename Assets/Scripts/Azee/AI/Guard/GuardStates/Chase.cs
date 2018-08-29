@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Azee.Interfaces;
+using Azee;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,10 +16,11 @@ namespace GuardStates
             public Transform TargetTransform;
             public Vector3 LastKnownPosition;
             public float PrevAgentSpeed;
+            public float targetInSightDuration;
         }
 
 
-        const float LostDistance = 3f;
+        private const float LostDistance = 3f;
 
         private static Chase _instance;
 
@@ -41,6 +43,7 @@ namespace GuardStates
             stateData.TargetTransform = transform;
             stateData.LastKnownPosition = transform.position;
             stateData.PrevAgentSpeed = navMeshAgent.speed;
+            stateData.targetInSightDuration = 0f;
 
             navMeshAgent.speed = owner.ChaseSpeed;
 
@@ -72,6 +75,34 @@ namespace GuardStates
                         targetAudible = true;
                         stateData.LastKnownPosition = targetLocation.Value;
                     }
+                }
+            }
+
+            if (targetOnSight)
+            {
+                stateData.targetInSightDuration += Time.deltaTime;
+            }
+            else
+            {
+                stateData.targetInSightDuration -= Time.deltaTime;
+                if (stateData.targetInSightDuration < 0)
+                {
+                    stateData.targetInSightDuration = 0;
+                }
+            }
+
+            Player player = stateData.TargetTransform.GetComponent<Player>();
+            if (player != null)
+            {
+                if (stateData.targetInSightDuration >= owner.MaxTargetInSightDuration)
+                {
+                    player.OnSeenByGuard(owner);
+                }
+                else
+                {
+                    float alertness = StaticTools.Remap(stateData.targetInSightDuration, 0f,
+                        owner.MaxTargetInSightDuration, 0f, 1f);
+                    player.OnBeingInGuardSight(owner, alertness);
                 }
             }
 
@@ -109,6 +140,12 @@ namespace GuardStates
         public void Exit(Guard owner)
         {
             StateData stateData = owner.ChaseStateData;
+
+            Player player = stateData.TargetTransform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.OnBeingInGuardSight(owner, 0);
+            }
 
             owner.GetNavMeshAgent().speed = stateData.PrevAgentSpeed;
 

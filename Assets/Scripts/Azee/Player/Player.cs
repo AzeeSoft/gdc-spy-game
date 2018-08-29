@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Azee;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -21,6 +22,15 @@ public class Player : PlayerControllable
     [SerializeField] [ReadOnly]
     private bool _depletingStunBar = false;
 
+    public float DefaultGlitchIntensity = 0.4f;
+    public float MaxGlitchness = 2f;
+
+    [SerializeField]
+    private float _glitchness = 0f;
+
+    private float _currentAlertness = 0f;
+    private Guard _guardWithHighestAlertness = null;
+
     public GameObject PlayerHUD;
 
     private FirstPersonController _firstPersonController;
@@ -33,6 +43,7 @@ public class Player : PlayerControllable
     private PostProcessingBehaviour _postProcessingBehaviour;
     private AudioListener _audioListener;
 
+    private GlitchEffect _glitchEffect;
 
     void Awake()
     {
@@ -44,10 +55,12 @@ public class Player : PlayerControllable
         _postProcessingBehaviour = GetComponentInChildren<PostProcessingBehaviour>();
         _audioListener = GetComponentInChildren<AudioListener>();
         _playerHudController = GetComponent<PlayerHUDController>();
+        _glitchEffect = GetComponentInChildren<GlitchEffect>();
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
 	}
 	
@@ -55,6 +68,8 @@ public class Player : PlayerControllable
 	void Update () {
         UpdateStunBar();
 	    UpdateUI();
+
+        UpdateGlitchness();
     }
 
     void UpdateUI()
@@ -64,6 +79,13 @@ public class Player : PlayerControllable
 
         if (_playerHudController.UIElements.StunBarUI != null)
             _playerHudController.UIElements.StunBarUI.fillAmount = _stunBar / 100.0f;
+    }
+
+    void UpdateGlitchness()
+    {
+        _glitchEffect.intensity = _glitchness + DefaultGlitchIntensity;
+        _glitchEffect.colorIntensity = _glitchness;
+        _glitchEffect.flipIntensity = _glitchness + ((Time.timeScale > 0) ? DefaultGlitchIntensity : 0f);
     }
 
     protected override void OnControlBegin()
@@ -134,5 +156,38 @@ public class Player : PlayerControllable
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Called when the player is in guard's sight
+    /// </summary>
+    /// <param name="guard"></param>
+    /// <param name="alertness">A value between 0 and 1</param>
+    public void OnBeingInGuardSight(Guard guard, float alertness)
+    {
+        if (alertness > _currentAlertness || guard == _guardWithHighestAlertness)
+        {
+            _currentAlertness = alertness;
+            _guardWithHighestAlertness = guard;
+
+            _glitchness = StaticTools.Remap(alertness, 0f, 1f, 0f, MaxGlitchness);
+
+            if (alertness > 0.6f)
+            {
+                _firstPersonController.SlowDown(1 - alertness);
+            }
+            else
+            {
+                _firstPersonController.ResetSpeeds();
+            }
+        }
+    }
+
+    public void OnSeenByGuard(Guard guard)
+    {
+        _currentAlertness = 1f;
+        _guardWithHighestAlertness = guard;
+
+        _glitchness = MaxGlitchness;
     }
 }
