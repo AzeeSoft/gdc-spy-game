@@ -16,6 +16,8 @@ public class Guard : MonoBehaviour
     public float PatrolSpeed = 5f;
     public float ChaseSpeed = 7.5f;
 
+    public float MaxTargetInSightDuration = 3f;
+
     [SerializeField] private ColorChanger _colorChanger;
 
     public readonly Patrol.StateData PatrolStateData;

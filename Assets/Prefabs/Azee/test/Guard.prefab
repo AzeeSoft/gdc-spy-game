@@ -491,6 +491,7 @@ MonoBehaviour:
   MaxSightAngle: 60
   PatrolSpeed: 5
   ChaseSpeed: 7.5
+  MaxTargetInSightDuration: 10
   _colorChanger: {fileID: 114557138702144498}
 --- !u!114 &114905524317413432
 MonoBehaviour:
