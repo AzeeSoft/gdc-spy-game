@@ -73,4 +73,9 @@ public class TutorialLevelManager : LevelManager {
             });
         }
     }
+
+    public void ReturnToMainMenu()
+    {
+        // TODO: Load Main Menu
+    }
 }
