@@ -13,8 +13,6 @@ public class MazeSceneController : MonoBehaviour {
         public bool Result = false;
     }
 
-    public bool Success = false;
-    
     public List<MazeLevel> MazeLevels = new List<MazeLevel>();
 
     [SerializeField]
@@ -30,11 +28,7 @@ public class MazeSceneController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.Backspace))
-	    {
-	        _mazeSceneData.Result = Success;
-	        FindObjectOfType<SceneSwitcher>().ShowLastSavedScene(_mazeSceneData);
-	    }
+	   
     }
 
     public void FindMazeLevelsInChildren()
@@ -64,4 +58,11 @@ public class MazeSceneController : MonoBehaviour {
             }
         }
     }
+
+    public void MazeSceneResult(bool Success)
+    {
+        _mazeSceneData.Result = Success;
+        FindObjectOfType<SceneSwitcher>().ShowLastSavedScene(_mazeSceneData);
+    }
+
 }
