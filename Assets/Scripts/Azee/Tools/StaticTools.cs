@@ -17,5 +17,19 @@ namespace Azee
         {
             return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
         }
+
+        public static void UpdateCursorLock(bool lockCursor)
+        {
+            if (lockCursor)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 }
