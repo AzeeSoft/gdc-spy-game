@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TutorialLevelManager : LevelManager {
@@ -12,6 +13,8 @@ public class TutorialLevelManager : LevelManager {
     }
 
     public HallwayObjectsInfo HallwayObjects;
+
+    public GameOverScreenController gameOverScreenController;
 
 	// Use this for initialization
 	new void Start ()
@@ -49,5 +52,25 @@ public class TutorialLevelManager : LevelManager {
     public void ActivateHallwayObjects()
     {
         HallwayObjects.GuardGameObject.SetActive(true);
+    }
+
+    public override void OnPlayerCaughtByGuard(Player player, Guard guard)
+    {
+        ShowGameOverScreen();
+    }
+
+    private void ShowGameOverScreen()
+    {
+        Debug.Log("Showing Game Over Screen");
+        if (gameOverScreenController)
+        {
+            gameOverScreenController.Show(() =>
+            {
+                Time.timeScale = 0;
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            });
+        }
     }
 }

@@ -45,6 +45,13 @@ public class Player : PlayerControllable
 
     private GlitchEffect _glitchEffect;
 
+    private bool _isInfected = false;
+
+    public bool IsInfected
+    {
+        get { return _isInfected; }
+    }
+
     void Awake()
     {
         _firstPersonController = GetComponent<FirstPersonController>();
@@ -189,5 +196,11 @@ public class Player : PlayerControllable
         _guardWithHighestAlertness = guard;
 
         _glitchness = MaxGlitchness;
+
+        _isInfected = true;
+
+        _firstPersonController.enabled = false;
+
+        LevelManager.Instance.OnPlayerCaughtByGuard(this, guard);
     }
 }
