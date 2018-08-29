@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionRadius: 0.5
-  HighlightRadius: 20
+  HighlightRadius: 8
   SpecialActionControllerTag: 0
   _maxDistance: 100
   _interactionDescriptionText: {fileID: 114402286016165062}

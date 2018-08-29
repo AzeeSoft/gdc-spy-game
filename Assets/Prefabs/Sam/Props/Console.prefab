@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 65477638732206136}
   - component: {fileID: 114273680274678764}
   - component: {fileID: 114582615408333282}
+  - component: {fileID: 114355859571711968}
   m_Layer: 0
   m_Name: Console
   m_TagString: Untagged
@@ -281,6 +282,21 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114355859571711968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457349635784296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 2
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114478564171943634
 MonoBehaviour:
   m_ObjectHideFlags: 1
