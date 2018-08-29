@@ -8,6 +8,12 @@ using UnityEngine.Events;
 public class InteractiveObject : MonoBehaviour
 {
     [Serializable]
+    public class InteractionEvent : UnityEvent<ActionController>
+    {
+
+    }
+
+    [Serializable]
     public class Interaction
     {
         public bool enabled = true;
@@ -16,7 +22,10 @@ public class InteractiveObject : MonoBehaviour
         public bool showPrefix = true;
         public string description = "";
         public float maxRange = 30f;
-        public UnityEvent onInteractionEvent;
+
+        public ActionController.SpecialActionController requiresSpecialActionController =
+            ActionController.SpecialActionController.None; 
+        public InteractionEvent onInteractionEvent;
     }
 
     private const int MaxInteractions = 2;

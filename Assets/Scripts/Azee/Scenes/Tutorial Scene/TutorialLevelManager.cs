@@ -1,13 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TutorialLevelManager : LevelManager {
+
+    [Serializable]
+    public struct HallwayObjectsInfo
+    {
+        public GameObject GuardGameObject;
+    }
+
+    public HallwayObjectsInfo HallwayObjects;
+
+    public GameOverScreenController gameOverScreenController;
 
 	// Use this for initialization
 	new void Start ()
 	{
 	    base.Start();
+        DeactivateHallwayObjects();
 
 	    TutorialManager.Instance.ShowTutorial("Initializing");
 	}
@@ -28,6 +41,36 @@ public class TutorialLevelManager : LevelManager {
         {
             MazeSceneController.MazeSceneData mazeSceneData = (MazeSceneController.MazeSceneData) data;
             mazeSceneData.Terminal.OnHackAttemptResultReceived(mazeSceneData);
+        }
+    }
+
+    public void DeactivateHallwayObjects()
+    {
+        HallwayObjects.GuardGameObject.SetActive(false);
+    }
+
+    public void ActivateHallwayObjects()
+    {
+        HallwayObjects.GuardGameObject.SetActive(true);
+    }
+
+    public override void OnPlayerInfected(Player player)
+    {
+        ShowGameOverScreen();
+    }
+
+    private void ShowGameOverScreen()
+    {
+        Debug.Log("Showing Game Over Screen");
+        if (gameOverScreenController)
+        {
+            gameOverScreenController.Show(() =>
+            {
+                Time.timeScale = 0;
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            });
         }
     }
 }

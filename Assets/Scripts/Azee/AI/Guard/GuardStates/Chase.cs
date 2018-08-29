@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Azee.Interfaces;
+using Azee;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,7 +19,7 @@ namespace GuardStates
         }
 
 
-        const float LostDistance = 3f;
+        private const float LostDistance = 3f;
 
         private static Chase _instance;
 
@@ -75,9 +76,29 @@ namespace GuardStates
                 }
             }
 
+            if (targetOnSight)
+            {
+                Player player = stateData.TargetTransform.GetComponent<Player>();
+                if (player != null && !player.IsInfected)
+                {
+                    float distance = Vector3.Distance(owner.transform.position, stateData.TargetTransform.position);
+
+                    if (distance <= owner.MaxInfectionRadius)
+                    {
+                        float infectionValue =
+                            StaticTools.Remap(distance, 0, owner.MaxInfectionRadius, owner.MaxInfection, 0);
+                        player.Infect(infectionValue);
+                    }
+                }
+            }
+
             if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > LostDistance)
             {
-                owner.MoveTowards(stateData.LastKnownPosition);
+                if (!owner.MoveTowards(stateData.LastKnownPosition))
+                {
+                    StateMachine<Guard> stateMachine = owner.GetStateMachine();
+                    stateMachine.SwitchState(stateMachine.GetPreviousState() ?? GuardStates.Idle.Instance);
+                }
             }
             else
             {

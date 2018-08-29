@@ -35,7 +35,9 @@ public class LevelManager : MonoBehaviour
     protected void Awake()
     {
         Instance = this;
-        
+
+        Time.timeScale = 1;
+
         LoadGameData();
         _gameManager.GetProfileList();  // Just to force the profile list to be loaded in the inspector.
 
@@ -90,6 +92,11 @@ public class LevelManager : MonoBehaviour
     {
         PlayerControllable playerControllable = _playerGameObject.GetComponent<PlayerControllable>();
         switchPlayerControl(playerControllable);
+    }
+
+    public virtual void OnPlayerInfected(Player player)
+    {
+
     }
 
     [Button]
