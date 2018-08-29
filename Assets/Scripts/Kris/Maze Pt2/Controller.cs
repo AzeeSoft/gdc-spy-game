@@ -26,6 +26,8 @@ public class Controller : MonoBehaviour {
 
     public Animator screenFlash;
 
+    public MazeSceneController onFailure; 
+
 
 
     void Awake()
@@ -93,15 +95,6 @@ public class Controller : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-
-        int buildIndex = SceneManager.GetSceneByName("testK").buildIndex;
-        SceneManager.LoadScene(buildIndex);
-
-        SceneManager.UnloadSceneAsync("Maze2");
-    }
 
     public void TakeDamage(int amount)
     {
@@ -110,8 +103,9 @@ public class Controller : MonoBehaviour {
         if(health <= 0)
         {
             health = 0;
-            Debug.Log("Death Message");
+            onFailure.MazeSceneResult(false);
         }
+
     }
 
 
