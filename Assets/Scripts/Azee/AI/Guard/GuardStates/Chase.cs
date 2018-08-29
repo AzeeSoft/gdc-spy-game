@@ -92,7 +92,7 @@ namespace GuardStates
             }
 
             Player player = stateData.TargetTransform.GetComponent<Player>();
-            if (player != null)
+            if (player != null && !player.IsInfected)
             {
                 if (stateData.targetInSightDuration >= owner.MaxTargetInSightDuration)
                 {

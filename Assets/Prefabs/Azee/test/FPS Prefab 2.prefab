@@ -828,7 +828,7 @@ MonoBehaviour:
   _stunBar: 100
   _depletingStunBar: 0
   DefaultGlitchIntensity: 0.15
-  MaxGlitchness: 1
+  MaxGlitchness: 1.25
   _glitchness: 0
   PlayerHUD: {fileID: 1878472844350352}
 --- !u!114 &114081063130523216
@@ -1192,8 +1192,8 @@ MonoBehaviour:
     BobAmount: 0.1
   m_StepInterval: 5
   m_FootstepSounds:
-  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
-  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 0}
 --- !u!114 &114537302252368864

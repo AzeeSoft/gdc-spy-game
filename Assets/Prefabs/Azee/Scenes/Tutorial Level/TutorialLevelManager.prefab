@@ -33,8 +33,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751973274580638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7561665, y: 219.80267, z: 3.8125}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.771854, y: -2.3944092, z: -24.968987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,5 +60,6 @@ MonoBehaviour:
     _previewGameData: 1
     _gameDataPreview:
       _gameDataPreviewItems: []
-  WinScreen: {fileID: 0}
-  LoseScreen: {fileID: 0}
+  HallwayObjects:
+    GuardGameObject: {fileID: 0}
+  gameOverScreenController: {fileID: 0}
