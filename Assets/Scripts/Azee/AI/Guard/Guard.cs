@@ -16,7 +16,8 @@ public class Guard : MonoBehaviour
     public float PatrolSpeed = 5f;
     public float ChaseSpeed = 7.5f;
 
-    public float MaxTargetInSightDuration = 3f;
+    public float MaxInfection = 5f;
+    public float MaxInfectionRadius = 3f;
 
     [SerializeField] private ColorChanger _colorChanger;
 
@@ -48,6 +49,8 @@ public class Guard : MonoBehaviour
     void OnDrawGizmos()
     {
         DebugExtension.DrawCone(transform.position, transform.forward * 10, Color.blue, MaxSightAngle);
+
+        DebugExtension.DebugWireSphere(transform.position, Color.red, MaxInfectionRadius);
     }
 
     void Awake()

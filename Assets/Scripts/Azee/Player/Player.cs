@@ -7,29 +7,31 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : PlayerControllable
 {
-    [SerializeField]
-    private float StunRefillRate = 0.5f;
+    private const float MaxHealth = 100f;
 
-    [SerializeField]
-    private float StunDepleteRate = 2f;
+    [SerializeField] private float StunRefillRate = 0.5f;
 
-    [SerializeField]
-    private float _health = 100f;
+    [SerializeField] private float StunDepleteRate = 2f;
 
-    [SerializeField]
-    private float _stunBar = 100f;
+    [SerializeField] private float _health = 100f;
 
-    [SerializeField] [ReadOnly]
-    private bool _depletingStunBar = false;
+    [SerializeField] private float _healthRegenerationRate = 1f;
+
+    [SerializeField] private float _healthRegenerationWaitTime = 3f;
+
+    [SerializeField] private float _stunBar = 100f;
+
+    [SerializeField] [ReadOnly] private bool _depletingStunBar = false;
 
     public float DefaultGlitchIntensity = 0.4f;
     public float MaxGlitchness = 2f;
 
-    [SerializeField]
-    private float _glitchness = 0f;
+    [SerializeField] private float _glitchness = 0f;
 
     private float _currentAlertness = 0f;
     private Guard _guardWithHighestAlertness = null;
+
+    private float _lastInfectedTime = float.MinValue;
 
     public GameObject PlayerHUD;
 
@@ -45,11 +47,9 @@ public class Player : PlayerControllable
 
     private GlitchEffect _glitchEffect;
 
-    private bool _isInfected = false;
-
     public bool IsInfected
     {
-        get { return _isInfected; }
+        get { return _health <= 0; }
     }
 
     void Awake()
@@ -65,18 +65,19 @@ public class Player : PlayerControllable
         _glitchEffect = GetComponentInChildren<GlitchEffect>();
     }
 
-	// Use this for initialization
-	void Start ()
-	{
+    // Use this for initialization
+    void Start()
+    {
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        UpdateStunBar();
-	    UpdateUI();
-
+    // Update is called once per frame
+    void Update()
+    {
+        UpdateHealth();
         UpdateGlitchness();
+
+        UpdateStunBar();
+        UpdateUI();
     }
 
     void UpdateUI()
@@ -90,6 +91,8 @@ public class Player : PlayerControllable
 
     void UpdateGlitchness()
     {
+        _glitchness = StaticTools.Remap(_health, 0, MaxHealth, MaxGlitchness, 0);
+
         _glitchEffect.intensity = _glitchness + DefaultGlitchIntensity;
         _glitchEffect.colorIntensity = _glitchness;
         _glitchEffect.flipIntensity = _glitchness + ((Time.timeScale > 0) ? DefaultGlitchIntensity : 0f);
@@ -165,23 +168,39 @@ public class Player : PlayerControllable
         }
     }
 
-    /// <summary>
-    /// Called when the player is in guard's sight
-    /// </summary>
-    /// <param name="guard"></param>
-    /// <param name="alertness">A value between 0 and 1</param>
-    public void OnBeingInGuardSight(Guard guard, float alertness)
+    public void Infect(float infectionValue)
     {
-        if (alertness > _currentAlertness || guard == _guardWithHighestAlertness)
+        if (!IsInfected)
         {
-            _currentAlertness = alertness;
-            _guardWithHighestAlertness = guard;
+            _health -= infectionValue;
+            _lastInfectedTime = Time.time;
 
-            _glitchness = StaticTools.Remap(alertness, 0f, 1f, 0f, MaxGlitchness);
-
-            if (alertness > 0.6f)
+            if (_health <= 0)
             {
-                _firstPersonController.SlowDown(1 - alertness);
+                _health = 0;
+                OnInfected();
+            }
+        }
+    }
+
+    public void UpdateHealth()
+    {
+        if (!IsInfected)
+        {
+            if (_health < MaxHealth && (Time.time - _lastInfectedTime >= _healthRegenerationWaitTime))
+            {
+                _health += _healthRegenerationRate;
+
+                if (_health > MaxHealth)
+                {
+                    _health = MaxHealth;
+                }
+            }
+
+            if (_health <= (MaxHealth / 2.5f))
+            {
+                float slowDownFactor = StaticTools.Remap(_health, 0, MaxHealth, 0, 1);
+                _firstPersonController.SlowDown(slowDownFactor);
             }
             else
             {
@@ -190,17 +209,9 @@ public class Player : PlayerControllable
         }
     }
 
-    public void OnSeenByGuard(Guard guard)
+    public void OnInfected()
     {
-        _currentAlertness = 1f;
-        _guardWithHighestAlertness = guard;
-
-        _glitchness = MaxGlitchness;
-
-        _isInfected = true;
-
         _firstPersonController.enabled = false;
-
-        LevelManager.Instance.OnPlayerCaughtByGuard(this, guard);
+        LevelManager.Instance.OnPlayerInfected(this);
     }
 }

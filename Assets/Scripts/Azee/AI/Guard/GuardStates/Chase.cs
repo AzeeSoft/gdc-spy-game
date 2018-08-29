@@ -16,7 +16,6 @@ namespace GuardStates
             public Transform TargetTransform;
             public Vector3 LastKnownPosition;
             public float PrevAgentSpeed;
-            public float targetInSightDuration;
         }
 
 
@@ -43,7 +42,6 @@ namespace GuardStates
             stateData.TargetTransform = transform;
             stateData.LastKnownPosition = transform.position;
             stateData.PrevAgentSpeed = navMeshAgent.speed;
-            stateData.targetInSightDuration = 0f;
 
             navMeshAgent.speed = owner.ChaseSpeed;
 
@@ -80,29 +78,17 @@ namespace GuardStates
 
             if (targetOnSight)
             {
-                stateData.targetInSightDuration += Time.deltaTime;
-            }
-            else
-            {
-                stateData.targetInSightDuration -= Time.deltaTime;
-                if (stateData.targetInSightDuration < 0)
+                Player player = stateData.TargetTransform.GetComponent<Player>();
+                if (player != null && !player.IsInfected)
                 {
-                    stateData.targetInSightDuration = 0;
-                }
-            }
+                    float distance = Vector3.Distance(owner.transform.position, stateData.TargetTransform.position);
 
-            Player player = stateData.TargetTransform.GetComponent<Player>();
-            if (player != null && !player.IsInfected)
-            {
-                if (stateData.targetInSightDuration >= owner.MaxTargetInSightDuration)
-                {
-                    player.OnSeenByGuard(owner);
-                }
-                else
-                {
-                    float alertness = StaticTools.Remap(stateData.targetInSightDuration, 0f,
-                        owner.MaxTargetInSightDuration, 0f, 1f);
-                    player.OnBeingInGuardSight(owner, alertness);
+                    if (distance <= owner.MaxInfectionRadius)
+                    {
+                        float infectionValue =
+                            StaticTools.Remap(distance, 0, owner.MaxInfectionRadius, owner.MaxInfection, 0);
+                        player.Infect(infectionValue);
+                    }
                 }
             }
 
@@ -140,12 +126,6 @@ namespace GuardStates
         public void Exit(Guard owner)
         {
             StateData stateData = owner.ChaseStateData;
-
-            Player player = stateData.TargetTransform.GetComponent<Player>();
-            if (player != null)
-            {
-                player.OnBeingInGuardSight(owner, 0);
-            }
 
             owner.GetNavMeshAgent().speed = stateData.PrevAgentSpeed;
 

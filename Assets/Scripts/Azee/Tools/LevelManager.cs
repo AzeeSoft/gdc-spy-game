@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
         switchPlayerControl(playerControllable);
     }
 
-    public virtual void OnPlayerCaughtByGuard(Player player, Guard guard)
+    public virtual void OnPlayerInfected(Player player)
     {
 
     }
