@@ -6,20 +6,41 @@ public class DoorScript : MonoBehaviour {
 
     private Animator _animator;
 
-    private int _objectsInProximity = 0;
+    private int checkIfDoor;
 
-	// Use this for initialization
-	void Start ()
+
+// Use this for initialization
+    void Start ()
+     {
+         _animator = GetComponent<Animator>();
+         _animator.SetBool("open", false);
+	 }
+
+    private void FixedUpdate()
     {
-        _animator = GetComponent<Animator>();
-        _animator.SetBool("open", false);
-	}
+        if (checkIfDoor == 0)
+        {
+            _animator.SetBool("open", false);
+        }
+        else if (checkIfDoor != 0)
+        {
+            _animator.SetBool("open", true);
+        }
+        else
+        {
+            Debug.Log("Door thing broke please check DoorScript.cs");
+        }
+
+        
+
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Guard")
         {
-            _objectsInProximity++;
+            checkIfDoor = checkIfDoor + 1;
         }      
     }
 
@@ -27,13 +48,13 @@ public class DoorScript : MonoBehaviour {
     {
         if (other.tag == "Player" || other.tag == "Guard")
         {
-            _objectsInProximity--;
+            checkIfDoor = checkIfDoor - 1;
         }
     }
-
     // Update is called once per frame
-    void Update ()
-    {
-        _animator.SetBool("open", _objectsInProximity > 0);
-    }
+    void Update () {
+		
+	}
 }
+
+    
