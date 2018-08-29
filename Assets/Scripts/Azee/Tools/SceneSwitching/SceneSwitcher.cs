@@ -1,13 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Scene = UnityEngine.SceneManagement.Scene;
 
 public class SceneSwitcher : MonoBehaviour
 {
+    [Serializable]
+    public class SceneSwitcherEvent : UnityEvent<object>
+    {
+
+    }
+
     public static Stack<SceneSwitcher> SavedSceneSwitchers = new Stack<SceneSwitcher>();
     public static Dictionary<string, bool> SavedSceneHash = new Dictionary<string, bool>();
+
+    public SceneSwitcherEvent OnSceneData;
+    public SceneSwitcherEvent OnSceneResult;
 
     void Awake()
     {
@@ -41,11 +52,11 @@ public class SceneSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        /*if (Input.GetKeyDown(KeyCode.Tab))
         {
 //            Debug.Log("Switching to SwitchSceneTest");
             SwitchScene("SwitchSceneTest", true);
-        }
+        }*/
     }
 
     public void CallOnScenePausedHandlers()
@@ -71,11 +82,12 @@ public class SceneSwitcher : MonoBehaviour
         SavedSceneSwitchers.Push(this);
     }
 
-    private void LoadFromStack()
+    private void LoadFromStack(object data)
     {
         SceneSwitcher lastSceneSwitcher = SavedSceneSwitchers.Pop();
         lastSceneSwitcher.SetSceneObjectsState(true);
-        CallOnSceneResumedHandlers();
+        lastSceneSwitcher.CallOnSceneResumedHandlers();
+        lastSceneSwitcher.OnSceneResult.Invoke(data);
     }
 
     private void SetSceneObjectsState(bool enable)
@@ -89,7 +101,7 @@ public class SceneSwitcher : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SwitchScene(string sceneName, bool saveScene)
+    public void SwitchScene(string sceneName, bool saveScene, object data)
     {
         if (saveScene)
         {
@@ -98,22 +110,36 @@ public class SceneSwitcher : MonoBehaviour
             asyncOperation.completed += operation =>
             {
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+                PassDataToCurrentSceneSwitcher(data);
             };
         }
         else
         {
             SceneManager.LoadScene(sceneName);
+            PassDataToCurrentSceneSwitcher(data);
         }
     }
 
-    public void ShowLastSavedScene()
+    private void PassDataToCurrentSceneSwitcher(object data)
+    {
+        foreach (GameObject gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            SceneSwitcher sceneSwitcher = gameObject.GetComponent<SceneSwitcher>();
+            if (sceneSwitcher != null)
+            {
+                sceneSwitcher.OnSceneData.Invoke(data);
+            }
+        }
+    }
+
+    public void ShowLastSavedScene(object data)
     {
         if (SavedSceneSwitchers.Count > 0)
         {
             DestroySceneObjects();
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
-            LoadFromStack();
+            LoadFromStack(data);
         }
         else
         {

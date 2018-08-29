@@ -53,30 +53,36 @@ public class TutorialPage : MonoBehaviour
                 if (_animator && _animator.enabled)
                 {
                     _animator.SetTrigger("showTutorial");
+                    return;
                 }
             }
 
-            OnBeginEvent.Invoke();
+            _onBegin();
+        }
+    }
 
-            if (EnableTimer)
-            {
-                if (_endAfterTimeCoroutine != null)
-                {
-                    StopCoroutine(_endAfterTimeCoroutine);
-                }
-                _endAfterTimeCoroutine = EndTutorialAfterTimer();
-                StartCoroutine(_endAfterTimeCoroutine);
-            }
+    private void _onBegin()
+    {
+        OnBeginEvent.Invoke();
 
-            if (EnableAction)
+        if (EnableTimer)
+        {
+            if (_endAfterTimeCoroutine != null)
             {
-                TutorialManager.Instance.AddAwaitingActionForTutorial(this, AwaitingAction);
+                StopCoroutine(_endAfterTimeCoroutine);
             }
+            _endAfterTimeCoroutine = EndTutorialAfterTimer();
+            StartCoroutine(_endAfterTimeCoroutine);
+        }
 
-            if (PauseTime)
-            {
-                Time.timeScale = 0;
-            }
+        if (EnableAction)
+        {
+            TutorialManager.Instance.AddAwaitingActionForTutorial(this, AwaitingAction);
+        }
+
+        if (PauseTime)
+        {
+            Time.timeScale = 0;
         }
     }
 
@@ -91,6 +97,8 @@ public class TutorialPage : MonoBehaviour
                 Time.timeScale = 1;
             }
 
+            OnEndEvent.Invoke();
+
             if (ToggleActive)
             {
                 if (_animator && _animator.enabled)
@@ -102,7 +110,7 @@ public class TutorialPage : MonoBehaviour
                 gameObject.SetActive(false);
             }
 
-            OnEndEvent.Invoke();
+//            OnEndEvent.Invoke();
         }
     }
 
@@ -128,10 +136,18 @@ public class TutorialPage : MonoBehaviour
     /*
      * The hide animation clip must fire this event once the tutorial is hidden.
      */
+    public void OnTutorialShown()
+    {
+        _onBegin();
+    }
+
+    /*
+     * The hide animation clip must fire this event once the tutorial is hidden.
+     */
     public void OnTutorialHidden()
     {
         gameObject.SetActive(false);
-        OnEndEvent.Invoke();
+//        OnEndEvent.Invoke();
     }
 
     private IEnumerator EndTutorialAfterTimer()

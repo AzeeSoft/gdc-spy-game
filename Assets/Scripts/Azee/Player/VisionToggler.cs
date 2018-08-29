@@ -26,22 +26,31 @@ public class VisionToggler : MonoBehaviour
 
     private Camera fpsCamera;
     private XRayVision xRayVision;
+    private PlayerHUDController playerHudController;
 
     // Use this for initialization
     void Start()
     {
         fpsCamera = GetComponentInChildren<Camera>();
         xRayVision = fpsCamera.GetComponent<XRayVision>();
+        playerHudController = GetComponent<PlayerHUDController>();
     }
 
     void Update()
     {
         UpdateBattery();
+        UpdateUI();
     }
 
     void LateUpdate()
     {
         CheckVisionToggle();
+    }
+
+    void UpdateUI()
+    {
+        if (playerHudController.UIElements.XRayUI != null)
+            playerHudController.UIElements.XRayUI.fillAmount = _currentBattery / 100f;
     }
 
     void UpdateBattery()
@@ -101,7 +110,7 @@ public class VisionToggler : MonoBehaviour
 
     void CheckVisionToggle()
     {
-        if (Input.GetButtonDown("Toggle Vision") && xRayVision && _currentBattery >= _minRequiredBattery)
+        if (Time.timeScale > 0 && Input.GetButtonDown("Toggle Vision") && xRayVision && _currentBattery >= _minRequiredBattery)
         {
             ToggleVision();
         }

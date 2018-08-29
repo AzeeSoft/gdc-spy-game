@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SwitchBackScene : MonoBehaviour {
+public class SwitchBackScene : MonoBehaviour
+{
+    public bool success = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +18,7 @@ public class SwitchBackScene : MonoBehaviour {
 	    if (Input.GetKeyDown(KeyCode.Backspace))
 	    {
 //	        Debug.Log("Switching to LightingTest");
-	        FindObjectOfType<SceneSwitcher>().ShowLastSavedScene();
+	        FindObjectOfType<SceneSwitcher>().ShowLastSavedScene("MazeHackAttempt: " + (success?1:0));
 	    }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,8 +7,18 @@ using Outline = cakeslice.Outline;
 
 public class ActionController : MonoBehaviour
 {
+    [Serializable]
+    public enum SpecialActionController
+    {
+        None,
+        Player,
+        Camera
+    }
+
     public float InteractionRadius = 0.5f;
     public float HighlightRadius = 10f;
+
+    public SpecialActionController SpecialActionControllerTag = SpecialActionController.None;
 
     private const int MaxInteractions = 2;
 
@@ -19,8 +30,8 @@ public class ActionController : MonoBehaviour
 
     private readonly string[] InteractionDescriptionPrefixes = new string[MaxInteractions]
     {
-        "Primary: ",
-        "Secondary: "
+        "Left Mouse: ",
+        "Right Mouse: "
     };
 
     [SerializeField] private float _maxDistance = 100f;
@@ -47,8 +58,15 @@ public class ActionController : MonoBehaviour
     void LateUpdate()
     {
         CheckHighlights();
-        DetectInteractionInputs();
-        CheckInteraction();
+        if (Time.timeScale > 0)
+        {
+            DetectInteractionInputs();
+            CheckInteraction();
+        }
+        else
+        {
+            UpdateInteractionDescriptionText("");
+        }
     }
 
     private void DetectInteractionInputs()
@@ -73,7 +91,7 @@ public class ActionController : MonoBehaviour
         string actionDescription = "";
 
         int layerMask = -5; //All layers
-        
+
         RaycastHit raycastHit;
 
         bool hitDetected = Physics.SphereCast(_camera.transform.position, InteractionRadius,
@@ -87,7 +105,7 @@ public class ActionController : MonoBehaviour
             if (raycastHit.distance > 0)
             {
                 InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
-                if (interactiveObject != null)
+                if (interactiveObject != null && interactiveObject.enabled)
                 {
                     int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
 
@@ -96,14 +114,17 @@ public class ActionController : MonoBehaviour
                         InteractiveObject.Interaction interaction = interactiveObject.interactions[i];
 
                         if (interaction.enabled &&
+                            (interaction.requiresSpecialActionController == SpecialActionController.None ||
+                             interaction.requiresSpecialActionController == SpecialActionControllerTag) &&
                             Vector3.Distance(transform.position, interactiveObject.transform.position) <=
                             interaction.maxRange)
                         {
-                            actionDescription += InteractionDescriptionPrefixes[i] + interaction.description + "\n";
+                            actionDescription += (interaction.showPrefix ? InteractionDescriptionPrefixes[i] : "") +
+                                                 interaction.description + "\n";
 
                             if (_interactionInputs[i])
                             {
-                                interaction.onInteractionEvent.Invoke();
+                                interaction.onInteractionEvent.Invoke(this);
                             }
                         }
                     }
@@ -111,6 +132,11 @@ public class ActionController : MonoBehaviour
             }
         }
 
+        UpdateInteractionDescriptionText(actionDescription);
+    }
+
+    void UpdateInteractionDescriptionText(string actionDescription)
+    {
         if (_interactionDescriptionText)
         {
             _interactionDescriptionText.text = actionDescription;
@@ -124,6 +150,7 @@ public class ActionController : MonoBehaviour
         {
             outline.enabled = false;
         }
+
         _activeOutlines.Clear();
 
 
