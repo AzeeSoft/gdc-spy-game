@@ -54,7 +54,7 @@ public class TutorialLevelManager : LevelManager {
         HallwayObjects.GuardGameObject.SetActive(true);
     }
 
-    public override void OnPlayerCaughtByGuard(Player player, Guard guard)
+    public override void OnPlayerInfected(Player player)
     {
         ShowGameOverScreen();
     }
