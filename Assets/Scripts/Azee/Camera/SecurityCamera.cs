@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Azee;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 using UnityStandardAssets.Cameras;
@@ -54,6 +55,8 @@ public class SecurityCamera : PlayerControllable
         _audioListener.enabled = true;
 
         _audioController.PlayClip(0);
+
+        StaticTools.UpdateCursorLock(true);
     }
 
     protected override void OnControlEnd()
@@ -67,5 +70,7 @@ public class SecurityCamera : PlayerControllable
         _camera.enabled = false;
         _postProcessingBehaviour.enabled = false;
         _audioListener.enabled = false;
+
+        StaticTools.UpdateCursorLock(false);
     }
 }

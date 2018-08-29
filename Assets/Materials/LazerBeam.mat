@@ -78,4 +78,4 @@ Material:
     - _EmissionColor: {r: 2.297397, g: 0.43073574, b: 0.3488194, a: 1}
     - _OutlineCol: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _XRayColor: {r: 0.69484675, g: 0.7830189, b: 0.09233712, a: 1}
+    - _XRayColor: {r: 0.6943735, g: 0.7254902, b: 0.07843137, a: 1}

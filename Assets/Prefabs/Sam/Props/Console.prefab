@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 65477638732206136}
   - component: {fileID: 114273680274678764}
   - component: {fileID: 114582615408333282}
+  - component: {fileID: 114355859571711968}
   m_Layer: 0
   m_Name: Console
   m_TagString: Untagged
@@ -87,9 +88,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457349635784296}
-  m_LocalRotation: {x: -0, y: -0.9999501, z: -0, w: -0.009989262}
-  m_LocalPosition: {x: -2.25, y: 218, z: 73.5}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.75, y: 218, z: 25.5}
+  m_LocalScale: {x: 50.00003, y: 50, z: 50.00003}
   m_Children:
   - {fileID: 224422723495030410}
   - {fileID: 4269658606578924}
@@ -281,6 +282,21 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: InteractiveObject+InteractionEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114355859571711968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457349635784296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 2
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114478564171943634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,24 +422,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b5722c77df30a41bc469706a8a6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MazeLevelKey: tutorial_maze_2
+  MazeLevelKey: tutorial_hallway
   OnHacked:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: Unlock
-        m_Mode: 1
+        m_MethodName: BroadcastTutorialAction
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: hallwayConsoleHacked
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: BroadcastTutorialAction
-        m_Mode: 5
+        m_MethodName: Unlock
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
