@@ -8,11 +8,15 @@ public class LazerTrap : MonoBehaviour
     public float LoopTime = 1f;
     public GameObject LazerBeamsGameObject;
 
+    public float InfectionValue = 40f;
+
     private Animator _animator;
     private LazerBeamCollisionDetector _lazerBeamCollisionDetector;
 
     private bool _wasOpen = true;
     private bool _isOpen = true;
+
+    private bool _canInfect = true;
 
     private float _guardsInsideZone = 0;
 
@@ -51,6 +55,11 @@ public class LazerTrap : MonoBehaviour
         {
             _wasOpen = _isOpen;
             _animator.SetTrigger(_isOpen ? "open" : "close");
+
+            if (_isOpen)
+            {
+                _canInfect = true;
+            }
         }
     }
 
@@ -91,7 +100,12 @@ public class LazerTrap : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("Player hit by Lazer");
-            // TODO: Do whateva
+            Player player = collision.collider.gameObject.GetComponent<Player>();
+            if (player != null && _canInfect)
+            {
+                player.Infect(InfectionValue);
+                _canInfect = false;
+            }
         }
     }
 
