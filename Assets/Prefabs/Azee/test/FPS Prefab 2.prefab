@@ -827,6 +827,9 @@ MonoBehaviour:
   _health: 100
   _stunBar: 100
   _depletingStunBar: 0
+  DefaultGlitchIntensity: 0.15
+  MaxGlitchness: 1
+  _glitchness: 0
   PlayerHUD: {fileID: 1878472844350352}
 --- !u!114 &114081063130523216
 MonoBehaviour:
