@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CameraMetals
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 3a816924f128ad84fbcb4e43dfd7160e, type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF _METALLICGLOSSMAP _NORMALMAP
     _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 1
@@ -75,3 +75,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 13.76636, g: 13.76636, b: 13.76636, a: 1}
+    - _XRayColor: {r: 0.65166014, g: 0.6886792, b: 0.126691, a: 1}
