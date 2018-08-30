@@ -5559,10 +5559,10 @@ MonoBehaviour:
   Name: Initializing
   ToggleActive: 1
   PauseTime: 1
-  EnableTimer: 1
+  EnableTimer: 0
   TimerPeriod: 3
-  EnableAction: 0
-  AwaitingAction: 
+  EnableAction: 1
+  AwaitingAction: initialized
   OnBeginEvent:
     m_PersistentCalls:
       m_Calls: []

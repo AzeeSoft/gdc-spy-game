@@ -12,17 +12,7 @@ public abstract class PlayerControllable : MonoBehaviour
     public bool controlsPlayer = false;
 
     private IEnumerator _endControlAfterCoroutine = null;
-
-    // Use this for initialization
-    void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    
     public bool hasControl()
     {
         return controlsPlayer;

@@ -371,7 +371,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
   m_LocalRotation: {x: -0, y: -0.032040842, z: -0, w: -0.99948657}
-  m_LocalPosition: {x: -11.585689, y: -2.7670898, z: -25.481487}
+  m_LocalPosition: {x: -9.51, y: 219.5, z: -7.2699966}
   m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_Children:
   - {fileID: 4241457729593926}
@@ -389,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146507236149084}
   m_LocalRotation: {x: -0.0000000018626451, y: -1.2697905e-12, z: 5.8193807e-11, w: 1}
-  m_LocalPosition: {x: 0.00000016391277, y: 0.0000022562463, z: 0.00000024937714}
+  m_LocalPosition: {x: 0.00000017136335, y: 0.0000022656811, z: 0.000000033283676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843909884389072}
@@ -758,7 +758,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 00d356487c8eb734d8804ca909726812, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1.6
   Loop: 0
   Mute: 0
@@ -1039,6 +1039,9 @@ MonoBehaviour:
   DefaultGlitchIntensity: 0.15
   MaxGlitchness: 1.25
   _glitchness: 0
+  InitializeOnStart: 1
+  _initialRegenerationRate: 0.3
+  _lastInfectedTime: -3.4028235e+38
   PlayerHUD: {fileID: 1878472844350352}
 --- !u!114 &114081063130523216
 MonoBehaviour:

@@ -43,7 +43,7 @@ public class GlitchEffect:MonoBehaviour {
         material.SetFloat("_ColorIntensity", colorIntensity);
 		material.SetTexture("_DispTex", displacementMap);
         
-        flicker += Time.deltaTime * colorIntensity;
+        flicker += Time.unscaledDeltaTime * colorIntensity;
         if (flicker > flickerTime){
 			material.SetFloat("filterRadius", Random.Range(-3f, 3f) * colorIntensity);
             material.SetVector("direction", Quaternion.AngleAxis(Random.Range(0, 360) * colorIntensity, Vector3.forward) * Vector4.one);
@@ -54,7 +54,7 @@ public class GlitchEffect:MonoBehaviour {
         if (colorIntensity == 0)
             material.SetFloat("filterRadius", 0);
         
-        glitchup += Time.deltaTime * flipIntensity;
+        glitchup += Time.unscaledDeltaTime * flipIntensity;
         if (glitchup > glitchupTime){
 			if(Random.value < 0.1f * flipIntensity)
 				material.SetFloat("flip_up", Random.Range(0, 1f) * flipIntensity);
@@ -69,7 +69,7 @@ public class GlitchEffect:MonoBehaviour {
             material.SetFloat("flip_up", 0);
 
 
-        glitchdown += Time.deltaTime * flipIntensity;
+        glitchdown += Time.unscaledDeltaTime * flipIntensity;
         if (glitchdown > glitchdownTime){
 			if(Random.value < 0.1f * flipIntensity)
 				material.SetFloat("flip_down", 1 - Random.Range(0, 1f) * flipIntensity);

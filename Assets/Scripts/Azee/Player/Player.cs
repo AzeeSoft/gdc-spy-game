@@ -30,9 +30,13 @@ public class Player : PlayerControllable
 
     [SerializeField] private float _glitchness = 0f;
 
+    public bool InitializeOnStart = false;
+    [SerializeField] private float _initialRegenerationRate = 0.1f;
+
     private float _currentAlertness = 0f;
     private Guard _guardWithHighestAlertness = null;
 
+    [SerializeField] [ReadOnly]
     private float _lastInfectedTime = float.MinValue;
 
     public GameObject PlayerHUD;
@@ -50,6 +54,8 @@ public class Player : PlayerControllable
     private GlitchEffect _glitchEffect;
 
     private float _oldSpeedModifier = 1f;
+
+    private bool _isInitializing = false;
 
     public bool IsInfected
     {
@@ -72,6 +78,10 @@ public class Player : PlayerControllable
     // Use this for initialization
     void Start()
     {
+        if (InitializeOnStart)
+        {
+            Initialize();
+        }
     }
 
     // Update is called once per frame
@@ -199,16 +209,29 @@ public class Player : PlayerControllable
         {
             if (_health < MaxHealth && (Time.time - _lastInfectedTime >= _healthRegenerationWaitTime))
             {
-                _health += _healthRegenerationRate;
-
-                if (_health > MaxHealth)
+                if (_isInitializing)
                 {
+                    _health += _initialRegenerationRate;
+                }
+                else
+                {
+                    _health += _healthRegenerationRate;
+                }
+
+                if (_health >= MaxHealth)
+                {
+                    _health = MaxHealth;
+
                     if (InfectionAudioSource.isPlaying)
                     {
                         InfectionAudioSource.Stop();
                     }
 
-                    _health = MaxHealth;
+                    if (_isInitializing)
+                    {
+                        TutorialManager.Instance.BroadcastTutorialAction("initialized");
+                        _isInitializing = false;
+                    }
                 }
             }
 
@@ -234,7 +257,7 @@ public class Player : PlayerControllable
                 }
             }
 
-            InfectionAudioSource.volume = StaticTools.Remap(_health, 0, MaxHealth, 1, 0.3f);
+            InfectionAudioSource.volume = StaticTools.Remap(_health, 0, MaxHealth, 0.6f, 0.3f);
         }
     }
 
@@ -253,5 +276,11 @@ public class Player : PlayerControllable
             InfectionAudioSource.volume -= 0.1f;
             yield return new WaitForSeconds(0.3f);
         }
+    }
+
+    private void Initialize()
+    {
+        _isInitializing = true;
+        _health = 1;
     }
 }
