@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 124124727882880406}
   - component: {fileID: 81126714883545844}
   - component: {fileID: 114439052528251400}
+  - component: {fileID: 114368550239432106}
   m_Layer: 0
   m_Name: MiniMapCamera
   m_TagString: MapCamera
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993989632139626}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 100, z: 202}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -4.7656884, y: 162.30292, z: -15.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,8 +52,8 @@ Camera:
   m_GameObject: {fileID: 1993989632139626}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.3693231, g: 0.50878567, b: 0.72794116, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.18560338, g: 0.1714133, b: 0.33962262, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -63,7 +64,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 148.97989
+  orthographic size: 75
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -86,6 +87,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1993989632139626}
   m_Enabled: 0
+--- !u!114 &114368550239432106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993989632139626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d94071dbfb1234fa7a5261dc2528a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114439052528251400
 MonoBehaviour:
   m_ObjectHideFlags: 1
