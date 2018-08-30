@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Azee;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,11 +32,13 @@ public class SecurityCameraController : MonoBehaviour
     void OnEnable()
     {
         SecurityCameraUI.SetActive(true);
+        StaticTools.UpdateCursorLock(true);
     }
 
     void OnDisable()
     {
         SecurityCameraUI.SetActive(false);
+        StaticTools.UpdateCursorLock(false);
     }
 
     void CheckForReturnToPlayer()
