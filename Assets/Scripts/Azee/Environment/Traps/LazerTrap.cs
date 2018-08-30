@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LazerTrap : MonoBehaviour
 {
+    public bool StayOpen = false;
     public float LoopTime = 1f;
     public GameObject LazerBeamsGameObject;
 
@@ -46,6 +47,11 @@ public class LazerTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StayOpen)
+        {
+            _isOpen = true;
+        }
+
         if (_guardsInsideZone > 0)
         {
             _isOpen = false;
