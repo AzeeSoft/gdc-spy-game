@@ -170,6 +170,11 @@ public class TutorialManager : MonoBehaviour
 
     public void BroadcastTutorialAction(string action)
     {
+        BroadcastTutorialActionWithResult(action);
+    }
+
+    public bool BroadcastTutorialActionWithResult(string action)
+    {
         List<TutorialAwaitingAction> deleteList = new List<TutorialAwaitingAction>();
 
         foreach (TutorialAwaitingAction tutorialAwaitingAction in TutorialsAwaitingAction)
@@ -181,12 +186,16 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
+        bool broadcastReceived = deleteList.Count > 0;
+
         foreach (TutorialAwaitingAction deleteObj in deleteList)
         {
             TutorialsAwaitingAction.Remove(deleteObj);
         }
 
         deleteList.Clear();
+
+        return broadcastReceived;
     }
 
     public void EnableTutorialManager()
