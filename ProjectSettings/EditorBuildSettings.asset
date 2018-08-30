@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Azee/Tutorial Scene Copy.unity
     guid: a7f11a3147d75924f9937517fdd30594
+  - enabled: 1
+    path: Assets/Scenes/Final/TutorialScene-Final.unity
+    guid: 54633577b13e34641aeba4f71d772947
   m_configObjects: {}
