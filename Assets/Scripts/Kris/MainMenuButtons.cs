@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour {
 
-    [Header("Whatever")]
+    [Header("StartGame")]
     public GameObject StartGame;
-   // public GameObject ExitGame;
+    public GameObject ExitGame;
 
 
 
 	// Use this for initialization
 	void Start () {
         StartGame.GetComponent<Collider>();
-      //  ExitGame.GetComponent<Collider>();
+        ExitGame.GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class MainMenuButtons : MonoBehaviour {
         Debug.Log("Mouse down");
         if(true)
         {
-            SceneManager.LoadScene("Tutorial Scene Copy", LoadSceneMode.Single);
+            SceneManager.LoadScene("TutorialScene-F", LoadSceneMode.Single);
         }
     }
 }
