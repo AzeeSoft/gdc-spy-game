@@ -8,7 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Forcefield
   m_Shader: {fileID: 4800000, guid: 320b2cc2239f1ac4f84766f9c8f3d9b6, type: 3}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ALPHAPREMULTIPLY_ON _GLOSSYREFLECTIONS_OFF
+    _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -82,6 +83,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.08699717, g: 0.09173137, b: 0.16037738, a: 1}
+    - _Color: {r: 0.052376296, g: 0.05508142, b: 0.103773594, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _XRayColor: {r: 0, g: 0, b: 0.2924528, a: 1}

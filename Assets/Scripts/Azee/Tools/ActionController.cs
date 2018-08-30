@@ -169,7 +169,7 @@ public class ActionController : MonoBehaviour
             {
 //                Debug.Log("Pointing at: " + raycastHit.transform.gameObject);
                 InteractiveObject interactiveObject = raycastHit.transform.GetComponent<InteractiveObject>();
-                if (interactiveObject != null)
+                if (interactiveObject != null && interactiveObject.enabled)
                 {
                     int interactionCount = Mathf.Min(MaxInteractions, interactiveObject.interactions.Length);
 

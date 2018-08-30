@@ -13,3 +13,9 @@
 - http://soundbible.com/1320-Short-Circuit.html
 - http://soundbible.com/524-R2D2-Again.html
 - http://soundbible.com/1276-Robot-Computing.html
+- https://freesound.org/people/Skylar1146/sounds/395378/
+- https://freesound.org/people/gellski/sounds/288880/
+- https://freesound.org/people/grunz/sounds/109663/
+- https://freesound.org/people/fins/sounds/173958/
+- https://freesound.org/people/IPaddeh/sounds/422852/
+- 

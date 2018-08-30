@@ -4359,18 +4359,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   OnSceneResult:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 102900000, guid: a7f11a3147d75924f9937517fdd30594, type: 3}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: SceneSwitcher+SceneSwitcherEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1686568463
@@ -5346,7 +5335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c8a140500355d40934d734317ac8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: tutorial_maze_2
+  Key: tutorial_second_room
 --- !u!1 &2012030390
 GameObject:
   m_ObjectHideFlags: 0

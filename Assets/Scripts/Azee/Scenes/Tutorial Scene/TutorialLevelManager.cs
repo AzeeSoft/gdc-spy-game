@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Azee;
 using UnityEditor;
 using UnityEngine;
 
@@ -68,9 +69,13 @@ public class TutorialLevelManager : LevelManager {
             {
                 Time.timeScale = 0;
 
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                StaticTools.UpdateCursorLock(false);
             });
         }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        // TODO: Load Main Menu
     }
 }
