@@ -51,7 +51,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_OrigHeight = 1.8f;
         private Vector3 m_OrigCenter = new Vector3(0, -0.5f, 0);
 
-        private float _slowDownFactor = 1f;
+        private float _speedModifier = 1f;
 
         struct OriginalSpeeds
         {
@@ -330,7 +330,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public float getCurrentFootstepVolume()
         {
-            return m_FootstepVolume * _slowDownFactor;
+            return m_FootstepVolume * _speedModifier;
         }
 
         private void UpdateOriginalSpeeds()
@@ -340,12 +340,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             OriginalSpeeds.RunSpeed = m_RunSpeed;
         }
 
-        public void SlowDown(float factor)
+        public void ModifySpeed(float factor)
         {
-            m_CrouchSpeed = OriginalSpeeds.CrouchSpeed * factor;
-            m_WalkSpeed = OriginalSpeeds.WalkSpeed * factor;
-            m_RunSpeed = OriginalSpeeds.RunSpeed * factor;
-            _slowDownFactor = factor;
+            _speedModifier *= factor;
+            m_CrouchSpeed = OriginalSpeeds.CrouchSpeed * _speedModifier;
+            m_WalkSpeed = OriginalSpeeds.WalkSpeed * _speedModifier;
+            m_RunSpeed = OriginalSpeeds.RunSpeed * _speedModifier;
         }
 
         public void ResetSpeeds()
@@ -353,7 +353,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CrouchSpeed = OriginalSpeeds.CrouchSpeed;
             m_WalkSpeed = OriginalSpeeds.WalkSpeed;
             m_RunSpeed = OriginalSpeeds.RunSpeed;
-            _slowDownFactor = 1f;
+            _speedModifier = 1f;
         }
     }
 }

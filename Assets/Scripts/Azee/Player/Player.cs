@@ -49,6 +49,8 @@ public class Player : PlayerControllable
 
     private GlitchEffect _glitchEffect;
 
+    private float _oldSpeedModifier = 1f;
+
     public bool IsInfected
     {
         get { return _health <= 0; }
@@ -212,12 +214,15 @@ public class Player : PlayerControllable
 
             if (_health <= (MaxHealth / 2.5f))
             {
-                float slowDownFactor = StaticTools.Remap(_health, 0, MaxHealth, 0, 1);
-                _firstPersonController.SlowDown(slowDownFactor);
+                float newSpeedModifier = StaticTools.Remap(_health, 0, MaxHealth, 0, 1);
+                _firstPersonController.ModifySpeed(newSpeedModifier/_oldSpeedModifier);
+
+                _oldSpeedModifier = newSpeedModifier;
             }
             else
             {
-                _firstPersonController.ResetSpeeds();
+                _firstPersonController.ModifySpeed(1/_oldSpeedModifier);
+                _oldSpeedModifier = 1;
             }
 
             if (_health < MaxHealth)

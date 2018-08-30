@@ -1332,7 +1332,7 @@ MonoBehaviour:
   canRotate: 1
   m_IsCrouching: 0
   m_IsWalking: 1
-  m_CrouchSpeed: 2
+  m_CrouchSpeed: 3
   m_WalkSpeed: 7
   m_RunSpeed: 50
   m_RunstepLenghten: 0.7
