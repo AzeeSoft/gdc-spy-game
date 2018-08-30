@@ -186,7 +186,7 @@ public class Player : PlayerControllable
     {
         if (!IsInfected)
         {
-            if (_health >= MaxHealth && !InfectionAudioSource.isPlaying)
+            if (_health >= MaxHealth && InfectionAudioSource && !InfectionAudioSource.isPlaying)
             {
                 InfectionAudioSource.time = 0;
                 InfectionAudioSource.Play();
@@ -250,14 +250,17 @@ public class Player : PlayerControllable
 
             if (_health < MaxHealth)
             {
-                if (!InfectionAudioSource.isPlaying)
+                if (InfectionAudioSource && !InfectionAudioSource.isPlaying)
                 {
                     InfectionAudioSource.time = 4.5f;
                     InfectionAudioSource.Play();
                 }
             }
 
-            InfectionAudioSource.volume = StaticTools.Remap(_health, 0, MaxHealth, 0.6f, 0.3f);
+            if (InfectionAudioSource)
+            {
+                InfectionAudioSource.volume = StaticTools.Remap(_health, 0, MaxHealth, 0.6f, 0.3f);
+            }
         }
     }
 
@@ -271,10 +274,13 @@ public class Player : PlayerControllable
 
     IEnumerator FadeOutInfectionAudio()
     {
-        while (InfectionAudioSource.volume > 0)
+        if (InfectionAudioSource)
         {
-            InfectionAudioSource.volume -= 0.1f;
-            yield return new WaitForSeconds(0.3f);
+            while (InfectionAudioSource.volume > 0)
+            {
+                InfectionAudioSource.volume -= 0.1f;
+                yield return new WaitForSeconds(0.3f);
+            }
         }
     }
 

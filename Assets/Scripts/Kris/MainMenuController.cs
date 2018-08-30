@@ -32,6 +32,6 @@ public class MainMenuController : MonoBehaviour {
 
     public void StartTutorialObject()
     {
-        SceneManager.LoadScene("TutorialScene-F", LoadSceneMode.Single);
+        SceneManager.LoadScene("TutorialScene-Final", LoadSceneMode.Single);
     }
 }

@@ -897,7 +897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1608325412081368
 GameObject:
   m_ObjectHideFlags: 1
@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1621308098084004
 GameObject:
   m_ObjectHideFlags: 1
@@ -1049,7 +1049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1718544549952916
 GameObject:
   m_ObjectHideFlags: 1
@@ -6418,7 +6418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e088310a35322304bb4efb874b8f3aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialsAwaitingAction: []
+  TutorialsAwaitingAction:
+  - AwaitingAction: firstHallwayEntered
+    TutorialPage: {fileID: 114116825659328406}
   _tutorialPageEntries:
   - Name: Initializing
     TutorialPage: {fileID: 114096614752338070}
