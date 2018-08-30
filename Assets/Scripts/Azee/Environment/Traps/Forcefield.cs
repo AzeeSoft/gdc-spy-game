@@ -24,7 +24,7 @@ public class Forcefield : MonoBehaviour
         {
             FirstPersonController fpsController = collider.gameObject.GetComponent<FirstPersonController>();
 
-            fpsController.SlowDown(SlowDownFactor);
+            fpsController.ModifySpeed(SlowDownFactor);
         }
     }
 
@@ -34,7 +34,7 @@ public class Forcefield : MonoBehaviour
         {
             FirstPersonController fpsController = collider.gameObject.GetComponent<FirstPersonController>();
 
-            fpsController.ResetSpeeds();
+            fpsController.ModifySpeed(1/SlowDownFactor);
         }
     }
 }

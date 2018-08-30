@@ -20,12 +20,12 @@ public class BroadcastOnTrigger : MonoBehaviour
 		
 	}
 
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerStay(Collider collider)
     {
         if (collider.CompareTag(OtherTag))
         {
-            TutorialManager.Instance.BroadcastTutorialAction(BroadcastAction);
-            if (OnBroadcast != null)
+            bool broadcastReceived = TutorialManager.Instance.BroadcastTutorialActionWithResult(BroadcastAction);
+            if (broadcastReceived && OnBroadcast != null)
             {
                 OnBroadcast.Invoke();
             }

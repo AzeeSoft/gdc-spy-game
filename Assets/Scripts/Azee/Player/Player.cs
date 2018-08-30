@@ -9,6 +9,8 @@ public class Player : PlayerControllable
 {
     private const float MaxHealth = 100f;
 
+    public AudioSource InfectionAudioSource;
+
     [SerializeField] private float StunRefillRate = 0.5f;
 
     [SerializeField] private float StunDepleteRate = 2f;
@@ -46,6 +48,8 @@ public class Player : PlayerControllable
     private AudioListener _audioListener;
 
     private GlitchEffect _glitchEffect;
+
+    private float _oldSpeedModifier = 1f;
 
     public bool IsInfected
     {
@@ -172,6 +176,12 @@ public class Player : PlayerControllable
     {
         if (!IsInfected)
         {
+            if (_health >= MaxHealth && !InfectionAudioSource.isPlaying)
+            {
+                InfectionAudioSource.time = 0;
+                InfectionAudioSource.Play();
+            }
+
             _health -= infectionValue;
             _lastInfectedTime = Time.time;
 
@@ -193,19 +203,38 @@ public class Player : PlayerControllable
 
                 if (_health > MaxHealth)
                 {
+                    if (InfectionAudioSource.isPlaying)
+                    {
+                        InfectionAudioSource.Stop();
+                    }
+
                     _health = MaxHealth;
                 }
             }
 
             if (_health <= (MaxHealth / 2.5f))
             {
-                float slowDownFactor = StaticTools.Remap(_health, 0, MaxHealth, 0, 1);
-                _firstPersonController.SlowDown(slowDownFactor);
+                float newSpeedModifier = StaticTools.Remap(_health, 0, MaxHealth, 0, 1);
+                _firstPersonController.ModifySpeed(newSpeedModifier/_oldSpeedModifier);
+
+                _oldSpeedModifier = newSpeedModifier;
             }
             else
             {
-                _firstPersonController.ResetSpeeds();
+                _firstPersonController.ModifySpeed(1/_oldSpeedModifier);
+                _oldSpeedModifier = 1;
             }
+
+            if (_health < MaxHealth)
+            {
+                if (!InfectionAudioSource.isPlaying)
+                {
+                    InfectionAudioSource.time = 4.5f;
+                    InfectionAudioSource.Play();
+                }
+            }
+
+            InfectionAudioSource.volume = StaticTools.Remap(_health, 0, MaxHealth, 1, 0.3f);
         }
     }
 
@@ -213,5 +242,16 @@ public class Player : PlayerControllable
     {
         _firstPersonController.enabled = false;
         LevelManager.Instance.OnPlayerInfected(this);
+
+        StartCoroutine(FadeOutInfectionAudio());
+    }
+
+    IEnumerator FadeOutInfectionAudio()
+    {
+        while (InfectionAudioSource.volume > 0)
+        {
+            InfectionAudioSource.volume -= 0.1f;
+            yield return new WaitForSeconds(0.3f);
+        }
     }
 }
