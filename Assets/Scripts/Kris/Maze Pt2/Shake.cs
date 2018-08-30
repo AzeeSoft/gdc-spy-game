@@ -28,7 +28,7 @@ public class Shake : MonoBehaviour {
     private void Start()
     {
         _target = GetComponent<Transform>();
-        _initialPos = _target.localPosition;
+        _initialPos = _target.position;
     }
 
     float _pendingShakeDuration = 0f;
@@ -56,17 +56,17 @@ public class Shake : MonoBehaviour {
         _isShaking = true;
 
         var startTime = Time.realtimeSinceStartup;
-        Vector3 originalLocalPos = _target.localPosition;
+        Vector3 originalPos = _target.position;
 
         while(Time.realtimeSinceStartup < startTime + _pendingShakeDuration)
         {
             var randomPoint = new Vector3(UnityEngine.Random.Range(-shakeProp1.x, shakeProp2.x), UnityEngine.Random.Range(-shakeProp1.y, shakeProp2.y), _initialPos.z);
-            _target.localPosition = originalLocalPos + randomPoint;
+            _target.position = originalPos + randomPoint;
             yield return null;
         }
 
         _pendingShakeDuration = 0f;
-        _target.localPosition = _initialPos;
+        _target.position = _initialPos;
         _isShaking = false;
     }
 }
