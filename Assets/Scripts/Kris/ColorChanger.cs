@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
+    public Color DefaultColor = Color.yellow;
+
+    private Renderer[] _renderers;
+
+    void Awake()
+    {
+        _renderers = GetComponentsInChildren<Renderer>();
+    }
 
     // Use this for initialization
     public void Start()
@@ -24,14 +32,16 @@ public class ColorChanger : MonoBehaviour
 
     public void turnDefault()
     {
-        TurnColor(Color.yellow);
+        TurnColor(DefaultColor);
     }
 
     public void TurnColor(Color color)
     {
-        Renderer renderer = GetComponent<Renderer>();
-        Material mat = renderer.material;
-        mat.SetColor("_EmissionColor", color);
+        foreach (Renderer renderer in _renderers)
+        {
+            Material mat = renderer.material;
+            mat.SetColor("_EmissionColor", color);
+        }
 
         SpotlightColor(color);
     }
