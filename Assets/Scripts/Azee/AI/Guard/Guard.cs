@@ -78,6 +78,18 @@ public class Guard : MonoBehaviour
         _stateMachine.Update();
     }
 
+    void OnEnable()
+    {
+        RestoreGuardData();
+    }
+
+    void OnDisable()
+    {
+        SaveGuardData();
+
+        GetColorChanger().TurnColor(Color.black);
+    }
+
     void OnStateSwitched(StateMachine<Guard> stateMachine)
     {
         _interactiveObject.ToggleInteraction(0, !_nonStunnableStates.Contains(_stateMachine.GetCurrentState()));
@@ -173,31 +185,56 @@ public class Guard : MonoBehaviour
     }
 
 
+
+    private class GuardData
+    {
+        public Vector3? NavMeshDestination = null;
+        public Color GuardColor = Color.yellow;
+    }
+    private GuardData _guardData = null;
+
+    void SaveGuardData()
+    {
+        if (_guardData == null)
+        {
+            _guardData = new GuardData();
+
+            if (_navMeshAgent.hasPath)
+            {
+                _guardData.NavMeshDestination = _navMeshAgent.destination;
+            }
+
+            _guardData.GuardColor = GetColorChanger().GetColor();
+        }
+    }
+
+    void RestoreGuardData()
+    {
+        if (_guardData != null)
+        {
+            if (_guardData.NavMeshDestination != null)
+            {
+                _navMeshAgent.SetDestination(_guardData.NavMeshDestination.Value);
+            }
+
+            GetColorChanger().TurnColor(_guardData.GuardColor);
+
+            _guardData = null;
+        }
+    }
+
+
     /**********************************
      * Scene Switch Handler Functions *
      **********************************/
 
-    private class SceneSwitchData
-    {
-        public Vector3? NavMeshDestination = null;
-    }
-    private SceneSwitchData _sceneSwitchData = new SceneSwitchData();
-
     public void OnScenePaused()
     {
-        _sceneSwitchData = new SceneSwitchData();
-
-        if (_navMeshAgent.hasPath)
-        {
-            _sceneSwitchData.NavMeshDestination = _navMeshAgent.destination;
-        }
+        SaveGuardData();
     }
 
     public void OnSceneResumed()
     {
-        if (_sceneSwitchData.NavMeshDestination != null)
-        {
-            _navMeshAgent.SetDestination(_sceneSwitchData.NavMeshDestination.Value);
-        }
+        RestoreGuardData();
     }
 }

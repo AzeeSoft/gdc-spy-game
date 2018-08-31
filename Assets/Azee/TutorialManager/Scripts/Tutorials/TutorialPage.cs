@@ -5,6 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
 public class TutorialPage : MonoBehaviour
 {
     public string Name = "TutorialName";
@@ -26,9 +27,12 @@ public class TutorialPage : MonoBehaviour
 
     private IEnumerator _endAfterTimeCoroutine = null;
 
+    private AudioController _audioController;
+
     void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioController = GetComponent<AudioController>();
     }
 
     // Use this for initialization
@@ -47,14 +51,20 @@ public class TutorialPage : MonoBehaviour
         {
             _isShowing = true;
 
+            if (_audioController)
+            {
+                _audioController.PlayClip(0);
+            }
+
             if (ToggleActive)
             {
                 gameObject.SetActive(true);
-                if (_animator && _animator.enabled)
-                {
-                    _animator.SetTrigger("showTutorial");
-                    return;
-                }
+            }
+
+            if (_animator && _animator.enabled)
+            {
+                _animator.SetTrigger("showTutorial");
+                return;
             }
 
             _onBegin();
@@ -99,14 +109,14 @@ public class TutorialPage : MonoBehaviour
 
             OnEndEvent.Invoke();
 
+            if (_animator && _animator.enabled)
+            {
+                _animator.SetTrigger("hideTutorial");
+                return;
+            }
+
             if (ToggleActive)
             {
-                if (_animator && _animator.enabled)
-                {
-                    _animator.SetTrigger("hideTutorial");
-                    return;
-                }
-
                 gameObject.SetActive(false);
             }
 
@@ -146,8 +156,12 @@ public class TutorialPage : MonoBehaviour
      */
     public void OnTutorialHidden()
     {
-        gameObject.SetActive(false);
-//        OnEndEvent.Invoke();
+        if (ToggleActive)
+        {
+            gameObject.SetActive(false);
+        }
+
+        //        OnEndEvent.Invoke();
     }
 
     private IEnumerator EndTutorialAfterTimer()

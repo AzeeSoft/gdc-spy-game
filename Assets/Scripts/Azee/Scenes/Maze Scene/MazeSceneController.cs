@@ -23,12 +23,19 @@ public class MazeSceneController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.3f;
+            Fading.Instance.BeginFade(Fading.FadeIn);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	   
+	    if (Input.GetButtonDown("Cancel"))
+	    {
+            MazeSceneResult(false);
+	    }
     }
 
     public void FindMazeLevelsInChildren()
@@ -62,7 +69,18 @@ public class MazeSceneController : MonoBehaviour {
     public void MazeSceneResult(bool Success)
     {
         _mazeSceneData.Result = Success;
-        FindObjectOfType<SceneSwitcher>().ShowLastSavedScene(_mazeSceneData);
+
+        Action goBackToLastScene = () => { FindObjectOfType<SceneSwitcher>().ShowLastSavedScene(_mazeSceneData); };
+
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.8f;
+            Fading.Instance.BeginFade(Fading.FadeOut, goBackToLastScene);
+        }
+        else
+        {
+            goBackToLastScene();
+        }
     }
 
 }

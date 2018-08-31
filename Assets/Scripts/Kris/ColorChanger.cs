@@ -19,49 +19,33 @@ public class ColorChanger : MonoBehaviour
 
     public void turnRed()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        Material mat = renderer.material;
-
-        float emission = Mathf.PingPong(Time.time, 1.0f);
-        Color baseColor = Color.red;
-
-        Color finalColor = baseColor; //* Mathf.LinearToGammaSpace(emission);
-
-        mat.SetColor("_EmissionColor", finalColor);
+        TurnColor(Color.red);
     }
 
     public void turnDefault()
     {
+        TurnColor(Color.yellow);
+    }
+
+    public void TurnColor(Color color)
+    {
         Renderer renderer = GetComponent<Renderer>();
         Material mat = renderer.material;
+        mat.SetColor("_EmissionColor", color);
 
-        float emission = Mathf.PingPong(Time.time, 1.0f);
-        Color baseColor = Color.green;
-
-        Color finalColor = baseColor; //* Mathf.LinearToGammaSpace(emission);
-
-        mat.SetColor("_EmissionColor", finalColor);
+        SpotlightColor(color);
     }
 
-    public void spotlightRed()
+    public void SpotlightColor(Color color)
     {
-        Light renderer = GetComponentInChildren<Light>();
-
-        Color baseColor = Color.red;
-
-        Color finalColor = baseColor;
-
-        renderer.color = finalColor; 
+        Light light = GetComponentInChildren<Light>();
+        light.color = color;
     }
 
-    public void spotlightDefault()
+    public Color GetColor()
     {
-        Light renderer = GetComponentInChildren<Light>();
-
-        Color baseColor = Color.yellow;
-
-        Color finalColor = baseColor;
-
-        renderer.color = finalColor;
+        Renderer renderer = GetComponent<Renderer>();
+        Material mat = renderer.material;
+        return mat.GetColor("_EmissionColor");
     }
 }

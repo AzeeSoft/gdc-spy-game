@@ -40,11 +40,6 @@ public class TutorialManager : MonoBehaviour
 
     [ReadOnly] [SerializeField] private bool _isEnabled = true;
 
-    public TutorialManager() : base()
-    {
-        _instance = this;
-    }
-
     void FindTutorialPagesInChildren()
     {
         TutorialPage[] tutorialPagesInChildren = GetComponentsInChildren<TutorialPage>(true);
@@ -71,6 +66,7 @@ public class TutorialManager : MonoBehaviour
 
     void Awake()
     {
+        _instance = this;
         RecoverTutorialPages();
     }
 
@@ -92,6 +88,7 @@ public class TutorialManager : MonoBehaviour
      */
     private void RecoverTutorialPages()
     {
+        Debug.Log("Recovering tutorial pages: " + _tutorialPageEntries.Count);
         _tutorialPages.Clear();
         foreach (TutorialPageWithName tutorialPageWithName in _tutorialPageEntries)
         {
@@ -104,6 +101,8 @@ public class TutorialManager : MonoBehaviour
                 _tutorialPages.Add(tutorialPageWithName.Name, tutorialPageWithName.TutorialPage);
             }
         }
+
+        Debug.Log("Recovered tutorial pages: " + _tutorialPageEntries.Count);
     }
 
     private void DeactivateTutorialPages()
@@ -122,19 +121,25 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTutorial(string name)
     {
-//        _tutorialPages[name].gameObject.SetActive(true);
+        Debug.Log("Showing tutorial: " + name);
+
+        foreach (KeyValuePair<string, TutorialPage> keyValuePair in _tutorialPages)
+        {
+            Debug.Log("TutorialPage Key: " + keyValuePair.Key);
+        }
+
         _tutorialPages[name].Begin();
     }
 
     public void HideTutorial(string name)
     {
-        //        _tutorialPages[name].gameObject.SetActive(false);
+        Debug.Log("Hiding tutorial: " + name);
         _tutorialPages[name].End();
     }
 
     public void CancelTutorial(string name)
     {
-        //        _tutorialPages[name].gameObject.SetActive(false);
+        Debug.Log("Cancelling tutorial: " + name);
         _tutorialPages[name].Cancel();
     }
 
