@@ -15,6 +15,7 @@ namespace GuardStates
             public bool IsMoving;
             public int TargetWaypointIndex;
             public float PrevAgentSpeed;
+            public float PrevAgentStoppingDistance;
         }
 
         const float ArrivalDistance = 3f;
@@ -42,8 +43,10 @@ namespace GuardStates
             stateData.TargetWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(nearestWaypointIndex);
 
             stateData.PrevAgentSpeed = navMeshAgent.speed;
+            stateData.PrevAgentStoppingDistance = navMeshAgent.stoppingDistance;
 
             navMeshAgent.speed = owner.PatrolSpeed;
+            navMeshAgent.stoppingDistance = 0;
 
             /* 
             int nextWaypointIndex = owner.DefaultPatrolCircuit.GetNextWaypointIndex(nearestWaypointIndex);
@@ -119,10 +122,12 @@ namespace GuardStates
             StateData stateData = owner.PatrolStateData;
 
             owner.GetNavMeshAgent().speed = stateData.PrevAgentSpeed;
+            owner.GetNavMeshAgent().stoppingDistance = stateData.PrevAgentStoppingDistance;
 
             stateData.IsMoving = false;
             stateData.TargetWaypointIndex = -1;
             stateData.PrevAgentSpeed = 0;
+            stateData.PrevAgentStoppingDistance = 0;
         }
     }
 }

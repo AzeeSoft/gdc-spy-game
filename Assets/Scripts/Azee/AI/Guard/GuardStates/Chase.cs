@@ -16,10 +16,8 @@ namespace GuardStates
             public Transform TargetTransform;
             public Vector3 LastKnownPosition;
             public float PrevAgentSpeed;
+            public float PrevAgentStoppingDistance;
         }
-
-
-        private const float LostDistance = 3f;
 
         private static Chase _instance;
 
@@ -42,8 +40,10 @@ namespace GuardStates
             stateData.TargetTransform = transform;
             stateData.LastKnownPosition = transform.position;
             stateData.PrevAgentSpeed = navMeshAgent.speed;
+            stateData.PrevAgentStoppingDistance = navMeshAgent.stoppingDistance;
 
             navMeshAgent.speed = owner.ChaseSpeed;
+            navMeshAgent.stoppingDistance = owner.LostDistance;
 
             owner.GetColorChanger().turnRed();
             owner.GetAudioController().PlayClip(1);
@@ -91,13 +91,15 @@ namespace GuardStates
                 }
             }
 
-            if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > LostDistance)
+            if (Vector3.Distance(owner.transform.position, stateData.LastKnownPosition) > owner.LostDistance)
             {
-                if (!owner.MoveTowards(stateData.LastKnownPosition))
+                owner.MoveTowards(stateData.LastKnownPosition);
+
+                /*if (!owner.MoveTowards(stateData.LastKnownPosition))
                 {
                     StateMachine<Guard> stateMachine = owner.GetStateMachine();
                     stateMachine.SwitchState(stateMachine.GetPreviousState() ?? GuardStates.Idle.Instance);
-                }
+                }*/
             }
             else
             {
@@ -127,10 +129,12 @@ namespace GuardStates
             StateData stateData = owner.ChaseStateData;
 
             owner.GetNavMeshAgent().speed = stateData.PrevAgentSpeed;
+            owner.GetNavMeshAgent().stoppingDistance = stateData.PrevAgentStoppingDistance;
 
             stateData.TargetTransform = null;
             stateData.LastKnownPosition = Vector3.zero;
             stateData.PrevAgentSpeed = 0;
+            stateData.PrevAgentStoppingDistance = 0;
 
             owner.GetColorChanger().turnDefault();
         }

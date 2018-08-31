@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 114078804603093104}
   - component: {fileID: 65728343254156186}
   - component: {fileID: 114081063130523216}
+  - component: {fileID: 208412351225248652}
   m_Layer: 0
   m_Name: FPS Prefab 2
   m_TagString: Player
@@ -1031,6 +1032,7 @@ MonoBehaviour:
   InfectionAudioSource: {fileID: 82034113935374238}
   StunRefillRate: 0.25
   StunDepleteRate: 2
+  IsInvincible: 0
   _health: 100
   _healthRegenerationRate: 1
   _healthRegenerationWaitTime: 3
@@ -1155,7 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85685360e56d2542a002b4163e5c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNoiseRadius: 15
+  maxNoiseRadius: 10
   noiseRadiusGameObject: {fileID: 1380297937315406}
 --- !u!114 &114210399056625442
 MonoBehaviour:
@@ -1655,6 +1657,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!208 &208412351225248652
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775504240588780}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.8, y: 1, z: 0.8}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!212 &212511501078652890
 SpriteRenderer:
   m_ObjectHideFlags: 1

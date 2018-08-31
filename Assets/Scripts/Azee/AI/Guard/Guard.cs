@@ -11,10 +11,14 @@ public class Guard : MonoBehaviour
 {
     [Header("PatrolCircuit")] public WaypointCircuitExtended DefaultPatrolCircuit;
 
-    [Header("AISight")] public float MaxSightAngle;
+    [Header("AISight")] public Transform SightOriginTransform;
+
+    public float MaxSightAngle;
 
     public float PatrolSpeed = 5f;
     public float ChaseSpeed = 7.5f;
+
+    public float LostDistance = 8f;
 
     public float MaxInfection = 5f;
     public float MaxInfectionRadius = 3f;
@@ -75,7 +79,10 @@ public class Guard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _stateMachine.Update();
+        if (Time.timeScale > 0)
+        {
+            _stateMachine.Update();
+        }
     }
 
     void OnEnable()
@@ -107,26 +114,28 @@ public class Guard : MonoBehaviour
 
     public bool IsObjectInSight(GameObject otherObject)
     {
-        Vector3 guardToObject = (otherObject.transform.position - transform.position);
+        Vector3 guardToObject = (otherObject.transform.position - SightOriginTransform.position);
         Vector3 objectDir = guardToObject.normalized;
 
-        if (Vector3.Angle(transform.forward, objectDir) < MaxSightAngle)
+        if (Vector3.Angle(SightOriginTransform.forward, objectDir) < MaxSightAngle)
         {
             int layerMask = -5; //All layers
 
             RaycastHit raycastHit;
-            if (Physics.Raycast(transform.position, objectDir, out raycastHit, float.MaxValue, layerMask,
+            if (Physics.Raycast(SightOriginTransform.position, objectDir, out raycastHit, float.MaxValue, layerMask,
                 QueryTriggerInteraction.Ignore))
             {
+                Debug.Log("First object in Guard's sight: " + raycastHit.transform.gameObject);
+
                 if (raycastHit.transform.gameObject == otherObject)
                 {
-                    Debug.DrawLine(transform.position, otherObject.transform.position, Color.red);
+                    Debug.DrawLine(SightOriginTransform.position, otherObject.transform.position, Color.red);
                     return true;
                 }
             }
         }
 
-        Debug.DrawLine(transform.position, otherObject.transform.position, Color.blue);
+        Debug.DrawLine(SightOriginTransform.position, otherObject.transform.position, Color.blue);
         return false;
     }
 

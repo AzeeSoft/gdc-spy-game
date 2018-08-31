@@ -15,6 +15,8 @@ public class Player : PlayerControllable
 
     [SerializeField] private float StunDepleteRate = 2f;
 
+    public bool IsInvincible = false;
+
     [SerializeField] private float _health = 100f;
 
     [SerializeField] private float _healthRegenerationRate = 1f;
@@ -184,7 +186,7 @@ public class Player : PlayerControllable
 
     public void Infect(float infectionValue)
     {
-        if (!IsInfected)
+        if (!IsInfected && !IsInvincible)
         {
             if (_health >= MaxHealth && InfectionAudioSource && !InfectionAudioSource.isPlaying)
             {
@@ -266,10 +268,17 @@ public class Player : PlayerControllable
 
     public void OnInfected()
     {
-        _firstPersonController.enabled = false;
-        LevelManager.Instance.OnPlayerInfected(this);
+        if (IsInvincible)
+        {
+            _health = MaxHealth;
+        }
+        else
+        {
+            _firstPersonController.enabled = false;
+            LevelManager.Instance.OnPlayerInfected(this);
 
-        StartCoroutine(FadeOutInfectionAudio());
+            StartCoroutine(FadeOutInfectionAudio());
+        }
     }
 
     IEnumerator FadeOutInfectionAudio()
