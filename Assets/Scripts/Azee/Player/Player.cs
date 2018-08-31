@@ -222,7 +222,7 @@ public class Player : PlayerControllable
                 {
                     _health = MaxHealth;
 
-                    if (InfectionAudioSource.isPlaying)
+                    if (InfectionAudioSource && InfectionAudioSource.isPlaying)
                     {
                         InfectionAudioSource.Stop();
                     }

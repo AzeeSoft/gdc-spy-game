@@ -51,11 +51,39 @@ public class GameOverScreenController : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Action reload = () =>
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        };
+
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.8f;
+            Fading.Instance.BeginFade(Fading.FadeOut, reload);
+        }
+        else
+        {
+            reload();
+        }
     }
 
     public void Exit()
     {
-        // TODO: Load Main Menu Scene
+        Action goToStartScreen = () =>
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("StartScreen-Final");
+        };
+
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.8f;
+            Fading.Instance.BeginFade(Fading.FadeOut, goToStartScreen);
+        }
+        else
+        {
+            goToStartScreen();
+        }
     }
 }

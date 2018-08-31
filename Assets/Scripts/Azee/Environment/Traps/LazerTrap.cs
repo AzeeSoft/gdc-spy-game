@@ -40,6 +40,7 @@ public class LazerTrap : MonoBehaviour
 
     void OnEnable()
     {
+        _guardsInsideZone = 0;
 //        Debug.Log("Enabling Lazer Trap");
         StartCoroutine(LazerOpenCloseCoroutine);
     }

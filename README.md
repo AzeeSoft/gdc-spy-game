@@ -18,4 +18,6 @@
 - https://freesound.org/people/grunz/sounds/109663/
 - https://freesound.org/people/fins/sounds/173958/
 - https://freesound.org/people/IPaddeh/sounds/422852/
-- 
+- https://freesound.org/people/peepholecircus/sounds/169994/
+- https://freesound.org/people/Timbre/sounds/92011/
+- https://freesound.org/people/harpoyume/sounds/86062/

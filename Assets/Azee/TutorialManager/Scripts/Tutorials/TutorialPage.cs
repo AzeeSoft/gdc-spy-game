@@ -5,6 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
 public class TutorialPage : MonoBehaviour
 {
     public string Name = "TutorialName";

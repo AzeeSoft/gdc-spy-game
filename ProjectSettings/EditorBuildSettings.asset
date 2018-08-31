@@ -6,30 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Azee/LightingTest.unity
-    guid: 9d0bb12b171e99f4c9d004c08e0b3255
-  - enabled: 0
-    path: Assets/Scenes/Kris/testK.unity
-    guid: 8d3914fa96d896a42b90ae29093281e1
-  - enabled: 1
-    path: Assets/Scenes/Kris/Maze2.unity
-    guid: 5da608d69864e8445a4986ceb5b5b86f
-  - enabled: 0
-    path: Assets/Scenes/Sam/Start Screen.unity
-    guid: 9b84189886979eb43b175617ab8a279f
-  - enabled: 0
-    path: Assets/Scenes/Sam/Revised Layout.unity
-    guid: 2835516871fc474499f0f740a7c43fdd
-  - enabled: 1
-    path: Assets/Scenes/Azee/SwitchSceneTest.unity
-    guid: 996d073c23a6ff84bb0672e459d90670
-  - enabled: 1
-    path: Assets/Scenes/Azee/MazeScene Copy.unity
-    guid: cc26d5183c379ee44b93fc3bf5e73d83
-  - enabled: 1
-    path: Assets/Scenes/Azee/Tutorial Scene Copy.unity
-    guid: a7f11a3147d75924f9937517fdd30594
+    path: Assets/Scenes/Final/StartScreen-Final.unity
+    guid: d9e556c85fa2dcd489b782c94a2bbe46
   - enabled: 1
     path: Assets/Scenes/Final/TutorialScene-Final.unity
     guid: 54633577b13e34641aeba4f71d772947
+  - enabled: 1
+    path: Assets/Scenes/Final/MazeScene-Final.unity
+    guid: 87293a85945f6d94384a9f57df559c2c
   m_configObjects: {}

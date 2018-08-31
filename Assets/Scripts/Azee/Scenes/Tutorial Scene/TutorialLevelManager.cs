@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Azee;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialLevelManager : LevelManager {
 
@@ -13,7 +14,14 @@ public class TutorialLevelManager : LevelManager {
         public GameObject GuardGameObject;
     }
 
+    [Serializable]
+    public struct SecondRoomObjectsInfo
+    {
+        public GameObject GuardGameObject;
+    }
+
     public HallwayObjectsInfo HallwayObjects;
+    public SecondRoomObjectsInfo SecondRoomObjects;
 
     public GameOverScreenController gameOverScreenController;
 
@@ -22,6 +30,7 @@ public class TutorialLevelManager : LevelManager {
 	{
 	    base.Start();
         DeactivateHallwayObjects();
+        DeactivateSecondRoomObjects();
 
 	    TutorialManager.Instance.ShowTutorial("Initializing");
 	}
@@ -55,6 +64,16 @@ public class TutorialLevelManager : LevelManager {
         HallwayObjects.GuardGameObject.SetActive(true);
     }
 
+    public void DeactivateSecondRoomObjects()
+    {
+        SecondRoomObjects.GuardGameObject.SetActive(false);
+    }
+
+    public void ActivateSecondRoomObjects()
+    {
+        SecondRoomObjects.GuardGameObject.SetActive(true);
+    }
+
     public override void OnPlayerInfected(Player player)
     {
         ShowGameOverScreen();
@@ -76,6 +95,20 @@ public class TutorialLevelManager : LevelManager {
 
     public void ReturnToMainMenu()
     {
-        // TODO: Load Main Menu
+        Action goToStartScreen = () =>
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("StartScreen-Final");
+        };
+
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.8f;
+            Fading.Instance.BeginFade(Fading.FadeOut, goToStartScreen);
+        }
+        else
+        {
+            goToStartScreen();
+        }
     }
 }

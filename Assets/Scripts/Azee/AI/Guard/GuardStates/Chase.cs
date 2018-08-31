@@ -46,7 +46,6 @@ namespace GuardStates
             navMeshAgent.speed = owner.ChaseSpeed;
 
             owner.GetColorChanger().turnRed();
-            owner.GetColorChanger().spotlightRed();
             owner.GetAudioController().PlayClip(1);
         }
 
@@ -134,7 +133,6 @@ namespace GuardStates
             stateData.PrevAgentSpeed = 0;
 
             owner.GetColorChanger().turnDefault();
-            owner.GetColorChanger().spotlightDefault();
         }
     }
 }

@@ -40,11 +40,6 @@ public class TutorialManager : MonoBehaviour
 
     [ReadOnly] [SerializeField] private bool _isEnabled = true;
 
-    public TutorialManager() : base()
-    {
-        _instance = this;
-    }
-
     void FindTutorialPagesInChildren()
     {
         TutorialPage[] tutorialPagesInChildren = GetComponentsInChildren<TutorialPage>(true);
@@ -71,6 +66,7 @@ public class TutorialManager : MonoBehaviour
 
     void Awake()
     {
+        _instance = this;
         RecoverTutorialPages();
     }
 
@@ -125,12 +121,12 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTutorial(string name)
     {
-        /*Debug.Log("Showing tutorial: " + name);
+        Debug.Log("Showing tutorial: " + name);
 
         foreach (KeyValuePair<string, TutorialPage> keyValuePair in _tutorialPages)
         {
             Debug.Log("TutorialPage Key: " + keyValuePair.Key);
-        }*/
+        }
 
         _tutorialPages[name].Begin();
     }

@@ -48,7 +48,9 @@ public class Terminal : MonoBehaviour
 
         _linkLineRenderer.SetPosition(0, LinkData.StartTransform.position);
         _linkLineRenderer.SetPosition(1,
-            (_interactiveObject.enabled && LinkData.EndTransform) ? LinkData.EndTransform.position : LinkData.StartTransform.position);
+            (_interactiveObject.enabled && LinkData.EndTransform)
+                ? LinkData.EndTransform.position
+                : LinkData.StartTransform.position);
     }
 
     public void AttemptHacking()
@@ -58,11 +60,28 @@ public class Terminal : MonoBehaviour
             MazeLevelKey = MazeLevelKey,
             Terminal = this
         };
-        _sceneSwitcher.SwitchScene("MazeScene Copy", true, mazeSceneData);
+
+        Action loadMazeScene = () => { _sceneSwitcher.SwitchScene("MazeScene-Final", true, mazeSceneData); };
+
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.7f;
+            Fading.Instance.BeginFade(Fading.FadeOut, loadMazeScene);
+        }
+        else
+        {
+            loadMazeScene();
+        }
     }
 
     public void OnHackAttemptResultReceived(MazeSceneController.MazeSceneData mazeSceneData)
     {
+        if (Fading.Instance)
+        {
+            Fading.Instance.FadeSpeed = 0.8f;
+            Fading.Instance.BeginFade(Fading.FadeIn);
+        }
+
         if (mazeSceneData.Result)
         {
             _interactiveObject.enabled = false;
