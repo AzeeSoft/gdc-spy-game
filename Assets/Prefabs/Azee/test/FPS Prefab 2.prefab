@@ -371,9 +371,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775504240588780}
-  m_LocalRotation: {x: -0, y: -0.032040842, z: -0, w: -0.99948657}
-  m_LocalPosition: {x: -8.099999, y: 219.5, z: -8.099999}
-  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
+  m_LocalRotation: {x: -0, y: -0.07919761, z: -0, w: -0.99685895}
+  m_LocalPosition: {x: 127.9, y: 3.97, z: -0.2}
+  m_LocalScale: {x: 2.2, y: 2.0519567, z: 2.2}
   m_Children:
   - {fileID: 4241457729593926}
   - {fileID: 4358407090237042}
@@ -382,15 +382,15 @@ Transform:
   - {fileID: 4503943636713002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 363.672, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 369.085, z: 0}
 --- !u!4 &4105655862223914
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146507236149084}
-  m_LocalRotation: {x: -0.0000000018626451, y: -1.2697905e-12, z: 5.8193807e-11, w: 1}
-  m_LocalPosition: {x: 0.00000016391277, y: 0.0000022562463, z: 0.00000024937714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00000017136335, y: -0.000000001263718, z: 0.000000028943967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4843909884389072}
@@ -662,7 +662,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_IsWalking: 1
   m_CrouchSpeed: 3
   m_WalkSpeed: 7
-  m_RunSpeed: 14
+  m_RunSpeed: 50
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 0
   m_StickToGroundForce: 10
@@ -1444,9 +1444,7 @@ MonoBehaviour:
     BobDuration: 0.2
     BobAmount: 0.1
   m_StepInterval: 5
-  m_FootstepSounds:
-  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
-  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  m_FootstepSounds: []
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 0}
 --- !u!114 &114537302252368864
@@ -1598,7 +1596,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778366368411078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba2c9d2d7d8855e4e949c115f840a20a, type: 3}
   m_Name: 
