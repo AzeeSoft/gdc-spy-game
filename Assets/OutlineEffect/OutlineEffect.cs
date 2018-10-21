@@ -212,7 +212,7 @@ namespace cakeslice
                 {
                     LayerMask l = sourceCamera.cullingMask;
 
-                    if (outline != null && l == (l | (1 << outline.originalLayer)))
+                    if (outline != null && outline.CanBeDrawn() && l == (l | (1 << outline.originalLayer)))
                     {
                         for (int v = 0; v < outline.Renderer.sharedMaterials.Length; v++)
                         {
@@ -249,7 +249,7 @@ namespace cakeslice
                 {
                     LayerMask l = sourceCamera.cullingMask;
 
-                    if(outline != null && l == (l | (1 << outline.originalLayer)))
+                    if(outline != null && outline.CanBeDrawn() && l == (l | (1 << outline.originalLayer)))
                     {
                         for(int v = 0; v < outline.Renderer.sharedMaterials.Length; v++)
                         {
