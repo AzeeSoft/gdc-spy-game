@@ -7,6 +7,8 @@ using UnityStandardAssets.Cameras;
 
 public class SecurityCamera : PlayerControllable
 {
+    public GameObject CameraModel;
+
     private SecurityCameraController _securityCameraController;
     private ActionController _actionController;
     private FreeLookCam _freeLookCam;
@@ -49,6 +51,7 @@ public class SecurityCamera : PlayerControllable
         _freeLookCam.enabled = true;
 
         _interactiveObject.enabled = false;
+        CameraModel.SetActive(false);
 
         _camera.enabled = true;
         _postProcessingBehaviour.enabled = true;
@@ -64,6 +67,7 @@ public class SecurityCamera : PlayerControllable
         _freeLookCam.enabled = false;
 
         _interactiveObject.enabled = true;
+        CameraModel.SetActive(true);
 
         _camera.enabled = false;
         _postProcessingBehaviour.enabled = false;

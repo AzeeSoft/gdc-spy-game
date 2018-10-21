@@ -49,12 +49,18 @@ namespace cakeslice
 
         void OnEnable()
         {
-            BroadcastOutlineToAll(true);
+            if (gameObject.activeInHierarchy)
+            {
+                BroadcastOutlineToAll(true);
+            }
         }
 
         void OnDisable()
         {
-            BroadcastOutlineToAll(false);
+            if (gameObject.activeInHierarchy)
+            {
+                BroadcastOutlineToAll(false);
+            }
         }
 
         private void BroadcastOutlineToAll(bool add)
