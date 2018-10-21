@@ -57,10 +57,7 @@ namespace cakeslice
 
         void OnDisable()
         {
-            if (gameObject.activeInHierarchy)
-            {
-                BroadcastOutlineToAll(false);
-            }
+            BroadcastOutlineToAll(false);
         }
 
         private void BroadcastOutlineToAll(bool add)
@@ -85,6 +82,11 @@ namespace cakeslice
             {
                 effect.RemoveOutline(this);
             }
+        }
+
+        public bool CanBeDrawn()
+        {
+            return (this.enabled && gameObject.activeInHierarchy);
         }
     }
 }
